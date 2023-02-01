@@ -1,8 +1,10 @@
 package com.game.client;
 
 
-//test4
+//test5
 public class GameClient {
+    public static void main(String[] args) {
 
+    }
 
 }
