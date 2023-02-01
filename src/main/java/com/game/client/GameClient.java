@@ -1,7 +1,7 @@
 package com.game.client;
 
 
-//test
+//test2
 public class GameClient {
 
 
