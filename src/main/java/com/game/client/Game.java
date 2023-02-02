@@ -1,5 +1,6 @@
 package com.game.client;
 
+import com.game.menu.RenderStartUI;
 import com.game.menu.StoryTutorial;
 import com.game.utils.Ascii;
 
@@ -26,9 +27,13 @@ public class Game {
         // print game background
         StoryTutorial.printStory();
 
-        //move cursor to bottom of screen
+        // game start menu
         System.out.print("\033[" + 29 + ";1H");
-        System.out.println("Type 'start' to Start Game 'exit' to Exit: ");
-        String pressedKey = userInput.nextLine();
+        new RenderStartUI();
+
+        //move cursor to bottom of screen
+//        System.out.print("\033[" + 29 + ";1H");
+//        System.out.println("Type 'start' to Start Game 'exit' to Exit: ");
+//        String pressedKey = userInput.nextLine();
     }
 }

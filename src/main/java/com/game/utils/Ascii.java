@@ -76,7 +76,7 @@ public class Ascii {
 
     public static void clearTerminal() {
         try {
-            new ProcessBuilder("cmd", "/c", "cls", "clear", "\033[H\033[2J", "\033\143").inheritIO().start().waitFor();
+            new ProcessBuilder("clear", "/c", "cls", "cmd", "\033[H\033[2J", "\033\143").inheritIO().start().waitFor();
         } catch (Exception e) {
             System.out.println("Error clearing terminal: " + e.getMessage());
         }
