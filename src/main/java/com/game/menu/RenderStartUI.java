@@ -17,10 +17,10 @@ public class RenderStartUI {
         boolean isValidInput = false;
 
         while (!isValidInput) {
-            System.out.println("To start a new game please enter 1");
+            System.out.println("To start a new game please enter \"start\"");
             String input = InputHelper.updateConfirmSelection();
 
-            if (input.equals("1")) {
+            if (input.equals("start")) {
                 Player player = processPlayerInformation();
                 Session newSession = new Session(player);
                 MainMenu mainMenu = new MainMenu(newSession, player);
@@ -46,7 +46,7 @@ public class RenderStartUI {
 
             System.out.println("\nYou entered.. " +
                     "\n name: " + playerName +
-                    "\nIs that correct? Yes/No");
+                    "\n\nIs that correct? Yes/No");
             String editConfirmation = InputHelper.updateConfirmSelection();
             if (editConfirmation.equalsIgnoreCase("y") || editConfirmation.equalsIgnoreCase("yes")) {
                 isConfirmed = true;

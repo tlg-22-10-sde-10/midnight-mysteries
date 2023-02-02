@@ -4,6 +4,7 @@ import com.game.client.session.Session;
 import com.game.inventory.Inventory;
 import com.game.inventory.Item;
 import com.game.player.Player;
+import com.game.utils.Ascii;
 
 import java.util.Map;
 
@@ -18,7 +19,7 @@ public class MainMenu extends Menu {
 
     @Override
     public void renderMenu() {
-        System.out.println("Game started..");
+        Ascii.clearTerminal();
         mainMenuHeader();
         System.out.println("Welcome Detective " + player.getPlayerName());
     }

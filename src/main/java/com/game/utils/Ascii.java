@@ -1,5 +1,144 @@
 package com.game.utils;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
 public class Ascii {
 
+    private static final int ROWS = 30;
+    private static final int COLUMNS = 120;
+    private ColoredPrinter printer = new ColoredPrinter();
+
+    public static void printTitle() throws InterruptedException {
+        String centeredBanner = "       ███▄ ▄███▓    ██▓   ▓█████▄     ███▄    █     ██▓     ▄████     ██░ ██    ▄▄▄█████▓        \n" +
+                "      ▓██▒▀█▀ ██▒   ▓██▒   ▒██▀ ██▌    ██ ▀█   █    ▓██▒    ██▒ ▀█▒   ▓██░ ██▒   ▓  ██▒ ▓▒        \n" +
+                "      ▓██    ▓██░   ▒██▒   ░██   █▌   ▓██  ▀█ ██▒   ▒██▒   ▒██░▄▄▄░   ▒██▀▀██░   ▒ ▓██░ ▒░        \n" +
+                "      ▒██    ▒██    ░██░   ░▓█▄   ▌   ▓██▒  ▐▌██▒   ░██░   ░▓█  ██▓   ░▓█ ░██    ░ ▓██▓ ░         \n" +
+                "      ▒██▒   ░██▒   ░██░   ░▒████▓    ▒██░   ▓██░   ░██░   ░▒▓███▀▒   ░▓█▒░██▓     ▒██▒ ░         \n" +
+                "      ░ ▒░   ░  ░   ░▓      ▒▒▓  ▒    ░ ▒░   ▒ ▒    ░▓      ░▒   ▒     ▒ ░░▒░▒     ▒ ░░           \n" +
+                "      ░  ░      ░    ▒ ░    ░ ▒  ▒    ░ ░░   ░ ▒░    ▒ ░     ░   ░     ▒ ░▒░ ░       ░            \n" +
+                "      ░      ░       ▒ ░    ░ ░  ░       ░   ░ ░     ▒ ░   ░ ░   ░     ░  ░░ ░     ░              \n" +
+                "             ░       ░        ░                ░     ░           ░     ░  ░  ░                    \n" +
+                "                            ░                                                                     \n" +
+                " ███▄ ▄███▓   ▓██   ██▓     ██████    ▄▄▄█████▓   ▓█████     ██▀███      ██▓   ▓█████      ██████ \n" +
+                "▓██▒▀█▀ ██▒    ▒██  ██▒   ▒██    ▒    ▓  ██▒ ▓▒   ▓█   ▀    ▓██ ▒ ██▒   ▓██▒   ▓█   ▀    ▒██    ▒ \n" +
+                "▓██    ▓██░     ▒██ ██░   ░ ▓██▄      ▒ ▓██░ ▒░   ▒███      ▓██ ░▄█ ▒   ▒██▒   ▒███      ░ ▓██▄   \n" +
+                "▒██    ▒██      ░ ▐██▓░     ▒   ██▒   ░ ▓██▓ ░    ▒▓█  ▄    ▒██▀▀█▄     ░██░   ▒▓█  ▄      ▒   ██▒\n" +
+                "▒██▒   ░██▒     ░ ██▒▓░   ▒██████▒▒     ▒██▒ ░    ░▒████▒   ░██▓ ▒██▒   ░██░   ░▒████▒   ▒██████▒▒\n" +
+                "░ ▒░   ░  ░      ██▒▒▒    ▒ ▒▓▒ ▒ ░     ▒ ░░      ░░ ▒░ ░   ░ ▒▓ ░▒▓░   ░▓     ░░ ▒░ ░   ▒ ▒▓▒ ▒ ░\n" +
+                "░  ░      ░    ▓██ ░▒░    ░ ░▒  ░ ░       ░        ░ ░  ░     ░▒ ░ ▒░    ▒ ░    ░ ░  ░   ░ ░▒  ░ ░\n" +
+                "░      ░       ▒ ▒ ░░     ░  ░  ░       ░            ░        ░░   ░     ▒ ░      ░      ░  ░  ░  \n" +
+                "       ░       ░ ░              ░                    ░  ░      ░         ░        ░  ░         ░  \n" +
+                "               ░ ░                                                                                 ";
+
+
+
+        centeredBanner = addSpaces(centeredBanner);
+        ColoredPrinter.print("red",centeredBanner);
+        TimeUnit.SECONDS.sleep(5);
+    }
+
+    public static String addSpaces(String text) {
+        String[] lines = text.split("\n");
+        StringBuilder sb = new StringBuilder();
+
+        int leftPadding = 0;
+        int topPadding = (ROWS - lines.length)/2;
+
+        for (String word : lines) {
+            if (word.length() > leftPadding) {
+                leftPadding = word.length();
+            }
+        }
+
+
+        leftPadding = (COLUMNS-leftPadding)/2;
+
+//        System.out.println("LeftPadding: " + leftPadding);
+//        System.out.println("topPadding: " + topPadding);
+
+        // top spacing
+        for (int i = 0; i < topPadding; i++) {
+            sb.append("\n");
+        }
+
+        // left spacing
+        for (String line : lines) {
+            for (int i = 0; i < leftPadding; i++) {
+                sb.append(" ");
+            }
+            sb.append(line).append("\n");
+        }
+
+        return sb.toString();
+    }
+
+    public static void clearTerminal() {
+        try {
+            new ProcessBuilder("clear", "/c", "cls", "cmd", "\033[H\033[2J", "\033\143").inheritIO().start().waitFor();
+        } catch (Exception e) {
+            System.out.println("Error clearing terminal: " + e.getMessage());
+        }
+    }
+
+    public static void setTerminalWidthAndHeight() {
+        try {
+            Process p = new ProcessBuilder("cmd", "/c", "mode con: cols=120 lines=30").inheritIO().start();
+            p.waitFor();
+
+        } catch (Exception e) {
+            System.out.println("Couldn't set terminal size");
+        }
+    }
+
+    public static void printSpaces(int numOfSpaces){
+        for (int i = 0; i < numOfSpaces; i++) {
+            System.out.println((""));
+        }
+    }
+
+    public static void printTextCenterWithDelay(String text) {
+
+        List<String> lines = new ArrayList<>();
+        text.lines().forEach(s -> lines.add(s));
+        int topPadding = 0;
+
+        topPadding = (15 - lines.size());
+
+        printSpaces(topPadding);
+
+        for (int i = 0; i < lines.size(); i++) {
+            String temp = lines.get(i);
+            int lineSize = lines.get(i).length();
+            int numSpaces = (COLUMNS - lineSize)/2;
+            String spaces = "";
+            for (int j = 0; j < numSpaces; j++) {
+                spaces += " ";
+            }
+
+            temp = spaces+temp;
+
+            for(int k = 0; k < temp.length(); k++) {
+                char tempChar = temp.charAt(k);
+                ColoredPrinter.print("red",tempChar);
+                if (tempChar != ' '){
+                    try {
+                        Thread.sleep(25L);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+            System.out.println("\n");
+
+        }
+    }
+
+    public static void setTerminalTitle() {
+        System.out.print("\033]0;" + "Midnight Mysteries" + "\007");
+    }
+
 }
+
+
