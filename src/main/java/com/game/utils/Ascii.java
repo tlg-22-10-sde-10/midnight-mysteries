@@ -1,25 +1,17 @@
 package com.game.utils;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class Ascii {
 
-    private static int rows;
-    private static int columns;
-    private ColoredPrinter printer;
+    private static final int ROWS = 30;
+    private static final int COLUMNS = 120;
+    private ColoredPrinter printer = new ColoredPrinter();
 
-
-    public Ascii() {
-        rows = 30;
-        columns = 120;
-        setTerminalWidthAndHeight();
-        System.out.println("Ran constructor");
-        printer = new ColoredPrinter();
-    }
-
-    public static void printTitle() {
-        String temp = "       ███▄ ▄███▓    ██▓   ▓█████▄     ███▄    █     ██▓     ▄████     ██░ ██    ▄▄▄█████▓        \n" +
+    public static void printTitle() throws InterruptedException {
+        String centeredBanner = "       ███▄ ▄███▓    ██▓   ▓█████▄     ███▄    █     ██▓     ▄████     ██░ ██    ▄▄▄█████▓        \n" +
                 "      ▓██▒▀█▀ ██▒   ▓██▒   ▒██▀ ██▌    ██ ▀█   █    ▓██▒    ██▒ ▀█▒   ▓██░ ██▒   ▓  ██▒ ▓▒        \n" +
                 "      ▓██    ▓██░   ▒██▒   ░██   █▌   ▓██  ▀█ ██▒   ▒██▒   ▒██░▄▄▄░   ▒██▀▀██░   ▒ ▓██░ ▒░        \n" +
                 "      ▒██    ▒██    ░██░   ░▓█▄   ▌   ▓██▒  ▐▌██▒   ░██░   ░▓█  ██▓   ░▓█ ░██    ░ ▓██▓ ░         \n" +
@@ -42,36 +34,43 @@ public class Ascii {
 
 
 
-        System.out.println(countLines(temp));
-        temp = addSpaces(temp,10,5);
-        ColoredPrinter.print("red",temp);
-
+        centeredBanner = addSpaces(centeredBanner);
+        ColoredPrinter.print("red",centeredBanner);
+        TimeUnit.SECONDS.sleep(5);
     }
 
-    public static List<Integer> countLines(String input) {
-        String[] lines = input.split("\n");
-        int height = lines.length;
-        int width = 0;
-        int topSpace = 30-height/2;
-        for (String line : lines) {
-            width = Math.max(width, line.length());
-        }
-
-        return Arrays.asList(width,height,topSpace);
-    }
-
-    public static String addSpaces(String text, int spaces, int rowsTop) {
+    public static String addSpaces(String text) {
         String[] lines = text.split("\n");
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < rowsTop; i++) {
+
+        int leftPadding = 0;
+        int topPadding = (ROWS - lines.length)/2;
+
+        for (String word : lines) {
+            if (word.length() > leftPadding) {
+                leftPadding = word.length();
+            }
+        }
+
+
+        leftPadding = (COLUMNS-leftPadding)/2;
+
+//        System.out.println("LeftPadding: " + leftPadding);
+//        System.out.println("topPadding: " + topPadding);
+
+        // top spacing
+        for (int i = 0; i < topPadding; i++) {
             sb.append("\n");
         }
+
+        // left spacing
         for (String line : lines) {
-            for (int i = 0; i < spaces; i++) {
+            for (int i = 0; i < leftPadding; i++) {
                 sb.append(" ");
             }
             sb.append(line).append("\n");
         }
+
         return sb.toString();
     }
 
@@ -91,30 +90,53 @@ public class Ascii {
         } catch (Exception e) {
             System.out.println("Couldn't set terminal size");
         }
-
     }
 
-    public static void printTextCenter(String text) {
-
-        // up & down
-        int middleRow = (rows / 2) - 3;
-
-        // left & right
-        int middleColumn = (columns / 2) - 9;
-
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < middleRow; i++) {
-            sb.append("\n");
+    public static void printSpaces(int numOfSpaces){
+        for (int i = 0; i < numOfSpaces; i++) {
+            System.out.println((""));
         }
-        for (int i = 0; i < middleColumn; i++) {
-            sb.append(" ");
-        }
-        sb.append(text);
-        for (int i = 0; i < middleRow + 4; i++) {
-            sb.append("\n");
-        }
-        System.out.println(sb.toString());
+    }
 
+    public static void printTextCenterWithDelay(String text) {
+
+        List<String> lines = new ArrayList<>();
+        text.lines().forEach(s -> lines.add(s));
+        int topPadding = 0;
+
+        topPadding = (15 - lines.size());
+
+        printSpaces(topPadding);
+
+        for (int i = 0; i < lines.size(); i++) {
+            String temp = lines.get(i);
+            int lineSize = lines.get(i).length();
+            int numSpaces = (COLUMNS - lineSize)/2;
+            String spaces = "";
+            for (int j = 0; j < numSpaces; j++) {
+                spaces += " ";
+            }
+
+            temp = spaces+temp;
+
+            for(int k = 0; k < temp.length(); k++) {
+                char tempChar = temp.charAt(k);
+                ColoredPrinter.print("red",tempChar);
+                if (tempChar != ' '){
+                    try {
+                        Thread.sleep(25L);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+            System.out.println("\n");
+
+        }
+    }
+
+    public static void setTerminalTitle() {
+        System.out.print("\033]0;" + "Midnight Mysteries" + "\007");
     }
 
 }

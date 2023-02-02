@@ -19,4 +19,8 @@ public class ColoredPrinter {
         System.out.println(ANSI_CODES.get(color.toUpperCase()) + text + ANSI_RESET);
     }
 
+    public static void print(String color, char text){
+        System.out.print(ANSI_CODES.get(color.toUpperCase()) + text + ANSI_RESET);
+    }
+
 }
