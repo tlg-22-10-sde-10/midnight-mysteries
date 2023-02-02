@@ -1,0 +1,34 @@
+[
+  {
+    "locationName" : "Lobby",
+    "locationDescription" : "The hotel lobby",
+    "locationItems" : [{
+      "itemName" : "key",
+      "itemDescription" : "a key that can unlock doors",
+      "quantity" : 1,
+      "isActive" : "false"
+    }] 
+  },
+  {
+    "locationName" : "Restaurant",
+    "locationDescription" : "Restaurant inside the hotel",
+    "locationItems" : [{
+      "itemName" : "matches",
+      "itemDescription" : "can light up candles",
+      "quantity" : 4,
+      "isActive" : "false"
+    }] 
+  },
+  {
+    "locationName" : "Kitchen",
+    "locationDescription" : "Where all the food gets made behind the Restaurant",
+    "locationItems" : [{
+      "itemName" : "key",
+      "itemDescription" : "a key that can unlock doors",
+      "quantity" : 1,
+      "isActive" : "false"
+    }] 
+  }
+]
+
+
