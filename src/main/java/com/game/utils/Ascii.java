@@ -10,7 +10,9 @@ public class Ascii {
     private static final int COLUMNS = 120;
     private ColoredPrinter printer = new ColoredPrinter();
 
+
     public static void printTitleBanner() throws InterruptedException {
+
         String centeredBanner = "       ███▄ ▄███▓    ██▓   ▓█████▄     ███▄    █     ██▓     ▄████     ██░ ██    ▄▄▄█████▓        \n" +
                 "      ▓██▒▀█▀ ██▒   ▓██▒   ▒██▀ ██▌    ██ ▀█   █    ▓██▒    ██▒ ▀█▒   ▓██░ ██▒   ▓  ██▒ ▓▒        \n" +
                 "      ▓██    ▓██░   ▒██▒   ░██   █▌   ▓██  ▀█ ██▒   ▒██▒   ▒██░▄▄▄░   ▒██▀▀██░   ▒ ▓██░ ▒░        \n" +
@@ -33,9 +35,8 @@ public class Ascii {
                 "               ░ ░                                                                                 ";
 
 
-
         centeredBanner = addSpaces(centeredBanner);
-        ColoredPrinter.print("red",centeredBanner);
+        ColoredPrinter.print("red", centeredBanner);
         TimeUnit.SECONDS.sleep(5);
     }
 
@@ -44,7 +45,7 @@ public class Ascii {
         StringBuilder sb = new StringBuilder();
 
         int leftPadding = 0;
-        int topPadding = (ROWS - lines.length)/2;
+        int topPadding = (ROWS - lines.length) / 2;
 
         for (String word : lines) {
             if (word.length() > leftPadding) {
@@ -53,7 +54,7 @@ public class Ascii {
         }
 
 
-        leftPadding = (COLUMNS-leftPadding)/2;
+        leftPadding = (COLUMNS - leftPadding) / 2;
 
 //        System.out.println("LeftPadding: " + leftPadding);
 //        System.out.println("topPadding: " + topPadding);
@@ -75,10 +76,21 @@ public class Ascii {
     }
 
     public static void clearTerminal() {
-        try {
-            new ProcessBuilder("cmd", "/c", "cls", "clear", "\033[H\033[2J", "\033\143").inheritIO().start().waitFor();
-        } catch (Exception e) {
-            System.out.println("Error clearing terminal: " + e.getMessage());
+
+        String os = System.getProperty("os.name").toLowerCase();
+//        System.out.println(os);
+        if (os.contains("windows")) {
+            try {
+                new ProcessBuilder("cmd", "/c", "cls", "clear", "\033[H\033[2J", "\033\143").inheritIO().start().waitFor();
+            } catch (Exception e) {
+                System.out.println("Error clearing terminal: " + e.getMessage());
+            }
+        } else if (os.contains("mac") || os.contains("os x")) {
+            try {
+                new ProcessBuilder("clear", "/c", "cls", "cmd", "\033[H\033[2J", "\033\143").inheritIO().start().waitFor();
+            } catch (Exception e) {
+                System.out.println("Error clearing terminal: " + e.getMessage());
+            }
         }
     }
 
@@ -92,7 +104,7 @@ public class Ascii {
         }
     }
 
-    public static void printSpaces(int numOfSpaces){
+    public static void printSpaces(int numOfSpaces) {
         for (int i = 0; i < numOfSpaces; i++) {
             System.out.println((""));
         }
@@ -111,18 +123,18 @@ public class Ascii {
         for (int i = 0; i < lines.size(); i++) {
             String temp = lines.get(i);
             int lineSize = lines.get(i).length();
-            int numSpaces = (COLUMNS - lineSize)/2;
+            int numSpaces = (COLUMNS - lineSize) / 2;
             String spaces = "";
             for (int j = 0; j < numSpaces; j++) {
                 spaces += " ";
             }
 
-            temp = spaces+temp;
+            temp = spaces + temp;
 
-            for(int k = 0; k < temp.length(); k++) {
+            for (int k = 0; k < temp.length(); k++) {
                 char tempChar = temp.charAt(k);
-                ColoredPrinter.print("red",tempChar);
-                if (tempChar != ' '){
+                ColoredPrinter.print("red", tempChar);
+                if (tempChar != ' ') {
                     try {
                         Thread.sleep(25L);
                     } catch (InterruptedException e) {
@@ -156,17 +168,17 @@ public class Ascii {
         fadeText(centeredBanner);
     }
 
-    private static void fadeText(String text){
+    private static void fadeText(String text) {
 
         List<String> lines = new ArrayList<>();
         text.lines().forEach(s -> lines.add(s));
 
         for (int i = 0; i < 10; i++) {
             for (String line : lines) {
-                ColoredPrinter.print("red",fadeLine(line, i));
+                ColoredPrinter.print("red", fadeLine(line, i));
             }
             System.out.println();
-            if (i==0){
+            if (i == 0) {
                 try {
                     TimeUnit.SECONDS.sleep(2);
                 } catch (InterruptedException e) {
@@ -181,6 +193,9 @@ public class Ascii {
                 e.printStackTrace();
             }
         }
+
+
+        System.exit(0);
 
     }
 
@@ -198,5 +213,4 @@ public class Ascii {
     }
 
 }
-
 
