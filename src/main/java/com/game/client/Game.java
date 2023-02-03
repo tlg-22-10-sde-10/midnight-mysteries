@@ -37,10 +37,19 @@ public class Game {
         // print game background
         StoryTutorial.printStory();
 
+        readFiles();
+
+        // game start menu
+        System.out.print("\033[" + 29 + ";1H");
+        new RenderStartUI(locations, npcs);
+    }
+
+    private void readFiles() {
         // load external json
         Gson gson = new Gson();
 
-        try (Reader reader = new FileReader("src/main/resources/locations.json")) {
+        try (InputStream inputStream = getClass().getResourceAsStream("/locations.json");
+             BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream))) {
 
             // Convert JSON File to Java Object
             JsonArray array = gson.fromJson(reader, JsonArray.class);
@@ -52,7 +61,8 @@ public class Game {
             e.printStackTrace();
         }
 
-        try (Reader reader = new FileReader("src/main/resources/npcs.json")) {
+        try (InputStream inputStream = getClass().getResourceAsStream("/npcs.json");
+             BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream))) {
 
             // Convert JSON File to Java Object
             JsonArray array = gson.fromJson(reader, JsonArray.class);
@@ -63,14 +73,5 @@ public class Game {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-        // game start menu
-        System.out.print("\033[" + 29 + ";1H");
-        new RenderStartUI(locations, npcs);
-
-        //move cursor to bottom of screen
-//        System.out.print("\033[" + 29 + ";1H");
-//        System.out.println("Type 'start' to Start Game 'exit' to Exit: ");
-//        String pressedKey = userInput.nextLine();
     }
 }

@@ -51,7 +51,7 @@ public class TextParser {
             System.out.println("Invalid option");
             System.out.println("Valid options are: " + COMMANDS.toString());
             System.out.println("And dialogue options 1-4");
-            return "0";
+            return "-1";
         }
 
         return "-1";
