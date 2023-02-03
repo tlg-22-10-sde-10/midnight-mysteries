@@ -10,7 +10,12 @@ public class Ascii {
     private static final int COLUMNS = 120;
     private ColoredPrinter printer = new ColoredPrinter();
 
+<<<<<<< HEAD
     public static void printTitleBanner() throws InterruptedException {
+=======
+
+    public static void printTitle() throws InterruptedException {
+>>>>>>> 940b9856a4447a87e73c579d5189f30e6d7fb8ec
         String centeredBanner = "       ███▄ ▄███▓    ██▓   ▓█████▄     ███▄    █     ██▓     ▄████     ██░ ██    ▄▄▄█████▓        \n" +
                 "      ▓██▒▀█▀ ██▒   ▓██▒   ▒██▀ ██▌    ██ ▀█   █    ▓██▒    ██▒ ▀█▒   ▓██░ ██▒   ▓  ██▒ ▓▒        \n" +
                 "      ▓██    ▓██░   ▒██▒   ░██   █▌   ▓██  ▀█ ██▒   ▒██▒   ▒██░▄▄▄░   ▒██▀▀██░   ▒ ▓██░ ▒░        \n" +
@@ -75,10 +80,27 @@ public class Ascii {
     }
 
     public static void clearTerminal() {
+<<<<<<< HEAD
         try {
             new ProcessBuilder("cmd", "/c", "cls", "clear", "\033[H\033[2J", "\033\143").inheritIO().start().waitFor();
         } catch (Exception e) {
             System.out.println("Error clearing terminal: " + e.getMessage());
+=======
+        String os = System.getProperty("os.name").toLowerCase();
+//        System.out.println(os);
+        if (os.contains("windows")) {
+            try {
+                new ProcessBuilder("cmd", "/c", "cls", "clear", "\033[H\033[2J", "\033\143").inheritIO().start().waitFor();
+            } catch (Exception e) {
+                System.out.println("Error clearing terminal: " + e.getMessage());
+            }
+        } else if (os.contains("mac") || os.contains("os x")) {
+            try {
+                new ProcessBuilder("clear", "/c", "cls", "cmd", "\033[H\033[2J", "\033\143").inheritIO().start().waitFor();
+            } catch (Exception e) {
+                System.out.println("Error clearing terminal: " + e.getMessage());
+            }
+>>>>>>> 940b9856a4447a87e73c579d5189f30e6d7fb8ec
         }
     }
 
