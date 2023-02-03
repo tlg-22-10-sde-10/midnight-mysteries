@@ -10,8 +10,7 @@ public class Ascii {
     private static final int COLUMNS = 120;
     private ColoredPrinter printer = new ColoredPrinter();
 
-
-    public static void printTitle() throws InterruptedException {
+    public static void printTitleBanner() throws InterruptedException {
         String centeredBanner = "       ███▄ ▄███▓    ██▓   ▓█████▄     ███▄    █     ██▓     ▄████     ██░ ██    ▄▄▄█████▓        \n" +
                 "      ▓██▒▀█▀ ██▒   ▓██▒   ▒██▀ ██▌    ██ ▀█   █    ▓██▒    ██▒ ▀█▒   ▓██░ ██▒   ▓  ██▒ ▓▒        \n" +
                 "      ▓██    ▓██░   ▒██▒   ░██   █▌   ▓██  ▀█ ██▒   ▒██▒   ▒██░▄▄▄░   ▒██▀▀██░   ▒ ▓██░ ▒░        \n" +
@@ -76,20 +75,10 @@ public class Ascii {
     }
 
     public static void clearTerminal() {
-        String os = System.getProperty("os.name").toLowerCase();
-//        System.out.println(os);
-        if (os.contains("windows")) {
-            try {
-                new ProcessBuilder("cmd", "/c", "cls", "clear", "\033[H\033[2J", "\033\143").inheritIO().start().waitFor();
-            } catch (Exception e) {
-                System.out.println("Error clearing terminal: " + e.getMessage());
-            }
-        } else if (os.contains("mac") || os.contains("os x")) {
-            try {
-                new ProcessBuilder("clear", "/c", "cls", "cmd", "\033[H\033[2J", "\033\143").inheritIO().start().waitFor();
-            } catch (Exception e) {
-                System.out.println("Error clearing terminal: " + e.getMessage());
-            }
+        try {
+            new ProcessBuilder("cmd", "/c", "cls", "clear", "\033[H\033[2J", "\033\143").inheritIO().start().waitFor();
+        } catch (Exception e) {
+            System.out.println("Error clearing terminal: " + e.getMessage());
         }
     }
 
@@ -148,6 +137,64 @@ public class Ascii {
 
     public static void setTerminalTitle() {
         System.out.print("\033]0;" + "Midnight Mysteries" + "\007");
+    }
+
+    public static void printExitBanner() {
+        clearTerminal();
+        String centeredBanner = "  ██████    ▓█████    ▓█████    ▓██   ██▓    ▒█████      █    ██                   \n" +
+                "▒██    ▒    ▓█   ▀    ▓█   ▀     ▒██  ██▒   ▒██▒  ██▒    ██  ▓██▒                  \n" +
+                "░ ▓██▄      ▒███      ▒███        ▒██ ██░   ▒██░  ██▒   ▓██  ▒██░                  \n" +
+                "  ▒   ██▒   ▒▓█  ▄    ▒▓█  ▄      ░ ▐██▓░   ▒██   ██░   ▓▓█  ░██░                  \n" +
+                "▒██████▒▒   ░▒████▒   ░▒████▒     ░ ██▒▓░   ░ ████▓▒░   ▒▒█████▓     ██▓  ██▓  ██▓ \n" +
+                "▒ ▒▓▒ ▒ ░   ░░ ▒░ ░   ░░ ▒░ ░      ██▒▒▒    ░ ▒░▒░▒░    ░▒▓▒ ▒ ▒     ▒▓▒  ▒▓▒  ▒▓▒ \n" +
+                "░ ░▒  ░ ░    ░ ░  ░    ░ ░  ░    ▓██ ░▒░      ░ ▒ ▒░    ░░▒░ ░ ░     ░▒   ░▒   ░▒  \n" +
+                "░  ░  ░        ░         ░       ▒ ▒ ░░     ░ ░ ░ ▒      ░░░ ░ ░     ░    ░    ░   \n" +
+                "      ░        ░  ░      ░  ░    ░ ░            ░ ░        ░          ░    ░    ░  \n" +
+                "                                 ░ ░                                  ░    ░    ░  ";
+
+        centeredBanner = addSpaces(centeredBanner);
+        fadeText(centeredBanner);
+    }
+
+    private static void fadeText(String text){
+
+        List<String> lines = new ArrayList<>();
+        text.lines().forEach(s -> lines.add(s));
+
+        for (int i = 0; i < 10; i++) {
+            for (String line : lines) {
+                ColoredPrinter.print("red",fadeLine(line, i));
+            }
+            System.out.println();
+            if (i==0){
+                try {
+                    TimeUnit.SECONDS.sleep(2);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
+            }
+            try {
+                TimeUnit.MILLISECONDS.sleep(100);
+                clearTerminal();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+
+    }
+
+    private static String fadeLine(String line, int step) {
+        StringBuilder sb = new StringBuilder();
+        for (char c : line.toCharArray()) {
+            int value = (int) c;
+            value = value - step * 10;
+            if (value < 32) {
+                value = 32;
+            }
+            sb.append((char) value);
+        }
+        return sb.toString();
     }
 
 }
