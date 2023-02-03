@@ -8,11 +8,8 @@ import com.game.npc.Npc;
 import com.game.utils.Ascii;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
-import com.google.gson.JsonParser;
 
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.Reader;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -26,7 +23,7 @@ public class Game {
         main();
     }
 
-    public static void main() throws InterruptedException {
+    public void main() throws InterruptedException {
 
         // set title
         Ascii.setTerminalTitle();
@@ -35,7 +32,7 @@ public class Game {
         Ascii temp = new Ascii();
 
         // print title "Midnight Mysteries"
-        Ascii.printTitle();
+        Ascii.printTitleBanner();
 
         // print game background
         StoryTutorial.printStory();
@@ -46,7 +43,6 @@ public class Game {
         try (Reader reader = new FileReader("src/main/resources/locations.json")) {
 
             // Convert JSON File to Java Object
-            //JsonArray array = JsonParser.parseString(reader).getAsJsonArray();
             JsonArray array = gson.fromJson(reader, JsonArray.class);
             for (int i = 0; i < array.size(); i++) {
                 Location location = gson.fromJson(array.get(i), Location.class);
@@ -59,7 +55,6 @@ public class Game {
         try (Reader reader = new FileReader("src/main/resources/npcs.json")) {
 
             // Convert JSON File to Java Object
-            //JsonArray array = JsonParser.parseString(reader).getAsJsonArray();
             JsonArray array = gson.fromJson(reader, JsonArray.class);
             for (int i = 0; i < array.size(); i++) {
                 Npc npc = gson.fromJson(array.get(i), Npc.class);

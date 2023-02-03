@@ -6,6 +6,7 @@ import com.game.inventory.Item;
 import com.game.player.Player;
 import com.game.utils.Ascii;
 import com.game.utils.InputHelper;
+import com.game.utils.TextParser;
 
 import java.util.Map;
 
@@ -27,7 +28,7 @@ public class MainMenu extends Menu {
 
             mainMenuHeader();
             loadDialogue();
-            setSelection(Integer.parseInt(InputHelper.updateConfirmSelection()));
+            setSelection(Integer.parseInt(TextParser.validateInput()));
         } while (getSelection() != 0);
 
     }

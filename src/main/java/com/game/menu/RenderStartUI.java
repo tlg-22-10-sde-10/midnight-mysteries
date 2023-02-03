@@ -7,6 +7,7 @@ import com.game.location.Location;
 import com.game.npc.Npc;
 import com.game.player.Player;
 import com.game.utils.InputHelper;
+import com.game.utils.TextParser;
 
 import java.util.HashMap;
 import java.util.List;
@@ -16,6 +17,7 @@ public class RenderStartUI {
 
     private List<Location> locations;
     private List<Npc> npcs;
+
     public RenderStartUI(List<Location> locations, List<Npc> npcs) {
         this.locations = locations;
         this.npcs = npcs;
@@ -26,7 +28,9 @@ public class RenderStartUI {
 
         while (!isValidInput) {
             System.out.println("To start a new game please enter \"start\"");
-            String input = InputHelper.updateConfirmSelection();
+
+//            String input = InputHelper.updateConfirmSelection();
+            String input = TextParser.validateInput();
 
             if (input.equals("start")) {
                 Player player = processPlayerInformation();
@@ -50,12 +54,15 @@ public class RenderStartUI {
 
         do {
             System.out.println("Please enter your player's name: ");
-            playerName = InputHelper.updateConfirmSelection();
+//            playerName = InputHelper.updateConfirmSelection();
+            playerName = TextParser.optionalInput();
+
 
             System.out.println("\nYou entered.. " +
                     "\n name: " + playerName +
                     "\n\nIs that correct? Yes/No");
-            String editConfirmation = InputHelper.updateConfirmSelection();
+//            String editConfirmation = InputHelper.updateConfirmSelection();
+            String editConfirmation = TextParser.validateInput();
             if (editConfirmation.equalsIgnoreCase("y") || editConfirmation.equalsIgnoreCase("yes")) {
                 isConfirmed = true;
             }
