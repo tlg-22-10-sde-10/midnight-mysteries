@@ -20,12 +20,13 @@
       <a href="#team-members">Team Members</a>
     </li>
     <li>
-      <a href="#description">Description</a>
+      <a href="#background">Background</a>
     </li>
-    <li><a href="#classes">Classes</a></li>
+    <li><a href="#features">Features</a></li>
+    <li><a href="#requirements">Requirements</a></li>
     <li><a href="#class-diagram">Class Diagram</a></li>
     <li><a href="#user-stories">User Stories</a></li>
-    <li><a href="#user-stories"><a href="https://docs.google.com/presentation/d/15D6eHSgaPes-T5kfZW9MUirDGpUcAEPs_v0GowhEqVU/edit#slide=id.p">PowerPoint</a></a></li>
+    <li><a href="#user-stories"><a href="https://docs.google.com/presentation/">PowerPoint</a></a></li>
     <li><a href="#getting-started">Getting Started</a></li>
 
   </ol>
@@ -46,13 +47,19 @@ The player takes on the role of a private detective who is investigating strange
 + Inventory system to keep track of items and puzzle-solving progress
 + Multiple endings based on player choices and actions
 
-### Class Diagram
-![Class-Diagram](https://i.imgur.com/--.png)
-
 ### Requirements
 + Java 11
 + Terminal window 120(Width) x 30(Height)
 
+### Class Diagram
+
+<details>
+<summary>
+Click to expand
+![Class-Diagram](https://i.imgur.com/Rmglnu7.png)
+</summary>
+![Class-Diagram](https://i.imgur.com/Rmglnu7.png)
+</details>
 
 ### User Stories
 + As a Player I want to be able to pick up and store items.
