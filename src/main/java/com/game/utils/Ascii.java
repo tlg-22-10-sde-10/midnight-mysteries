@@ -139,7 +139,7 @@ public class Ascii {
         System.out.print("\033]0;" + "Midnight Mysteries" + "\007");
     }
 
-    public static void printExitBanner() throws InterruptedException {
+    public static void printExitBanner() {
         clearTerminal();
         String centeredBanner = "  ██████    ▓█████    ▓█████    ▓██   ██▓    ▒█████      █    ██                   \n" +
                 "▒██    ▒    ▓█   ▀    ▓█   ▀     ▒██  ██▒   ▒██▒  ██▒    ██  ▓██▒                  \n" +
