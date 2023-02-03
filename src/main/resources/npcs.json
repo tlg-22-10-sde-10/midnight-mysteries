@@ -1,0 +1,30 @@
+[
+  {
+    "characterName" : "Receptionist",
+    "characterLocation" : "Lobby",
+    "dialogueOptions" : [
+      "Book a room",
+      "Go to the bar",
+      "Go to the restaurant",
+      "Go to the pool"
+    ]
+  },
+  {
+    "characterName" : "Waiter",
+    "characterLocation" : "Restaurant",
+    "dialogueOptions" : [
+      "Go to the kitchen",
+      "Go to the lobby",
+      "Search the restaurant"
+    ]
+  },
+  {
+    "characterName" : "Chef",
+    "characterLocation" : "Kitchen",
+    "dialogueOptions" : [
+      "Go to the office",
+      "Go to the lobby",
+      "Search the kitchen"
+    ]
+  }
+]

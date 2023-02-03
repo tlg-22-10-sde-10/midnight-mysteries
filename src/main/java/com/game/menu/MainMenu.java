@@ -5,12 +5,14 @@ import com.game.inventory.Inventory;
 import com.game.inventory.Item;
 import com.game.player.Player;
 import com.game.utils.Ascii;
+import com.game.utils.InputHelper;
 
 import java.util.Map;
 
 public class MainMenu extends Menu {
     protected Session session;
     protected Player player;
+    protected int selection;
 
     public MainMenu(Session session, Player player) {
         this.session = session;
@@ -19,9 +21,15 @@ public class MainMenu extends Menu {
 
     @Override
     public void renderMenu() {
-        Ascii.clearTerminal();
-        mainMenuHeader();
         System.out.println("Welcome Detective " + player.getPlayerName());
+        Ascii.clearTerminal();
+        do {
+
+            mainMenuHeader();
+            loadDialogue();
+            setSelection(Integer.parseInt(InputHelper.updateConfirmSelection()));
+        } while (getSelection() != 0);
+
     }
 
     private void mainMenuHeader() {
@@ -38,6 +46,17 @@ public class MainMenu extends Menu {
         System.out.println("====================================");
     }
 
+    private void loadDialogue() {
+        int optionSelect = 1;
+        if (player.getLocation() == "Lobby") {
+            System.out.println(session.getLocations().get(0).getLocationDescription());
+            for (String option : session.getNpcs().get(0).getDialogueOptions()) {
+                System.out.println(optionSelect + ") " + option);
+                optionSelect++;
+            }
+        }
+    }
+
     public Session getSession() {
         return session;
     }
@@ -52,5 +71,13 @@ public class MainMenu extends Menu {
 
     public void setPlayer(Player player) {
         this.player = player;
+    }
+
+    public int getSelection() {
+        return selection;
+    }
+
+    public void setSelection(int selection) {
+        this.selection = selection;
     }
 }
