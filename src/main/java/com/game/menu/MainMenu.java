@@ -25,7 +25,6 @@ public class MainMenu extends Menu {
         System.out.println("Welcome Detective " + player.getPlayerName());
         Ascii.clearTerminal();
         do {
-
             mainMenuHeader();
             loadDialogue();
             setSelection(Integer.parseInt(TextParser.validateInput()));
