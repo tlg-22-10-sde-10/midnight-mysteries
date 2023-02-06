@@ -48,6 +48,7 @@ public class Game {
         // load external json
         Gson gson = new Gson();
 
+        // get class loader
         try (InputStream inputStream = getClass().getResourceAsStream("/locations.json");
              BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream))) {
 
