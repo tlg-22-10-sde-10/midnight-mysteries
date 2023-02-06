@@ -1,0 +1,81 @@
+[
+  {
+    "Book a room": [
+      "Watch tv",
+      "Take a nap",
+      "Read a book",
+      "Order room service"
+    ]
+  },
+  {
+    "Go to the bar": [
+      "Order a drink",
+      "Joke around with the bartender"
+    ]
+  },
+  {
+    "Go to the restaurant": [
+      "Order food",
+      "Small talk with the waiter"
+    ]
+  },
+  {
+    "Go to the pool": [
+      "Go for a swim",
+      "Relax by the pool"
+    ]
+  },
+  {
+    "Watch tv": [
+      "1993 pops up on the tv and a phone starts ringing from inside the safe.. open it?",
+      "Take a nap",
+      "Read a book",
+      "Order room service"
+    ]
+  },
+  {
+    "Take a nap": [
+      "You awaken by a phone ringing from inside the safe.. open it?",
+      "Watch tv",
+      "Read a book",
+      "Order room service"
+    ]
+  },
+  {
+    "Read a book": [
+      "Read Mystery of the Secret Room",
+      "Read Harry Potter and the Sorcerer's Stone",
+      "Read Atomic Habits",
+      "Read To Kill a Mocking Bird"
+    ]
+  },
+  {
+    "Order room service": [
+      "Room service person delivers food and recommends reading Mystery of the Secret Room.. go read?",
+      "Watch tv",
+      "Take a nap"
+    ]
+  },
+  {
+    "Order a drink": [
+      "Small talk",
+      "Play pool",
+      "Play darts",
+      "Change song on the jukebox"
+    ]
+  },
+  {
+    "Joke around with bartender": [
+      "Learn about bartenders favorite song",
+      "Play pool",
+      "Play darts",
+      "Change song on the jukebox"
+    ]
+  },
+  {
+    "Order food": [
+      "Small talk with the waiter",
+      "Look at the menu"
+    ]
+  }
+]

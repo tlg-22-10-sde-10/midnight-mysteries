@@ -15,10 +15,10 @@ import java.util.Map;
 
 public class RenderStartUI {
 
-    private List<Location> locations;
-    private List<Npc> npcs;
+    private Map<String, Location> locations;
+    private Map<String, Npc> npcs;
 
-    public RenderStartUI(List<Location> locations, List<Npc> npcs) {
+    public RenderStartUI(Map<String, Location> locations, Map<String, Npc> npcs) {
         this.locations = locations;
         this.npcs = npcs;
         generateStartMenu();
@@ -73,19 +73,19 @@ public class RenderStartUI {
         return newPlayer;
     }
 
-    public List<Location> getLocations() {
+    public Map<String, Location> getLocations() {
         return locations;
     }
 
-    public void setLocations(List<Location> locations) {
+    public void setLocations(Map<String, Location> locations) {
         this.locations = locations;
     }
 
-    public List<Npc> getNpcs() {
+    public Map<String, Npc> getNpcs() {
         return npcs;
     }
 
-    public void setNpcs(List<Npc> npcs) {
+    public void setNpcs(Map<String, Npc> npcs) {
         this.npcs = npcs;
     }
 }

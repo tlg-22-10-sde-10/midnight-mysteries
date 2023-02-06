@@ -5,13 +5,14 @@ import com.game.npc.Npc;
 import com.game.player.Player;
 
 import java.util.List;
+import java.util.Map;
 
 public class Session {
     private Player player;
-    private List<Location> locations;
-    private List<Npc> npcs;
+    private Map<String, Location> locations;
+    private Map<String, Npc> npcs;
 
-    public Session(Player player, List<Location> locations, List<Npc> npcs) {
+    public Session(Player player, Map<String, Location> locations, Map<String, Npc> npcs) {
 
         this.player = player;
         this.locations = locations;
@@ -27,19 +28,19 @@ public class Session {
         this.player = player;
     }
 
-    public List<Location> getLocations() {
+    public Map<String, Location> getLocations() {
         return locations;
     }
 
-    public void setLocations(List<Location> locations) {
+    public void setLocations(Map<String, Location> locations) {
         this.locations = locations;
     }
 
-    public List<Npc> getNpcs() {
+    public Map<String, Npc> getNpcs() {
         return npcs;
     }
 
-    public void setNpcs(List<Npc> npcs) {
+    public void setNpcs(Map<String, Npc> npcs) {
         this.npcs = npcs;
     }
 }
