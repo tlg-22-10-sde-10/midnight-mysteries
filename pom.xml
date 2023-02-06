@@ -16,7 +16,7 @@
   TODO: Replace "project" in the <artifactId> element with a spinal-case (lower-case, with dashes
    between words) version of the project name, without any quotes.
   -->
-  <artifactId>Midnight-Mysteries-V1.0</artifactId>
+  <artifactId>midnight-mysteries</artifactId>
 
   <version>1.0.0-SNAPSHOT</version>
   <packaging>jar</packaging>
