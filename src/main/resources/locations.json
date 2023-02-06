@@ -2,6 +2,7 @@
   {
     "locationName" : "Lobby",
     "locationDescription" : "The hotel lobby",
+    "npc" : "Receptionist",
     "locationItems" : [{
       "itemName" : "key",
       "itemDescription" : "a key that can unlock doors",
@@ -12,6 +13,7 @@
   {
     "locationName" : "Restaurant",
     "locationDescription" : "Restaurant inside the hotel",
+    "npc": "Waiter",
     "locationItems" : [{
       "itemName" : "matches",
       "itemDescription" : "can light up candles",
@@ -22,6 +24,7 @@
   {
     "locationName" : "Kitchen",
     "locationDescription" : "Where all the food gets made behind the Restaurant",
+    "npc" : "Chef",
     "locationItems" : [{
       "itemName" : "key",
       "itemDescription" : "a key that can unlock doors",

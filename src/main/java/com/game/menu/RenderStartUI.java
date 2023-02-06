@@ -4,11 +4,13 @@ import com.game.client.session.Session;
 import com.game.inventory.Inventory;
 import com.game.inventory.Item;
 import com.game.location.Location;
+import com.game.model.Dialogue;
 import com.game.npc.Npc;
 import com.game.player.Player;
 import com.game.utils.InputHelper;
 import com.game.utils.TextParser;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -18,9 +20,12 @@ public class RenderStartUI {
     private Map<String, Location> locations;
     private Map<String, Npc> npcs;
 
-    public RenderStartUI(Map<String, Location> locations, Map<String, Npc> npcs) {
+    private Map<String, Dialogue> dialogue;
+
+    public RenderStartUI(Map<String, Location> locations, Map<String, Npc> npcs, Map<String, Dialogue> dialogue) {
         this.locations = locations;
         this.npcs = npcs;
+        this.dialogue = dialogue;
         generateStartMenu();
     }
     private void generateStartMenu() {
@@ -34,7 +39,7 @@ public class RenderStartUI {
 
             if (input.equals("start")) {
                 Player player = processPlayerInformation();
-                Session newSession = new Session(player, locations, npcs);
+                Session newSession = new Session(player, locations, npcs, dialogue);
                 MainMenu mainMenu = new MainMenu(newSession, player);
                 mainMenu.renderMenu();
                 isValidInput = true;
@@ -87,5 +92,13 @@ public class RenderStartUI {
 
     public void setNpcs(Map<String, Npc> npcs) {
         this.npcs = npcs;
+    }
+
+    public Map<String, Dialogue> getDialogue() {
+        return dialogue;
+    }
+
+    public void setDialogue(Map<String, Dialogue> dialogue) {
+        this.dialogue = dialogue;
     }
 }
