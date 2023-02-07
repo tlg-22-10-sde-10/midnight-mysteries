@@ -2,7 +2,7 @@
   {
     "Book a room": {
       "location" : "Room",
-      "dialogue" : "Here you are, sir, As you may know, we've received some complaints from guests about strange occurrences in this specific room.\n \nWe've done our best to address the concerns of our guests, but the strange events seem to persist. We're hoping that you'll be able to shed some light on the matter.",
+      "dialogue" : "Here you are, sir,\n As you may know, we've received some complaints from guests about strange occurrences in this specific room.\n We've done our best to address the concerns of our guests, but the strange events seem to persist. \n We're hoping that you'll be able to shed some light on the matter.",
       "options" : [
         "Watch tv",
         "Take a nap",
@@ -14,7 +14,7 @@
   {
     "Watch tv": {
       "location" : "Room",
-      "dialogue" : "You flipped through the channels, but as you stopped on one, you were greeted with a burst of static and a strange, haunting image. Is it a glitch in the signal? As you continue to watch, you realized that the image was not going away. It was like something was trying to reach out to you from the other side.",
+      "dialogue" : "You flipped through the channels, but as you stopped on one,\n you were greeted with a burst of static and a strange, haunting image. \nIs it a glitch in the signal?\n As you continue to watch, you realized that the image was not going away.\n It was like something was trying to reach out to you from the other side.",
       "options" : [
         "Take a nap",
         "199_ pops up on the tv and a phone starts ringing from inside the safe.. open it?",

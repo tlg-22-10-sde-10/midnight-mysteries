@@ -56,9 +56,15 @@ public class MainMenu extends Menu {
         setOptions(new ArrayList<>());
         String npc = getSession().getLocations().get("Lobby").getNpc();
         System.out.println(session.getLocations().get("Lobby").getLocationDescription());
-        System.out.println("Hello Detective " +player.getPlayerName()+ ". There has been a murder at the bar, " +
-                "room, pool and restaurant. We need your help in solving these murders. Where would you like to" +
+
+//        System.out.println("Hello Detective " +player.getPlayerName()+ ". There has been a murder at the bar, " +
+//                "room, pool and restaurant. We need your help in solving these murders. Where would you like to" +
+//                " go first? ");
+
+        Ascii.printTextCenterWithDelay("Hello Detective " +player.getPlayerName()+ ". There has been a murder at the bar, " +
+                "room, pool and restaurant.\n We need your help in solving these murders. Where would you like to" +
                 " go first? ");
+
         for (String option : session.getNpcs().get(npc).getDialogueOptions()) {
             getOptions().add(option);
             System.out.println(optionSelect + ") " + option);
@@ -73,7 +79,9 @@ public class MainMenu extends Menu {
         player.setLocation(getSession().getDialogue().get(option).getLocation());
 
         // print backstory
-        System.out.println(getSession().getDialogue().get(option).getDialogue());
+//        System.out.println(getSession().getDialogue().get(option).getDialogue());
+        Ascii.printTextCenterWithDelay(getSession().getDialogue().get(option).getDialogue());
+
 
         // print options
         List<String> dialogue = getSession().getDialogue().get(option).getOptions();
@@ -126,7 +134,8 @@ public class MainMenu extends Menu {
         int lastDigit = 7;
         setSelection(Integer.parseInt(TextParser.validateInput()));
         if (lastDigit == getSelection()) {
-
+            // string of json key
+            loadDialogue("Wherever we want to take it");
         }
     }
 
