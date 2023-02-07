@@ -2,10 +2,10 @@
   "LockPick": {
     "Description": "Can be used on any locked door to attempt to pick lock."
   },
-  "Master Key": {
+  "Masterkey": {
     "Description": "Can be used to unlock any door."
   },
-  "FlashLight": {
+  "Flashlight": {
     "Description": "Can be used for illumination."
   },
   "Battery": {

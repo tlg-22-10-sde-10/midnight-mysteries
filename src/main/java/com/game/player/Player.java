@@ -3,6 +3,8 @@ package com.game.player;
 import com.game.inventory.Inventory;
 import com.game.inventory.Item;
 
+import java.util.Map;
+
 public class Player {
     private String playerName;
     private String location;
@@ -40,6 +42,26 @@ public class Player {
 
     public void addToPlayerStorage(Item itemToAdd) {
         this.playerStorage.getStorage().put(itemToAdd.toString(), itemToAdd);
+    }
+
+    public void printPlayerStorage() {
+        Map<String, Item> inventory = getPlayerStorage().getStorage();
+        if (inventory.size() == 0) {
+            System.out.println("Empty");
+        }else {
+            System.out.print("[ ");
+            for (Map.Entry<String, Item> item : inventory.entrySet()) {
+                String itemName = item.getKey();
+                System.out.print(itemName + ", ");
+
+            }
+            System.out.print("]\n");
+
+
+        }
+
+        System.out.println("====================================");
+
     }
 
 }
