@@ -25,10 +25,10 @@
     <li><a href="#features">Features</a></li>
     <li><a href="#requirements">Requirements</a></li>
     <li><a href="#class-diagram">Class Diagram</a></li>
+    <li><a href="#figma"><a href="https://www.figma.com/file/2gkXEg7oZOcVH7vHEKGz56/Midnight-Mysteries?node-id=0%3A108&t=h9w5hUVS1CY4jIDx-1">Figma (Story Diagrams)</a></a></li>
     <li><a href="#user-stories">User Stories</a></li>
-    <li><a href="#user-stories"><a href="https://docs.google.com/presentation/">PowerPoint</a></a></li>
+    <li><a href="#ppt"><a href="https://docs.google.com/presentation/">PowerPoint</a></a></li>
     <li><a href="#getting-started">Getting Started</a></li>
-
   </ol>
 
 ### Team Members
