@@ -2,7 +2,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.game</groupId>
+<<<<<<< HEAD
   <artifactId>midnight-mysteries</artifactId>
+=======
+  <artifactId>Midnight-Mysteries-V1.0</artifactId>
+>>>>>>> ce59a4dfc311025fc93ade686cd041e1a72d2db1
   <version>1.0.0-SNAPSHOT</version>
   <build>
     <plugins>
