@@ -45,24 +45,24 @@
   {
     "Safe unlocked" : {
       "location" : "Room",
-      "dialogue" : "Backstory",
+      "dialogue" : "The safe clicked open... and there's a couple items inside",
       "options" : [
         "Look through phone",
-        "Pick up the flash light"
+        "Take flash light"
       ]
     }
   },
   {
     "Look through phone" : {
       "location" : "Room",
-      "dialogue" : "Phone gives a clue",
+      "dialogue" : "A message on the phone says to read Mystery of the Secret Room",
       "options" : [
         "Read a book"
       ]
     }
   },
   {
-    "Pick up the flash light" : {
+    "Take flash light" : {
       "location" : "Room",
       "dialogue" : "You now have a flash light in your inventory",
       "options" : [
@@ -75,8 +75,38 @@
       "location" : "Secret Room",
       "dialogue" : "Once you pulled the book, a secret entrance opened up.. the room is dark.",
       "options" : [
-        "Turn on your flash light",
-        ""
+        "Turn on your flash light"
+      ]
+    }
+  },
+  {
+    "Turn on your flash light" : {
+      "location" : "Secret Room",
+      "dialogue" : "As you entered the dimly lit room, you cautiously reach for your flashlight, clicking it on to illuminate the surroundings.  \n The beam of light danced across the room, revealing peeling wallpaper, dusty old furniture and an overall creepy atmosphere. \n You took a deep breath and slowly scanned the room, alert for any signs of danger.",
+      "options" : [
+        "Peel back wallpaper",
+        "Look through drawers"
+      ]
+    }
+  },
+  {
+    "Peel back wallpaper" : {
+      "location" : "Secret Room",
+      "dialogue" : "There's a message written on the wall after peeling back the wallpaper",
+      "options" : [
+        "Decipher the meaning of the message"
+      ]
+    }
+  },
+  {
+    "Decipher the meaning of the message" : {
+      "location" : "Secret Room",
+      "dialogue" : "Riddle",
+      "options" : [
+        "Option 1",
+        "Option 2",
+        "Option 3",
+        "Option 4"
       ]
     }
   },
@@ -99,7 +129,7 @@
         "Read Mystery of the Secret Room",
         "Read Atomic Habits",
         "Read To Kill a Mocking Bird",
-        "Order room service"
+        "Read Frankenstein"
       ]}
   },
   {

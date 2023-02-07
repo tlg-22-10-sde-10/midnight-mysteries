@@ -27,7 +27,6 @@ public class MainMenu extends Menu {
     @Override
     public void renderMenu() {
         Ascii.clearTerminal();
-        System.out.println("Welcome Detective " + player.getPlayerName());
         loadStartingDialogue();
         do {
             mainMenuHeader();
@@ -38,7 +37,9 @@ public class MainMenu extends Menu {
     }
 
     private void mainMenuHeader() {
+        System.out.println();
         System.out.println("Current Location: " + player.getLocation());
+        System.out.println(session.getLocations().get(player.getLocation()).getLocationDescription());
         System.out.print("Inventory: ");
         Map<String, Item> inventory = player.getPlayerStorage().getStorage();
         if (inventory.size() == 0) {
@@ -55,7 +56,6 @@ public class MainMenu extends Menu {
         int optionSelect = 1;
         setOptions(new ArrayList<>());
         String npc = getSession().getLocations().get("Lobby").getNpc();
-        System.out.println(session.getLocations().get("Lobby").getLocationDescription());
 
 //        System.out.println("Hello Detective " +player.getPlayerName()+ ". There has been a murder at the bar, " +
 //                "room, pool and restaurant. We need your help in solving these murders. Where would you like to" +
@@ -82,6 +82,11 @@ public class MainMenu extends Menu {
 //        System.out.println(getSession().getDialogue().get(option).getDialogue());
         Ascii.printTextCenterWithDelay(getSession().getDialogue().get(option).getDialogue());
 
+        if (option.equals("Try opening the safe")) {
+            System.out.println("Guess the last number to open the safe");
+            openSafe();
+            return;
+        }
 
         // print options
         List<String> dialogue = getSession().getDialogue().get(option).getOptions();
@@ -91,9 +96,7 @@ public class MainMenu extends Menu {
             optionSelect++;
         }
 
-        if (option.equals("Try opening safe")) {
-            openSafe();
-        }
+
     }
 
     private void loadPreviousDialogue() {
@@ -131,12 +134,17 @@ public class MainMenu extends Menu {
         }
     }
     private void openSafe() {
-        int lastDigit = 7;
-        setSelection(Integer.parseInt(TextParser.validateInput()));
-        if (lastDigit == getSelection()) {
-            // string of json key
-            loadDialogue("Wherever we want to take it");
+        int lastDigit = 4;
+        while (getSelection() != 4) {
+            setSelection(Integer.parseInt(TextParser.validateInput()));
+            if (lastDigit == getSelection()) {
+                // string of json key
+                loadDialogue("Safe unlocked");
+            } else {
+                System.out.println("Number didn't work..");
+            }
         }
+
     }
 
     public Session getSession() {

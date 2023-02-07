@@ -31,6 +31,42 @@
       "quantity" : 1,
       "isActive" : "false"
     }] 
+  },
+  {
+    "locationName" : "Room",
+    "locationDescription" : "The room has an eerie feeling to it.",
+    "npc": "Safe",
+    "locationItems" : [
+      {
+        "itemName" : "matches",
+        "itemDescription" : "can light up candles",
+        "quantity" : 4,
+        "isActive" : "false"
+      },
+      {
+        "itemName" : "candle",
+        "itemDescription" : "an unlit scented candle",
+        "quantity" : 1,
+        "isActive" : "false"
+      }]
+  },
+  {
+    "locationName" : "Bar",
+    "locationDescription" : "A small bar with a pool table, dim lights, and an odd-looking jukebox",
+    "npc" : "Bartender",
+    "locationItems" : []
+  },
+  {
+    "locationName" : "Pool",
+    "locationDescription" : "A resort-style pool",
+    "npc" : "Billy",
+    "locationItems" : []
+  },
+  {
+    "locationName" : "Secret Room",
+    "locationDescription" : "An old creepy room",
+    "npc" : "Nothing",
+    "locationItems" : []
   }
 ]
 
