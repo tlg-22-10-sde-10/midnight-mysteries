@@ -67,6 +67,18 @@
     "locationDescription" : "An old creepy room",
     "npc" : "Nothing",
     "locationItems" : []
+  },
+  {
+    "locationName" : "bar/pool table area",
+    "locationDescription" : "bar area",
+    "npc" : "Nothing",
+    "locationItems" : []
+  },
+  {
+    "locationName" : "cigar lounge",
+    "locationDescription" : "lounge",
+    "npc" : "Nothing",
+    "locationItems" : []
   }
 ]
 
