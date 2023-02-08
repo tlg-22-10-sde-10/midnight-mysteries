@@ -2,32 +2,107 @@
   {
     "locationName" : "Lobby",
     "locationDescription" : "The hotel lobby",
+    "npc" : "Receptionist",
     "locationItems" : [{
       "itemName" : "key",
       "itemDescription" : "a key that can unlock doors",
       "quantity" : 1,
       "isActive" : "false"
-    }] 
+    }]
   },
   {
     "locationName" : "Restaurant",
     "locationDescription" : "Restaurant inside the hotel",
+    "npc": "Waiter",
     "locationItems" : [{
       "itemName" : "matches",
       "itemDescription" : "can light up candles",
       "quantity" : 4,
       "isActive" : "false"
-    }] 
+    }]
   },
   {
     "locationName" : "Kitchen",
     "locationDescription" : "Where all the food gets made behind the Restaurant",
+    "npc" : "Chef",
     "locationItems" : [{
       "itemName" : "key",
       "itemDescription" : "a key that can unlock doors",
       "quantity" : 1,
       "isActive" : "false"
-    }] 
+    }]
+  },
+  {
+    "locationName" : "Room",
+    "locationDescription" : "The room has an eerie feeling to it.",
+    "npc": "Safe",
+    "locationItems" : [
+      {
+        "itemName" : "matches",
+        "itemDescription" : "can light up candles",
+        "quantity" : 4,
+        "isActive" : "false"
+      },
+      {
+        "itemName" : "candle",
+        "itemDescription" : "an unlit scented candle",
+        "quantity" : 1,
+        "isActive" : "false"
+      }]
+  },
+  {
+    "locationName" : "Bar",
+    "locationDescription" : "A small bar with a pool table, dim lights, and an odd-looking jukebox",
+    "npc" : "Bartender",
+    "locationItems" : []
+  },
+  {
+    "locationName" : "Pool",
+    "locationDescription" : "A resort-style pool",
+    "npc" : "Billy",
+    "locationItems" : []
+  },
+  {
+    "locationName" : "Secret Room",
+    "locationDescription" : "An old creepy room",
+    "npc" : "Nothing",
+    "locationItems" : []
+  },
+  {
+    "locationName" : "Basement",
+    "locationDescription" : "An old abandoned hotel basement",
+    "npc" : "Nothing",
+    "locationItems" : []
+  },
+  {
+    "locationName" : "Office",
+    "locationDescription" : "An ordinary office with a computer and a bunch of paperwork",
+    "npc" : "",
+    "locationItems" : []
+  },
+  {
+    "locationName" : "Freezer",
+    "locationDescription" : "A freezer that holds all the ingredients for the restaurant",
+    "npc" : "",
+    "locationItems" : []
+  },
+  {
+    "locationName" : "bar/pool table area",
+    "locationDescription" : "bar area",
+    "npc" : "Nothing",
+    "locationItems" : []
+  },
+  {
+    "locationName" : "cigar lounge",
+    "locationDescription" : "lounge",
+    "npc" : "Nothing",
+    "locationItems" : []
+  },
+  {
+    "locationName" : "outside bar",
+    "locationDescription" : "outside bar",
+    "npc" : "Nothing",
+    "locationItems" : []
   }
 ]
 

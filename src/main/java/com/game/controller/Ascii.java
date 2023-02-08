@@ -1,4 +1,4 @@
-package com.game.utils;
+package com.game.controller;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,6 +9,11 @@ public class Ascii {
     private static final int ROWS = 30;
     private static final int COLUMNS = 120;
     private ColoredPrinter printer = new ColoredPrinter();
+
+
+    // default is 25L
+    private static final long DELAY = 25L;
+
 
 
     public static void printTitleBanner() throws InterruptedException {
@@ -136,7 +141,7 @@ public class Ascii {
                 ColoredPrinter.print("red", tempChar);
                 if (tempChar != ' ') {
                     try {
-                        Thread.sleep(25L);
+                        Thread.sleep(DELAY);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -210,6 +215,34 @@ public class Ascii {
             sb.append((char) value);
         }
         return sb.toString();
+    }
+
+    public static void printHelpMenu(String warning) {
+        clearTerminal();
+
+        String centerMenu = " " + warning + "\n" +
+                " ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄ \n" +
+                " █                                               █ \n" +
+                " █                                               █ \n" +
+                " █                                               █ \n" +
+                " █   Valid options:                              █ \n" +
+                " █                                               █ \n" +
+                " █      \"help\", \"exit\", \"quit\", \"volume\",        █ \n" +
+                " █       \"mute\", \"?\",\"search\", \"take\", \"return\"  █ \n" +
+                " █                                               █ \n" +
+                " █                                               █ \n" +
+                " █   Dialogue options:                           █ \n" +
+                " █                                               █ \n" +
+                " █      \"1\",\"2\",\"3\",\"4\"                          █ \n" +
+                " █                                               █ \n" +
+                " █                                               █ \n" +
+                " █▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█ \n" +
+                "\t        Type \"return\" to resume";
+
+        centerMenu = addSpaces(centerMenu);
+        ColoredPrinter.print("red", centerMenu);
+
+
     }
 
 }

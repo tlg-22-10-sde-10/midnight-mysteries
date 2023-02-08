@@ -1,0 +1,330 @@
+[
+  {
+    "Go to the bar": {
+      "location" : "Bar",
+      "dialogue" : "Bar manager goes outside manager outside on a break and was found dead at the bottom of cliff \n behind the hotel. Authorities rule his death as an accident but some of hotel management suspect foul play. \n Search for clues in the bar that can help you solve what really happened.",
+      "options" : [
+        "play a game of pool",
+        "get a drink from the bar",
+        "make small talk with person at bar",
+        "go to the cigar lounge"
+      ]
+    }
+  },
+  {
+    "play a game of pool": {
+      "location" : "bar/pool table area",
+      "dialogue" : "You notice a suspicious looking man playing pool",
+      "options" : [
+        "grab a pool stick from the pool cue rack",
+        "deposit change into pool table"
+      ]}
+  },
+  {
+    "grab a pool stick from the pool cue rack": {
+      "location" : "bar/pool table area",
+      "dialogue" : "walking up to the pool cue rack you notice a poster that has message written in red paint or is it blood",
+      "options" : [
+        "read the message",
+        "ignore the poster, grab pool stick, and go back to pool table"
+      ]}
+  },
+  {
+    "ignore the poster, grab pool stick, and go back to pool table": {
+      "location" : "bar/pool table area",
+      "dialogue" : "you notice there is an envelope underneath the pool table",
+      "options" : [
+        "grab and open envelope"
+      ]}
+  },
+
+  {
+    "read the message": {
+      "location" : "bar/pool table area",
+      "dialogue" : "the message appears to be lyrics to a song",
+      "options" : [
+        "go to jukebox"
+      ]}
+  },
+  {
+    "go to jukebox": {
+      "location" : "bar/pool table area",
+      "dialogue" : "jukebox starts playing the lyrics to the song backwards",
+      "options" : [
+        "decipher the lyrics to the song"
+      ]}
+  },
+  {
+    "decipher the lyrics to the song": {
+      "location" : "bar/pool table area",
+      "dialogue" : "bar the at died he drunkards poor when \n heart his weaken has drink poisonous the \n buy to whiskey for gone had he bar the \n died who about tell I'll story This",
+      "options" : [
+        "what song is this"
+      ]}
+  },
+  {
+    "what song is this": {
+      "location" : "bar/pool table area",
+      "dialogue" : "bar the at died he drunkards poor when \n heart his weaken has drink poisonous the \n buy to whiskey for gone had he bar the \n died who about tell I'll story This",
+      "options" : [
+        "died a rounder twenty one",
+        "death at the bar",
+        "sitting at the bar"
+      ]}
+  },
+  {
+    "sitting at the bar": {
+      "location" : "bar/pool table area",
+      "dialogue" : "youre getting close, try again",
+      "options" : [
+        "died a rounder twenty one",
+        "death at the bar",
+        "sitting at the bar"
+      ]}
+  },
+
+  {
+    "died a rounder twenty one": {
+      "location" : "bar/pool table area",
+      "dialogue" : "youre getting close, try again",
+      "options" : [
+        "died a rounder twenty one",
+        "death at the bar",
+        "sitting at the bar"
+      ]}
+  },
+  {
+    "what song is this": {
+      "location" : "bar/pool table area",
+      "dialogue" : "bar the at died he drunkards poor when \n heart his weaken has drink poisonous the \n buy to whiskey for gone had he bar the \n died who about tell I'll story This",
+      "options" : [
+        "died a rounder twenty one",
+        "death at the bar",
+        "sitting at the bar"
+      ]}
+  },
+  {
+    "death at the bar": {
+      "location" : "bar/pool table area",
+      "dialogue" : "You solved the case. Bar manager was poisoned. Now go back to lobby",
+      "options" : [
+        "lobby"
+      ]}
+  },
+  {
+    "deposit change into pool table": {
+      "location": "bar/pool table area",
+      "dialogue": "you decide to play a game of pool and scope the area out",
+      "options": [
+        "grab a pool stick from the pool cue rack",
+        "you notice there is an envelope underneath the pool table"
+      ]
+    }
+  },
+  {
+    "you notice there is an envelope underneath the pool table": {
+      "location" : "bar/pool table area",
+      "dialogue" : "you notice there is an envelope underneath the pool table",
+      "options" : [
+        "grab and open envelope"
+      ]}
+  },
+  {
+    "grab and open envelope": {
+      "location" : "bar/pool table area",
+      "dialogue" : "There is a message written in letters cut out of magazine",
+      "options" : [
+        "decipher message in letter"
+      ]}
+  },
+  {
+    "decipher message in letter": {
+      "location" : "bar/pool table area",
+      "dialogue" : "The message seems to be lyrics to a song",
+      "options" : [
+        "go to jukebox"
+      ]}
+  },
+  {
+    "ask person near table if they would like to play a game of pool": {
+      "location" : "bar/pool table area",
+      "dialogue" : "backstory",
+      "options" : [
+        "grab a pool stick",
+        "deposit change into pool table",
+        "ask person near table if they would like to play a game",
+        "pick up envelope laying underneath the pool table"
+      ]}
+  },
+  {
+    "get a drink from the bar": {
+      "location" : "Bar",
+      "dialogue" : "There is a woman in a red dress sitting at the bar",
+      "options" : [
+        "order a drink",
+        "make small talk with person at bar"
+      ]}
+  },
+  {
+    "make small talk with person at bar": {
+      "location": "Bar",
+      "dialogue": "The person proceeds to tell you that she was at the bar the night when the bar manager died\n she then hands you folded paper.",
+      "options": [
+        "open the folded paper"
+      ]
+    }
+  },
+  {
+    "open the folded paper": {
+      "location": "Bar",
+      "dialogue": "The message says if you can solve this riddle, I give you more information about what happen",
+      "options": [
+        "solve riddle"
+      ]
+    }
+  },
+  {
+    "solve riddle": {
+      "location": "Bar",
+      "dialogue": "For a murder case investigation, police visit a bar. There, the waiter tells that victim was here with his friend.\n They both drank. Within 10 minutes, the victim managed to drink only one glass of wine. On the other hand, his friend drank 5 drinks. \n It was later revealed that all of those drinks were poisoned. How come did the victim's friend not die, who had 5 drinks within 10 minutes? What do you think was poisoned?",
+      "options": [
+        "Ice cubes",
+        "Water",
+        "Wine"
+      ]
+    }
+  },
+  {
+    "Ice cubes": {
+      "location": "Bar",
+      "dialogue": " The woman says 'Ice cubes were poisoned. Because the victim's friend drank so fast, ice cubes didn't melt before he finished the drink. On the other hand, the victim's ice cubes melted as he was slow while drinking.' now go talk to the man by the pool table",
+      "options": [
+        "Talk to man by pool table"
+      ]
+    }
+  },
+  {
+    "Talk to man by pool table": {
+      "location": "Bar",
+      "dialogue": "The man says, 'We were arguing because I ordered a double jack with coke \n but got a single and was still charged for a double. \n After that, manager cell phone and he went outside'",
+      "options": [
+        "continue to talk with person",
+        "go outside to scan the area for clues"
+      ]
+    }
+  },
+  {
+    "continue to talk with person": {
+      "location": "Bar",
+      "dialogue": "The man denies he had anything to do with death of bar manager",
+      "options": [
+        "Go to the bar"
+      ]
+    }
+  },
+
+  {
+    "go outside to scan the area for clues": {
+      "location": "Bar",
+      "dialogue": "It dark out side so you will need your flash light",
+      "options": [
+        "check bush by cliff",
+        "check the unclocked car"
+      ]
+    }
+  },
+  {
+    "check bush by cliff": {
+      "location": "outside bar",
+      "dialogue": "You here a phone ringing by the bush",
+      "options": [
+        "check message on the phone"
+      ]
+    }
+  },
+  {
+    "check message on the phone": {
+      "location": "outside bar",
+      "dialogue": "2085 23151314 120 2085 2118 494 920",
+      "options": [
+        "decrypt message"
+      ]
+    }
+  },
+  {
+    "decrypt message": {
+      "location": "outside bar",
+      "dialogue": "if you can decrypt this message '2085 23151314 120 2085 2118 494 920' you find out how manager died",
+      "options": [
+        "was it the woman at the bar",
+        "the man at the pool table",
+        "manager jump of the cliff"
+      ]
+    }
+  },
+  {
+    "the man at the pool table": {
+      "location": "outside bar",
+      "dialogue": "he seemed suspicious but has nothing to do with the death of the manager",
+      "options": [
+        "was it the woman at the bar",
+        "the man at the pool table",
+        "manager jump off the cliff"
+      ]
+    }
+  },
+  {
+    "manager jump off the cliff": {
+      "location": "outside bar",
+      "dialogue": "not likely, the hotel staff said he would never do something like that",
+      "options": [
+        "was it the woman at the bar",
+        "the man at the pool table",
+        "manager jump of the cliff"
+      ]
+    }
+  },
+  {
+    "was it the woman at the bar": {
+      "location": "outside bar",
+      "dialogue": "the woman poisoned the managers drink. \n He went outside to get a breath of fresh air. \n He passed out by the cliff and fell to hes death",
+      "options": [
+        "Go to the bar"
+      ]
+    }
+  },
+  {
+    "Water": {
+      "location": "Bar",
+      "dialogue": "Sorry but you didnt answer correctly, try again",
+      "options": [
+        "Ice cubes",
+        "Water",
+        "Wine"
+      ]
+    }
+  },
+  {
+    "Wine": {
+      "location": "Bar",
+      "dialogue": "Sorry but you didnt answer correctly, try again",
+      "options": [
+        "Ice cubes",
+        "Water",
+        "Wine"
+      ]
+    }
+  },
+  {
+    "go to the cigar lounge": {
+      "location": "cigar lounge",
+      "dialogue": "backstory",
+      "options": [
+        "grab a pool stick",
+        "deposit change into pool table",
+        "ask person near table if they would like to play a game",
+        "pick up envelope laying underneath pool table"
+      ]
+    }
+  }
+]
