@@ -1,6 +1,6 @@
 package com.game.menu;
 
-import com.game.utils.Ascii;
+import com.game.controller.Ascii;
 
 public class StoryTutorial {
 

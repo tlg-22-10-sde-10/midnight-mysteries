@@ -1,19 +1,16 @@
 package com.game.menu;
 
 import com.game.client.session.Session;
-import com.game.inventory.Inventory;
-import com.game.inventory.Item;
-import com.game.inventory.ItemGenerator;
-import com.game.location.Location;
+import com.game.model.Inventory;
+import com.game.model.Item;
+import com.game.controller.ItemGenerator;
+import com.game.model.Location;
 import com.game.model.Dialogue;
-import com.game.npc.Npc;
-import com.game.player.Player;
-import com.game.utils.InputHelper;
-import com.game.utils.TextParser;
+import com.game.model.Npc;
+import com.game.model.Player;
+import com.game.controller.TextParser;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class RenderStartUI {
@@ -36,7 +33,7 @@ public class RenderStartUI {
             System.out.println("To start a new game please enter \"start\"");
 
 //            String input = InputHelper.updateConfirmSelection();
-            String input = TextParser.validateInput();
+            String input = TextParser.optionalInput();
 
             if (input.equals("start")) {
                 Player player = processPlayerInformation();

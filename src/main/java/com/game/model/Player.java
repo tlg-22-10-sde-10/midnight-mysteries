@@ -1,7 +1,7 @@
-package com.game.player;
+package com.game.model;
 
-import com.game.inventory.Inventory;
-import com.game.inventory.Item;
+import com.game.model.Inventory;
+import com.game.model.Item;
 
 import java.util.Map;
 
@@ -53,15 +53,10 @@ public class Player {
             for (Map.Entry<String, Item> item : inventory.entrySet()) {
                 String itemName = item.getKey();
                 System.out.print(itemName + ", ");
-
             }
             System.out.print("]\n");
-
-
         }
-
         System.out.println("====================================");
-
     }
 
 }

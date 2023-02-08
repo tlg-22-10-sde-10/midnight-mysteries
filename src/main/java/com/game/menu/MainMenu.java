@@ -1,11 +1,12 @@
 package com.game.menu;
 
+import com.game.client.Game;
 import com.game.client.session.Session;
-import com.game.inventory.Inventory;
-import com.game.inventory.Item;
-import com.game.player.Player;
-import com.game.utils.Ascii;
-import com.game.utils.TextParser;
+import com.game.model.Item;
+import com.game.model.Dialogue;
+import com.game.model.Player;
+import com.game.controller.Ascii;
+import com.game.controller.TextParser;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +19,8 @@ public class MainMenu extends Menu {
     private int savedSelection;
     private List<String> options;
 
+    private String currentScene;
+
     public MainMenu(Session session, Player player) {
         this.session = session;
         this.player = player;
@@ -27,6 +30,7 @@ public class MainMenu extends Menu {
     public void renderMenu() {
         Ascii.clearTerminal();
         loadStartingDialogue();
+        //print
         do {
             mainMenuHeader();
             setSelection(Integer.parseInt(TextParser.validateInput()));
@@ -49,7 +53,7 @@ public class MainMenu extends Menu {
         setOptions(new ArrayList<>());
         String npc = getSession().getLocations().get("Lobby").getNpc();
 
-        Ascii.printTextCenterWithDelay("Hello Detective " +player.getPlayerName()+ ". There has been a murder at the bar, " +
+        Ascii.printTextCenterWithDelay("Hello Detective " + player.getPlayerName() + ". There has been a murder at the bar, " +
                 "room, pool and restaurant.\n We need your help in solving these murders. Where would you like to" +
                 " go first? ");
 
@@ -58,16 +62,48 @@ public class MainMenu extends Menu {
             System.out.println(optionSelect + ") " + option);
             optionSelect++;
         }
+
+        String choice = TextParser.validateInput();
+
+        switch (choice) {
+            case "1":
+                String room = "/room.json";
+                Map<String, Dialogue> path = Game.getPath(room);
+                session.setDialogue(path);
+                loadDialogue("Book a room");
+                break;
+            case "2":
+                String bar = "/bar.json";
+                Map<String, Dialogue> path1 = Game.getPath(bar);
+                session.setDialogue(path1);
+                loadDialogue("Go to the bar");
+                break;
+            case "3":
+                String restaurant = "/restaurant.json";
+                Map<String, Dialogue> path2 = Game.getPath(restaurant);
+                session.setDialogue(path2);
+                loadDialogue("Go to the restaurant");
+                break;
+            case "4":
+                String pool = "/pool.json";
+                Map<String, Dialogue> path3 = Game.getPath(pool);
+                session.setDialogue(path3);
+                loadDialogue("Go to the pool");
+                break;
+            default:
+                break;
+        }
+
     }
 
     private void loadDialogue(String option) {
+        currentScene = option;
         Ascii.clearTerminal();
         int optionSelect = 1;
         setOptions(new ArrayList<>());
         player.setLocation(getSession().getDialogue().get(option).getLocation());
 
-        // print backstory
-//        System.out.println(getSession().getDialogue().get(option).getDialogue());
+
         Ascii.printTextCenterWithDelay(getSession().getDialogue().get(option).getDialogue());
 
         if (option.equals("Try opening the safe")) {
@@ -96,17 +132,20 @@ public class MainMenu extends Menu {
     }
 
     private void loadPreviousDialogue() {
-        Ascii.clearTerminal();
-        int optionSelect = 1;
+//        Ascii.clearTerminal();
+//        int optionSelect = 1;
+//        // print previous options after closing help menu
+////        for (String dialogueOption : getOptions()) {
+////            System.out.println(optionSelect + ") " + dialogueOption);
+////            optionSelect++;
+////        }
 
-        // print previous options after closing help menu
-        for (String dialogueOption : getOptions()) {
-            System.out.println(optionSelect + ") " + dialogueOption);
-            optionSelect++;
-        }
+        loadDialogue(currentScene);
     }
 
     private void processSelection() {
+
+
         if (getSelection() != -1 || getSelection() != 5) setSavedSelection(getSelection());
 
         // load options for the dialogue that was picked
@@ -124,14 +163,21 @@ public class MainMenu extends Menu {
                 loadDialogue(getOptions().get(3));
                 break;
             case 5:
-                loadPreviousDialogue();
+                if (currentScene == null) {
+                    Ascii.clearTerminal();
+                    loadStartingDialogue();
+                } else {
+                    loadPreviousDialogue();
+                }
             default:
                 break;
         }
     }
+
     private void openSafe() {
-        int lastDigit = (int) Math.random() * (4 - 1);
-        while (getSelection() != 3) {
+        int lastDigit = ((int) (Math.random()*(5 - 1))) + 1;
+        setSelection(-1);
+        while (getSelection() != lastDigit) {
             setSelection(Integer.parseInt(TextParser.validateInput()));
             if (lastDigit == getSelection()) {
                 // string of json key
