@@ -1,0 +1,267 @@
+[
+  {
+    "Book a room": {
+      "location": "Pool",
+      "dialogue": "",
+      "options": [
+        "Sit on a lawn chair to relax",
+        "Go for a swim"
+      ]
+    }
+  },
+  {
+    "Sit on a lawn chair to relax": {
+      "location": "Pool",
+      "dialogue": "You suddenly hear a creepy, cackling laughter that echoed in the stillness of the night. \n The sound sent shivers down the detective's spine and made the hairs on the back of their neck stand up. \n You notice a small boy, who is staring at you.",
+      "options": [
+        "Are you laughing at me?",
+        "Whats your name?",
+        "Where are your parents?"
+      ]
+    }
+  },
+  {
+    "Are you laughing at me?": {
+      "location": "Pool",
+      "dialogue": "Are you laughing at me? \n The little boy just stared at you with a creepy smile and didn't respond. \n The silence and the boy's eerie behavior made you more uneasy.",
+      "options": [
+        "Whats your name?",
+        "Where are your parents?"
+      ]
+    }
+  },
+  {
+    "Whats your name?": {
+      "location": "Pool",
+      "dialogue": "Excuse me, can you tell me your name? Art... My name is Arthur",
+      "options": [
+        "Where are your parents?",
+        "What are you doing here alone?",
+        "Have you heard or seen anything suspicious recently?"
+      ]
+    }
+  },
+  {
+    "Have you heard or seen anything suspicious recently?": {
+      "location": "Pool",
+      "dialogue": "...",
+      "options": [
+        "Whats your name?",
+        "Where are your parents?"
+      ]
+    }
+  },
+  {
+    "Where are your parents?": {
+      "location": "Pool",
+      "dialogue": "My parents? There right there! Arthur points to the bottom of the pool...",
+      "options": [
+        "Why are you pointing at the pool Arthur?",
+        "Take a look at what Arthur is pointing at"
+      ]
+    }
+  },
+  {
+    "Why are you pointing at the pool Arthur?": {
+      "location": "Pool",
+      "dialogue": "I lost the key too my room. It felt out while I was swimming... could you help me get it?",
+      "options": [
+        "Attempt to get the item"
+      ]
+    }
+  },
+  {
+    "What are you doing here alone?": {
+      "location": "Pool",
+      "dialogue": "I lost the key too my room. It felt out while I was swimming... could you help me get it?",
+      "options": [
+        "Attempt to get the item"
+      ]
+    }
+  },
+  {
+    "Take a look at what Arthur is pointing at": {
+      "location": "Pool",
+      "dialogue": "You take a look at the pool, at first you don't see anything but something draws your attention to the center. \n You notice something at the center of the pool that doesn't belong",
+      "options": [
+        "Ask Arthur what is at the center",
+        "Attempt to get the item"
+      ]
+    }
+  },
+  {
+    "Ask Arthur what is at the center": {
+      "location": "Pool",
+      "dialogue": "You take a look at the pool, at first you don't see anything but something draws your attention to the center. \n You notice something at the center of the pool that doesn't belong",
+      "options": [
+        "Ask Arthur what is at the center",
+        "Attempt to get the item"
+      ]
+    }
+  },
+  {
+    "Attempt to get the item": {
+      "location": "Pool",
+      "dialogue": "Puzzle",
+      "options": [
+        "Puzzle",
+        "Solved Puzzle1"
+      ]
+    }
+  },
+  {
+    "Go for a swim": {
+      "location": "Pool",
+      "dialogue": "As you dive into the pool, the cool water was a welcome relief from the oppressive atmosphere. \n However, as they swam, you couldn't help but shake the feeling that you were being watched.",
+      "options": [
+        "Look around",
+        "Continue swimming"
+      ]
+    }
+  },
+  {
+    "Look around": {
+      "location": "Pool",
+      "dialogue": "As the you swim in the pool, you notice a little boy on the side who appeared to be watching them with a creepy smile. \n The boy's presence and the fact that he seemed to be laughing at you made you feel uncomfortable.",
+      "options": [
+        "Are you laughing at me?",
+        "Whats your name?",
+        "Where are your parents?"
+      ]
+    }
+  },
+  {
+    "Continue swimming": {
+      "location": "Pool",
+      "dialogue": "As you swim every sound and movement seemed amplified in the stillness of the night, \n and you couldn't help but shake the feeling that you were being watched. \n You eventually get out of the pool.\n  And notice this young boy laughing at you.",
+      "options": [
+        "Are you laughing at me?",
+        "Whats your name?",
+        "Where are your parents?"
+      ]
+    }
+  },
+  {
+    "Solved Puzzle1": {
+      "location": "Pool",
+      "dialogue": "After a struggle you manage to get the key unstuck and resurface gasping for air.",
+      "options": [
+        "Ask Arthur what the key opens"
+      ]
+    }
+  },
+  {
+    "Ask Arthur what the key opens": {
+      "location": "Pool",
+      "dialogue": "It's for the locked door.",
+      "options": [
+        "What locked door"
+      ]
+    }
+  },
+  {
+    "What locked door": {
+      "location": "Pool",
+      "dialogue": "As you look up you notice Arthur missing... \nArthur \nArthur! \n You search the room but there is no response and feel a shiver run down your spine.",
+      "options": [
+        "Search for Arthur in the Lobby",
+        "Search for Arthur in the Bar"
+      ]
+    }
+  },
+  {
+    "Search for Arthur in the Bar": {
+      "location": "Bar",
+      "dialogue": "You ask the bartender if they had seen the child, but they hadn't. \n The bartender tells you to check with the front desk at Lobby.",
+      "options": [
+        "Look for items in the bar",
+        "Search for Arthur in the Lobby"
+      ]
+    }
+  },
+  {
+    "Search for Arthur in the Lobby": {
+      "location": "Lobby",
+      "dialogue": "You quickly make your way to the hotel lobby. As you arrive you notice the lobby seems abandoned and in disarray.",
+      "options": [
+        "Ring the desk bell",
+        "Look for items in the lobby"
+      ]
+    }
+  },
+  {
+    "Ring the desk bell": {
+      "location": "Lobby",
+      "dialogue": "ding... \n ding... \n ding... \n No one on answers. \n  As you grow frustrated, you hear faint noises... \n They seem to becoming from the staircase near the elevator.",
+      "options": [
+        "Investigate noise"
+      ]
+    }
+  },
+  {
+    "Investigate noise": {
+      "location": "Basement",
+      "dialogue": "As you make your way down the staircase. \n The staircase creaks under your weight. \n When you finally reach the bottom of the staircase, you find a door in a dark, damp hallway.",
+      "options": [
+        "Attempt to open door",
+        "Attempt to open door with lock-pick"
+      ]
+    }
+  },
+  {
+    "Attempt to open door": {
+      "location": "Basement",
+      "dialogue": "You try to open the door but it wont budge. \n You try several times, but it won't move.\n",
+      "options": [
+        "Attempt to open door with key"
+      ]
+    }
+  },
+  {
+    "Attempt to open door with lock-pick": {
+      "location": "Basement",
+      "dialogue": "You try to open the door but it wont budge. \n You try several times, but it won't move. \n You looked around and noticed that there was a keyhole on the door. \n You attempt to pick but are unsuccessful.",
+      "options": [
+        "Attempt to open door with key"
+      ]
+    }
+  },
+  {
+    "Attempt to open door with key": {
+      "location": "Basement",
+      "dialogue": "You looked around and noticed that there was a keyhole on the door... \n As you turn the door knob you feel the air in the previously locked basement rush past you, \n like it was trying to escape from something... \n As you enter the basement you hear the noise a little more clearly.",
+      "options": [
+        "Search the basement",
+        "Investigate the noise"
+      ]
+    }
+  },
+  {
+    "Search the basement": {
+      "location": "Basement",
+      "dialogue": "A",
+      "options": [
+        "Puzzle2",
+        "Solved Puzzle2"
+      ]
+    }
+  },
+  {
+    "Solved Puzzle2": {
+      "location": "Basement",
+      "dialogue": "After solving the puzzle, you go back over all the information you had gathered, \n from the key you had found at the bottom of the pool to the warning you had translated from the hidden clue. \n You realize that Arthur was leading you down the basement to break the cipher and YELL out dimittis! \n To release the trapped spirits in the basement.",
+      "options": [
+        "Complete"
+      ]
+    }
+  },
+  {
+    "Investigate the noise": {
+      "location": "Basement",
+      "dialogue": "The noise is coming from a large metal pipe that ran along the ceiling. It was a low, rhythmic pounding, like something was beating on the inside. \n Followed by THREE screeching growls...",
+      "options": [
+        "Search the basement"
+      ]
+    }
+  }
+]

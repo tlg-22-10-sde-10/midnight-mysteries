@@ -1,0 +1,22 @@
+{
+  "LockPick": {
+    "Description": "Can be used on any locked door to attempt to pick lock."
+  },
+  "Masterkey": {
+    "Description": "Can be used to unlock any door."
+  },
+  "Flashlight": {
+    "Description": "Can be used for illumination."
+  },
+  "Battery": {
+    "Description": "Can be used to recharge a flashlight."
+  },
+  "Candle": {
+    "Description": "Can be used for illumination."
+  },
+  "Matches": {
+    "Description": "Can be used to light a unlit candle."
+  }
+}
+
+

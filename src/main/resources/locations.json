@@ -8,7 +8,7 @@
       "itemDescription" : "a key that can unlock doors",
       "quantity" : 1,
       "isActive" : "false"
-    }] 
+    }]
   },
   {
     "locationName" : "Restaurant",
@@ -19,7 +19,7 @@
       "itemDescription" : "can light up candles",
       "quantity" : 4,
       "isActive" : "false"
-    }] 
+    }]
   },
   {
     "locationName" : "Kitchen",
@@ -30,7 +30,7 @@
       "itemDescription" : "a key that can unlock doors",
       "quantity" : 1,
       "isActive" : "false"
-    }] 
+    }]
   },
   {
     "locationName" : "Room",
@@ -66,6 +66,24 @@
     "locationName" : "Secret Room",
     "locationDescription" : "An old creepy room",
     "npc" : "Nothing",
+    "locationItems" : []
+  },
+  {
+    "locationName" : "Basement",
+    "locationDescription" : "An old abandoned hotel basement",
+    "npc" : "Nothing",
+    "locationItems" : []
+  },
+  {
+    "locationName" : "Office",
+    "locationDescription" : "An ordinary office with a computer and a bunch of paperwork",
+    "npc" : "",
+    "locationItems" : []
+  },
+  {
+    "locationName" : "Freezer",
+    "locationDescription" : "A freezer that holds all the ingredients for the restaurant",
+    "npc" : "",
     "locationItems" : []
   },
   {

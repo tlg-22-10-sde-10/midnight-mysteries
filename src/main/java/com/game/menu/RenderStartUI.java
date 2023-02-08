@@ -3,6 +3,7 @@ package com.game.menu;
 import com.game.client.session.Session;
 import com.game.inventory.Inventory;
 import com.game.inventory.Item;
+import com.game.inventory.ItemGenerator;
 import com.game.location.Location;
 import com.game.model.Dialogue;
 import com.game.npc.Npc;
@@ -41,6 +42,7 @@ public class RenderStartUI {
                 Player player = processPlayerInformation();
                 Session newSession = new Session(player, locations, npcs, dialogue);
                 MainMenu mainMenu = new MainMenu(newSession, player);
+                ItemGenerator itemGenerator = new ItemGenerator(player);
                 mainMenu.renderMenu();
                 isValidInput = true;
             } else {
@@ -67,7 +69,7 @@ public class RenderStartUI {
                     "\n name: " + playerName +
                     "\n\nIs that correct? Yes/No");
 //            String editConfirmation = InputHelper.updateConfirmSelection();
-            String editConfirmation = TextParser.validateInput();
+            String editConfirmation = TextParser.optionalInput();
             if (editConfirmation.equalsIgnoreCase("y") || editConfirmation.equalsIgnoreCase("yes")) {
                 isConfirmed = true;
             }
