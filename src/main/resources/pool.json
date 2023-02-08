@@ -1,8 +1,8 @@
 [
   {
-    "Book a room": {
+    "Go to the pool": {
       "location": "Pool",
-      "dialogue": "",
+      "dialogue": "You walk to pool",
       "options": [
         "Sit on a lawn chair to relax",
         "Go for a swim"
