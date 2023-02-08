@@ -130,8 +130,9 @@ public class MainMenu extends Menu {
         }
     }
     private void openSafe() {
-        int lastDigit = (int) Math.random() * (4 - 1);
-        while (getSelection() != 3) {
+        int lastDigit = ((int) (Math.random()*(5 - 1))) + 1;
+        setSelection(-1);
+        while (getSelection() != lastDigit) {
             setSelection(Integer.parseInt(TextParser.validateInput()));
             if (lastDigit == getSelection()) {
                 // string of json key
