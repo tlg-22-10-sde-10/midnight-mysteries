@@ -85,6 +85,18 @@
     "locationDescription" : "A freezer that holds all the ingredients for the restaurant",
     "npc" : "",
     "locationItems" : []
+  },
+  {
+    "locationName" : "bar/pool table area",
+    "locationDescription" : "bar area",
+    "npc" : "Nothing",
+    "locationItems" : []
+  },
+  {
+    "locationName" : "cigar lounge",
+    "locationDescription" : "lounge",
+    "npc" : "Nothing",
+    "locationItems" : []
   }
 ]
 
