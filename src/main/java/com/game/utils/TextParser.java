@@ -29,8 +29,10 @@ public class TextParser {
                 case "help":
                 case "?":
                     Ascii.clearTerminal();
+                    System.out.println("HELP MENU");
                     System.out.println("Valid options are: " + COMMANDS.toString());
                     System.out.println("And dialogue options 1-4");
+                    System.out.println("Type 'return' to close help menu");
                     break;
                 case "exit":
                 case "quit":
@@ -45,6 +47,8 @@ public class TextParser {
                 case "mute":
                     System.out.println("Mute Function");
                     break;
+                case "return":
+                    return "5";
                 case "start":
                 case "y":
                 case "yes":

@@ -8,12 +8,14 @@ public class Location {
     private String locationName;
     private List<Item> locationItems;
     private String locationDescription;
+    private String npc;
 
     public Location(){}
-    public Location(String locationName, List<Item> locationItems, String locationDescription) {
+    public Location(String locationName, List<Item> locationItems, String locationDescription, String npc) {
         this.locationName = locationName;
         this.locationItems = locationItems;
         this.locationDescription = locationDescription;
+        this.npc = npc;
     }
 
     public String getLocationName() {
@@ -38,5 +40,13 @@ public class Location {
 
     public void setLocationDescription(String locationDescription) {
         this.locationDescription = locationDescription;
+    }
+
+    public String getNpc() {
+        return npc;
+    }
+
+    public void setNpc(String npc) {
+        this.npc = npc;
     }
 }

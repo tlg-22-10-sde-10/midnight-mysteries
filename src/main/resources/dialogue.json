@@ -1,0 +1,211 @@
+[
+  {
+    "Book a room": {
+      "location" : "Room",
+      "dialogue" : "Here you are, sir,\n As you may know, we've received some complaints from guests about strange occurrences in this specific room.\n We've done our best to address the concerns of our guests, but the strange events seem to persist. \n We're hoping that you'll be able to shed some light on the matter.",
+      "options" : [
+        "Watch tv",
+        "Take a nap",
+        "Read a book",
+        "Order room service"
+    ]
+    }
+  },
+  {
+    "Watch tv": {
+      "location" : "Room",
+      "dialogue" : "You flipped through the channels, but as you stopped on one,\n you were greeted with a burst of static and a strange, haunting image. \nIs it a glitch in the signal?\n As you continue to watch, you realized that the image was not going away.\n It was like something was trying to reach out to you from the other side.",
+      "options" : [
+        "Take a nap",
+        "199_ pops up on the tv and a phone starts ringing from inside the safe.. open it?",
+        "Read a book",
+        "Order room service"
+      ]}
+  },
+  {
+    "199_ pops up on the tv and a phone starts ringing from inside the safe.. open it?" : {
+      "location" : "Room",
+      "dialogue" : "Backstory",
+      "options" : [
+        "Try opening the safe",
+        "Take a nap",
+        "Read a book",
+        "Order room service"
+      ]}
+  },
+  {
+    "Try opening the safe" : {
+      "location" : "Room",
+      "dialogue" : "Backstory",
+      "options" : [
+        "Guess the last number"
+      ]
+    }
+  },
+  {
+    "Safe unlocked" : {
+      "location" : "Room",
+      "dialogue" : "The safe clicked open... and there's a couple items inside",
+      "options" : [
+        "Look through phone",
+        "Take flash light"
+      ]
+    }
+  },
+  {
+    "Look through phone" : {
+      "location" : "Room",
+      "dialogue" : "A message on the phone says to read Mystery of the Secret Room",
+      "options" : [
+        "Read a book"
+      ]
+    }
+  },
+  {
+    "Take flash light" : {
+      "location" : "Room",
+      "dialogue" : "You now have a flash light in your inventory",
+      "options" : [
+        "Look through phone"
+      ]
+    }
+  },
+  {
+    "Read Mystery of the Secret Room" : {
+      "location" : "Secret Room",
+      "dialogue" : "Once you pulled the book, a secret entrance opened up.. the room is dark.",
+      "options" : [
+        "Turn on your flash light"
+      ]
+    }
+  },
+  {
+    "Turn on your flash light" : {
+      "location" : "Secret Room",
+      "dialogue" : "As you entered the dimly lit room, you cautiously reach for your flashlight, clicking it on to illuminate the surroundings.  \n The beam of light danced across the room, revealing peeling wallpaper, dusty old furniture and an overall creepy atmosphere. \n You took a deep breath and slowly scanned the room, alert for any signs of danger.",
+      "options" : [
+        "Peel back wallpaper",
+        "Look through drawers"
+      ]
+    }
+  },
+  {
+    "Peel back wallpaper" : {
+      "location" : "Secret Room",
+      "dialogue" : "There's a message written on the wall after peeling back the wallpaper",
+      "options" : [
+        "Decipher the meaning of the message"
+      ]
+    }
+  },
+  {
+    "Decipher the meaning of the message" : {
+      "location" : "Secret Room",
+      "dialogue" : "Riddle",
+      "options" : [
+        "Option 1",
+        "Option 2",
+        "Option 3",
+        "Option 4"
+      ]
+    }
+  },
+  {
+    "Take a nap": {
+      "location" : "Room",
+      "dialogue" : "Backstory",
+      "options" : [
+        "Watch tv",
+        "Read a book",
+        "Order room service",
+        "You awaken by a phone ringing from inside the safe.. open it?"
+      ]}
+  },
+  {
+    "Read a book": {
+      "location" : "Room",
+      "dialogue" : "Backstory",
+      "options" : [
+        "Read Mystery of the Secret Room",
+        "Read Atomic Habits",
+        "Read To Kill a Mocking Bird",
+        "Read Frankenstein"
+      ]}
+  },
+  {
+    "Order room service": {
+      "location" : "Room",
+      "dialogue" : "Backstory",
+      "options" : [
+        "Room service person delivers food and recommends reading Mystery of the Secret Room.. go read?",
+        "Watch tv",
+        "Take a nap",
+        "Go to the bar"
+      ]}
+  },
+  {
+    "Go to the bar": {
+      "location" : "Bar",
+      "dialogue" : "Backstory",
+      "options" : [
+        "Order a drink",
+        "Joke around with the bartender",
+        "Book a room",
+        "Go to the restaurant"
+    ]
+    }
+  },
+  {
+    "Go to the restaurant": {
+      "location" : "Restaurant",
+      "dialogue" : "Backstory",
+      "options" : [
+        "Order food",
+        "Small talk with the waiter",
+        "Book a room",
+        "Go to the bar"
+    ]}
+  },
+  {
+    "Go to the pool": {
+      "location" : "Pool",
+      "dialogue" : "Backstory",
+      "options" : [
+        "Go for a swim",
+        "Relax by the pool",
+        "Go to the bar"
+    ]}
+  },
+  {
+    "Order a drink": {
+      "location" : "Bar",
+      "dialogue" : "Backstory",
+      "options" : [
+        "Small talk",
+        "Play pool",
+        "Play darts",
+        "Change song on the jukebox"
+    ]}
+  },
+  {
+    "Joke around with bartender": {
+      "location" : "Bar",
+      "dialogue" : "Backstory",
+      "options" : [
+        "Learn about bartenders favorite song",
+        "Play pool",
+        "Go to the restaurant",
+        "Change song on the jukebox"
+    ]}
+  },
+  {
+    "Order food": {
+      "location" : "Restaurant",
+      "dialogue" : "Backstory",
+      "options" : [
+        "Small talk with the waiter",
+        "Look at the menu",
+        "Go to the pool"
+    ]}
+  }
+]

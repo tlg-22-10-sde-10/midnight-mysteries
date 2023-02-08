@@ -4,20 +4,22 @@ import com.game.client.session.Session;
 import com.game.location.Location;
 import com.game.menu.RenderStartUI;
 import com.game.menu.StoryTutorial;
+import com.game.model.Dialogue;
 import com.game.npc.Npc;
 import com.game.utils.Ascii;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
+import com.google.gson.reflect.TypeToken;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.lang.reflect.Type;
+import java.util.*;
 
 public class Game {
     private static Scanner userInput = new Scanner(System.in);
-    private static List<Location> locations = new ArrayList<>();
-    private static List<Npc> npcs = new ArrayList<>();
+    private static Map<String, Location> locations = new HashMap<>();
+    private static Map<String, Npc> npcs = new HashMap();
+    private static Map<String, Dialogue> dialogue = new HashMap<>();
 
     public Game() throws InterruptedException {
         main();
@@ -41,14 +43,17 @@ public class Game {
 
         // game start menu
         System.out.print("\033[" + 29 + ";1H");
-        new RenderStartUI(locations, npcs);
+        new RenderStartUI(locations, npcs, dialogue);
     }
 
     private void readFiles() {
         // load external json
         Gson gson = new Gson();
 
-        // get class loader
+
+        //Reader reader = new InputStreamReader
+
+        // 55-60
         try (InputStream inputStream = getClass().getResourceAsStream("/locations.json");
              BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream))) {
 
@@ -56,7 +61,7 @@ public class Game {
             JsonArray array = gson.fromJson(reader, JsonArray.class);
             for (int i = 0; i < array.size(); i++) {
                 Location location = gson.fromJson(array.get(i), Location.class);
-                locations.add(location);
+                locations.put(location.getLocationName(), location);
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -69,7 +74,26 @@ public class Game {
             JsonArray array = gson.fromJson(reader, JsonArray.class);
             for (int i = 0; i < array.size(); i++) {
                 Npc npc = gson.fromJson(array.get(i), Npc.class);
-                npcs.add(npc);
+                npcs.put(npc.getCharacterName(), npc);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        try (InputStream inputStream = getClass().getResourceAsStream("/restaurant.json");
+             BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream))) {
+
+          Type type = new TypeToken<HashMap<String, Dialogue>>(){}.getType();
+//            dialogue = gson.fromJson(reader, type);
+
+            Map<String, Dialogue> newMap = new HashMap<>();
+            // Convert JSON File to Java Object
+            JsonArray array = gson.fromJson(reader, JsonArray.class);
+            for (int i = 0; i < array.size(); i++) {
+                newMap = gson.fromJson(array.get(i), type);
+                for (Map.Entry<String, Dialogue> entry : newMap.entrySet()) {
+                    dialogue.put(entry.getKey(), entry.getValue());
+                }
             }
         } catch (IOException e) {
             e.printStackTrace();

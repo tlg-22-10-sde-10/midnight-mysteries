@@ -15,12 +15,6 @@ public class StoryTutorial {
                 "who all met tragic ends. To solve the case and lay the spirits to rest, you must explore the hotel,\n " +
                 "gather clues, and piece together the events that led to their deaths.";
 
-//        for(int i = 0; i < story.length(); i++) {
-//            System.out.print(ANSI_RED + story.charAt(i) + ANSI_RESET);
-//              Thread.sleep(25L);
-//        }
-//        System.out.println("");
-
 
         Ascii.printTextCenterWithDelay(story);
 

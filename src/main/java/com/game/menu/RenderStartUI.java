@@ -5,23 +5,28 @@ import com.game.inventory.Inventory;
 import com.game.inventory.Item;
 import com.game.inventory.ItemGenerator;
 import com.game.location.Location;
+import com.game.model.Dialogue;
 import com.game.npc.Npc;
 import com.game.player.Player;
 import com.game.utils.InputHelper;
 import com.game.utils.TextParser;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class RenderStartUI {
 
-    private List<Location> locations;
-    private List<Npc> npcs;
+    private Map<String, Location> locations;
+    private Map<String, Npc> npcs;
 
-    public RenderStartUI(List<Location> locations, List<Npc> npcs) {
+    private Map<String, Dialogue> dialogue;
+
+    public RenderStartUI(Map<String, Location> locations, Map<String, Npc> npcs, Map<String, Dialogue> dialogue) {
         this.locations = locations;
         this.npcs = npcs;
+        this.dialogue = dialogue;
         generateStartMenu();
     }
     private void generateStartMenu() {
@@ -35,7 +40,7 @@ public class RenderStartUI {
 
             if (input.equals("start")) {
                 Player player = processPlayerInformation();
-                Session newSession = new Session(player, locations, npcs);
+                Session newSession = new Session(player, locations, npcs, dialogue);
                 MainMenu mainMenu = new MainMenu(newSession, player);
                 ItemGenerator itemGenerator = new ItemGenerator(player);
                 mainMenu.renderMenu();
@@ -64,7 +69,7 @@ public class RenderStartUI {
                     "\n name: " + playerName +
                     "\n\nIs that correct? Yes/No");
 //            String editConfirmation = InputHelper.updateConfirmSelection();
-            String editConfirmation = TextParser.validateInput();
+            String editConfirmation = TextParser.optionalInput();
             if (editConfirmation.equalsIgnoreCase("y") || editConfirmation.equalsIgnoreCase("yes")) {
                 isConfirmed = true;
             }
@@ -75,19 +80,27 @@ public class RenderStartUI {
         return newPlayer;
     }
 
-    public List<Location> getLocations() {
+    public Map<String, Location> getLocations() {
         return locations;
     }
 
-    public void setLocations(List<Location> locations) {
+    public void setLocations(Map<String, Location> locations) {
         this.locations = locations;
     }
 
-    public List<Npc> getNpcs() {
+    public Map<String, Npc> getNpcs() {
         return npcs;
     }
 
-    public void setNpcs(List<Npc> npcs) {
+    public void setNpcs(Map<String, Npc> npcs) {
         this.npcs = npcs;
+    }
+
+    public Map<String, Dialogue> getDialogue() {
+        return dialogue;
+    }
+
+    public void setDialogue(Map<String, Dialogue> dialogue) {
+        this.dialogue = dialogue;
     }
 }

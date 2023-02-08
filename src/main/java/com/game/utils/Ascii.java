@@ -11,6 +11,11 @@ public class Ascii {
     private ColoredPrinter printer = new ColoredPrinter();
 
 
+    // default is 25L
+    private static final long DELAY = 0L;
+
+
+
     public static void printTitleBanner() throws InterruptedException {
 
         String centeredBanner = "       ███▄ ▄███▓    ██▓   ▓█████▄     ███▄    █     ██▓     ▄████     ██░ ██    ▄▄▄█████▓        \n" +
@@ -136,7 +141,7 @@ public class Ascii {
                 ColoredPrinter.print("red", tempChar);
                 if (tempChar != ' ') {
                     try {
-                        Thread.sleep(25L);
+                        Thread.sleep(DELAY);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
