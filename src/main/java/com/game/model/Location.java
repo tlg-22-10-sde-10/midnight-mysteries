@@ -1,6 +1,6 @@
-package com.game.location;
+package com.game.model;
 
-import com.game.inventory.Item;
+import com.game.model.Item;
 
 import java.util.List;
 
