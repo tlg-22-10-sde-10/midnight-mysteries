@@ -67,7 +67,7 @@ public class MainMenu extends Menu {
 
         switch (choice) {
             case "1":
-                String room = "/dialogue.json";
+                String room = "/room.json";
                 Map<String, Dialogue> path = Game.getPath(room);
                 session.setDialogue(path);
                 loadDialogue("Book a room");

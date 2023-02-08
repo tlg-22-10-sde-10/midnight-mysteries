@@ -79,7 +79,7 @@ public class Game {
             e.printStackTrace();
         }
 
-        try (InputStream inputStream = getClass().getResourceAsStream("/dialogue.json");
+        try (InputStream inputStream = getClass().getResourceAsStream("/room.json");
              BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream))) {
 
           Type type = new TypeToken<HashMap<String, Dialogue>>(){}.getType();
