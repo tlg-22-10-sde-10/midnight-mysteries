@@ -97,6 +97,12 @@
     "locationDescription" : "lounge",
     "npc" : "Nothing",
     "locationItems" : []
+  },
+  {
+    "locationName" : "outside bar",
+    "locationDescription" : "outside bar",
+    "npc" : "Nothing",
+    "locationItems" : []
   }
 ]
 

@@ -158,7 +158,7 @@
   },
   {
     "get a drink from the bar": {
-      "location" : "bar",
+      "location" : "Bar",
       "dialogue" : "There is a woman in a red dress sitting at the bar",
       "options" : [
         "order a drink",
@@ -167,7 +167,7 @@
   },
   {
     "make small talk with person at bar": {
-      "location": "bar",
+      "location": "Bar",
       "dialogue": "The person proceeds to tell you that she was at the bar the night when the bar manager died\n she then hands you folded paper.",
       "options": [
         "open the folded paper"
@@ -176,7 +176,7 @@
   },
   {
     "open the folded paper": {
-      "location": "bar",
+      "location": "Bar",
       "dialogue": "The message says if you can solve this riddle, I give you more information about what happen",
       "options": [
         "solve riddle"
@@ -185,10 +185,133 @@
   },
   {
     "solve riddle": {
-      "location": "bar",
-      "dialogue": "A man wakes up, decides he wants to go to the bar. He goes to the bar, orders 4 shots and 3 beers and goes to the bathroom. Comes back from bathroom, orders 3 shots and 4 beers. Drives home, turns off the lights and goes to bed. Next morning, looks out of window, sees something and jumps out of window and kills himself. Why?",
+      "location": "Bar",
+      "dialogue": "For a murder case investigation, police visit a bar. There, the waiter tells that victim was here with his friend.\n They both drank. Within 10 minutes, the victim managed to drink only one glass of wine. On the other hand, his friend drank 5 drinks. \n It was later revealed that all of those drinks were poisoned. How come did the victim's friend not die, who had 5 drinks within 10 minutes? What do you think was poisoned?",
       "options": [
-        "solve riddle"
+        "Ice cubes",
+        "Water",
+        "Wine"
+      ]
+    }
+  },
+  {
+    "Ice cubes": {
+      "location": "Bar",
+      "dialogue": " The woman says 'Ice cubes were poisoned. Because the victim's friend drank so fast, ice cubes didn't melt before he finished the drink. On the other hand, the victim's ice cubes melted as he was slow while drinking.' now go talk to the man by the pool table",
+      "options": [
+        "Talk to man by pool table"
+      ]
+    }
+  },
+  {
+    "Talk to man by pool table": {
+      "location": "Bar",
+      "dialogue": "The man says, 'We were arguing because I ordered a double jack with coke \n but got a single and was still charged for a double. \n After that, manager cell phone and he went outside'",
+      "options": [
+        "continue to talk with person",
+        "go outside to scan the area for clues"
+      ]
+    }
+  },
+  {
+    "continue to talk with person": {
+      "location": "Bar",
+      "dialogue": "The man denies he had anything to do with death of bar manager",
+      "options": [
+        "Go to the bar"
+      ]
+    }
+  },
+
+  {
+    "go outside to scan the area for clues": {
+      "location": "Bar",
+      "dialogue": "It dark out side so you will need your flash light",
+      "options": [
+        "check bush by cliff",
+        "check the unclocked car"
+      ]
+    }
+  },
+  {
+    "check bush by cliff": {
+      "location": "outside bar",
+      "dialogue": "You here a phone ringing by the bush",
+      "options": [
+        "check message on the phone"
+      ]
+    }
+  },
+  {
+    "check message on the phone": {
+      "location": "outside bar",
+      "dialogue": "2085 23151314 120 2085 2118 494 920",
+      "options": [
+        "decrypt message"
+      ]
+    }
+  },
+  {
+    "decrypt message": {
+      "location": "outside bar",
+      "dialogue": "if you can decrypt this message '2085 23151314 120 2085 2118 494 920' you find out how manager died",
+      "options": [
+        "was it the woman at the bar",
+        "the man at the pool table",
+        "manager jump of the cliff"
+      ]
+    }
+  },
+  {
+    "the man at the pool table": {
+      "location": "outside bar",
+      "dialogue": "he seemed suspicious but has nothing to do with the death of the manager",
+      "options": [
+        "was it the woman at the bar",
+        "the man at the pool table",
+        "manager jump off the cliff"
+      ]
+    }
+  },
+  {
+    "manager jump off the cliff": {
+      "location": "outside bar",
+      "dialogue": "not likely, the hotel staff said he would never do something like that",
+      "options": [
+        "was it the woman at the bar",
+        "the man at the pool table",
+        "manager jump of the cliff"
+      ]
+    }
+  },
+  {
+    "was it the woman at the bar": {
+      "location": "outside bar",
+      "dialogue": "the woman poisoned the managers drink. \n He went outside to get a breath of fresh air. \n He passed out by the cliff and fell to hes death",
+      "options": [
+        "Go to the bar"
+      ]
+    }
+  },
+  {
+    "Water": {
+      "location": "Bar",
+      "dialogue": "Sorry but you didnt answer correctly, try again",
+      "options": [
+        "Ice cubes",
+        "Water",
+        "Wine"
+      ]
+    }
+  },
+  {
+    "Wine": {
+      "location": "Bar",
+      "dialogue": "Sorry but you didnt answer correctly, try again",
+      "options": [
+        "Ice cubes",
+        "Water",
+        "Wine"
       ]
     }
   },
