@@ -1,13 +1,9 @@
-package com.game.inventory;
+package com.game.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.game.client.session.Session;
-import com.game.menu.MainMenu;
-import com.game.player.Player;
-import com.game.utils.Ascii;
-import com.sun.tools.javac.Main;
+import com.game.model.Item;
+import com.game.model.Player;
 
-import java.io.File;
 import java.io.InputStream;
 import java.util.*;
 

@@ -1,4 +1,4 @@
-package com.game.npc;
+package com.game.model;
 
 import java.util.List;
 

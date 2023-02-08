@@ -1,9 +1,8 @@
-package com.game.utils;
+package com.game.controller;
 
-import com.game.inventory.ItemGenerator;
-import com.game.player.Player;
+import com.game.controller.Ascii;
+import com.game.controller.ItemGenerator;
 
-import javax.sound.midi.Soundbank;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
@@ -13,7 +12,7 @@ public class TextParser {
 
     public static final List<String> COMMANDS
             = Arrays.asList("help", "exit", "quit", "volume",
-            "mute", "start", "y", "yes", "?", "search", "take","return");
+            "mute","?", "search", "take","return");
 
     public static String validateInput() {
         Scanner scanner = new Scanner(System.in);
@@ -28,7 +27,7 @@ public class TextParser {
             switch (inputText) {
                 case "help":
                 case "?":
-                    Ascii.printHelpMenu();
+                    Ascii.printHelpMenu("");
                     break;
                 case "exit":
                 case "quit":
@@ -44,12 +43,8 @@ public class TextParser {
                     System.out.println("Mute Function");
                     break;
                 case "return":
-                    return "5";
-                case "start":
-                case "y":
-                case "yes":
                 default:
-                    return inputText;
+                    return "5";
             }
 
         } else if (isDigit && inputText.length() == 1 && Pattern.matches("^[1-4]$", Integer.toString(Integer.parseInt(inputText)))) {
@@ -59,9 +54,8 @@ public class TextParser {
         } else if (inputText.contains("look")) {
             ItemGenerator.searchForRandomItem();
         }else {
-            System.out.println("Invalid option");
-            System.out.println("Valid options are: " + COMMANDS.toString());
-            System.out.println("And dialogue options 1-4");
+            Ascii.clearTerminal();
+            Ascii.printHelpMenu("Invalid option!");
             return "-1";
         }
 

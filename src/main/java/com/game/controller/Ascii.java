@@ -1,4 +1,4 @@
-package com.game.utils;
+package com.game.controller;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +12,7 @@ public class Ascii {
 
 
     // default is 25L
-    private static final long DELAY = 0L;
+    private static final long DELAY = 25L;
 
 
 
@@ -217,17 +217,19 @@ public class Ascii {
         return sb.toString();
     }
 
-    public static void printHelpMenu() {
+    public static void printHelpMenu(String warning) {
         clearTerminal();
-        String centerMenu = " ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄ \n" +
+
+        String centerMenu = " " + warning + "\n" +
+                " ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄ \n" +
                 " █                                               █ \n" +
                 " █                                               █ \n" +
                 " █                                               █ \n" +
                 " █   Valid options:                              █ \n" +
                 " █                                               █ \n" +
                 " █      \"help\", \"exit\", \"quit\", \"volume\",        █ \n" +
-                " █       \"mute\", \"start\", \"y\", \"yes\", \"?\",       █ \n" +
-                " █         \"search\", \"take\", \"return\"            █ \n" +
+                " █       \"mute\", \"?\",\"search\", \"take\", \"return\"  █ \n" +
+                " █                                               █ \n" +
                 " █                                               █ \n" +
                 " █   Dialogue options:                           █ \n" +
                 " █                                               █ \n" +
@@ -239,6 +241,8 @@ public class Ascii {
 
         centerMenu = addSpaces(centerMenu);
         ColoredPrinter.print("red", centerMenu);
+
+
     }
 
 }

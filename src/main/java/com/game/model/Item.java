@@ -1,4 +1,4 @@
-package com.game.inventory;
+package com.game.model;
 
 public class Item {
     private String itemName;

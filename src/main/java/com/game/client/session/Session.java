@@ -1,13 +1,10 @@
 package com.game.client.session;
 
-import com.game.location.Location;
+import com.game.model.Location;
 import com.game.model.Dialogue;
-import com.game.npc.Npc;
-import com.game.player.Player;
+import com.game.model.Npc;
+import com.game.model.Player;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Map;
 
 public class Session {

@@ -1,11 +1,11 @@
 package com.game.client;
 
-import com.game.location.Location;
+import com.game.model.Location;
 import com.game.menu.RenderStartUI;
 import com.game.menu.StoryTutorial;
 import com.game.model.Dialogue;
-import com.game.npc.Npc;
-import com.game.utils.Ascii;
+import com.game.model.Npc;
+import com.game.controller.Ascii;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.reflect.TypeToken;

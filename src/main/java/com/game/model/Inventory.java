@@ -1,4 +1,4 @@
-package com.game.inventory;
+package com.game.model;
 
 import java.util.Map;
 
