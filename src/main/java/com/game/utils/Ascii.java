@@ -217,5 +217,29 @@ public class Ascii {
         return sb.toString();
     }
 
+    public static void printHelpMenu() {
+        clearTerminal();
+        String centerMenu = " ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄ \n" +
+                " █                                               █ \n" +
+                " █                                               █ \n" +
+                " █                                               █ \n" +
+                " █   Valid options:                              █ \n" +
+                " █                                               █ \n" +
+                " █      \"help\", \"exit\", \"quit\", \"volume\",        █ \n" +
+                " █       \"mute\", \"start\", \"y\", \"yes\", \"?\",       █ \n" +
+                " █         \"search\", \"take\", \"return\"            █ \n" +
+                " █                                               █ \n" +
+                " █   Dialogue options:                           █ \n" +
+                " █                                               █ \n" +
+                " █      \"1\",\"2\",\"3\",\"4\"                          █ \n" +
+                " █                                               █ \n" +
+                " █                                               █ \n" +
+                " █▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█ \n" +
+                "\t        Type \"return\" to resume";
+
+        centerMenu = addSpaces(centerMenu);
+        ColoredPrinter.print("red", centerMenu);
+    }
+
 }
 

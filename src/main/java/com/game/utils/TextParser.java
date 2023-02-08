@@ -13,7 +13,7 @@ public class TextParser {
 
     public static final List<String> COMMANDS
             = Arrays.asList("help", "exit", "quit", "volume",
-            "mute", "start", "y", "yes", "?", "search", "take");
+            "mute", "start", "y", "yes", "?", "search", "take","return");
 
     public static String validateInput() {
         Scanner scanner = new Scanner(System.in);
@@ -28,11 +28,7 @@ public class TextParser {
             switch (inputText) {
                 case "help":
                 case "?":
-                    Ascii.clearTerminal();
-                    System.out.println("HELP MENU");
-                    System.out.println("Valid options are: " + COMMANDS.toString());
-                    System.out.println("And dialogue options 1-4");
-                    System.out.println("Type 'return' to close help menu");
+                    Ascii.printHelpMenu();
                     break;
                 case "exit":
                 case "quit":
