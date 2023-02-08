@@ -1,8 +1,11 @@
 package com.game.menu;
 
+import com.game.client.Game;
 import com.game.client.session.Session;
 import com.game.inventory.Inventory;
 import com.game.inventory.Item;
+import com.game.inventory.ItemGenerator;
+import com.game.model.Dialogue;
 import com.game.player.Player;
 import com.game.utils.Ascii;
 import com.game.utils.TextParser;
@@ -27,6 +30,7 @@ public class MainMenu extends Menu {
     public void renderMenu() {
         Ascii.clearTerminal();
         loadStartingDialogue();
+        //print
         do {
             mainMenuHeader();
             setSelection(Integer.parseInt(TextParser.validateInput()));
@@ -58,6 +62,38 @@ public class MainMenu extends Menu {
             System.out.println(optionSelect + ") " + option);
             optionSelect++;
         }
+
+        String choice  = TextParser.validateInput();
+
+        switch (choice) {
+            case "1":
+                String room = "/dialogue.json";
+                Map<String, Dialogue> path = Game.getPath(room);
+                session.setDialogue(path);
+                loadDialogue("Book a room");
+                break;
+            case "2":
+                String bar = "/barDialogueTest.json";
+                Map<String, Dialogue> path1 = Game.getPath(bar);
+                session.setDialogue(path1);
+                loadDialogue("Go to the bar");
+                break;
+            case "3":
+                String restaurant = "/restaurant.json";
+                Map<String, Dialogue> path2 = Game.getPath(restaurant);
+                session.setDialogue(path2);
+                loadDialogue("Go to the restaurant");
+                break;
+            case "4":
+                String pool = "/poolPath.json";
+                Map<String, Dialogue> path3 = Game.getPath(pool);
+                session.setDialogue(path3);
+                loadDialogue("Go to the pool");
+                break;
+            default:
+                break;
+        }
+
     }
 
     private void loadDialogue(String option) {

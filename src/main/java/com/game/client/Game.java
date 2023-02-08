@@ -1,6 +1,5 @@
 package com.game.client;
 
-import com.game.client.session.Session;
 import com.game.location.Location;
 import com.game.menu.RenderStartUI;
 import com.game.menu.StoryTutorial;
@@ -99,4 +98,33 @@ public class Game {
             e.printStackTrace();
         }
     }
+
+    public static Map<String, Dialogue> getPath(String path) {
+        Map<String, Dialogue> dialogue1 = new HashMap<>();
+        Gson gson = new Gson();
+
+        try (InputStream inputStream = Game.class.getResourceAsStream(path);
+             BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream))) {
+            Type type = new TypeToken<HashMap<String, Dialogue>>(){}.getType();
+
+            Map<String, Dialogue> newMap = new HashMap<>();
+
+            // Convert JSON File to Java Object
+            JsonArray array = gson.fromJson(reader, JsonArray.class);
+            for (int i = 0; i < array.size(); i++) {
+                newMap = gson.fromJson(array.get(i), type);
+                for (Map.Entry<String, Dialogue> entry : newMap.entrySet()) {
+                    dialogue1.put(entry.getKey(), entry.getValue());
+                }
+            }
+            return dialogue1;
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return dialogue1;
+    }
+
+
 }
