@@ -8,7 +8,7 @@
       "itemDescription" : "a key that can unlock doors",
       "quantity" : 1,
       "isActive" : "false"
-    }] 
+    }]
   },
   {
     "locationName" : "Restaurant",
@@ -19,7 +19,7 @@
       "itemDescription" : "can light up candles",
       "quantity" : 4,
       "isActive" : "false"
-    }] 
+    }]
   },
   {
     "locationName" : "Kitchen",
@@ -30,7 +30,7 @@
       "itemDescription" : "a key that can unlock doors",
       "quantity" : 1,
       "isActive" : "false"
-    }] 
+    }]
   },
   {
     "locationName" : "Room",
@@ -69,15 +69,10 @@
     "locationItems" : []
   },
   {
-    "locationName" : "Kitchen",
-    "locationDescription" : "A fancy kitchen with an office and freezer in the back",
-    "npc" : "Chef",
-    "locationItems" : [{
-      "itemName" : "key",
-      "itemDescription" : "a key to unlock the door",
-      "quantity" : 1,
-      "isActive" : "false"
-    }]
+    "locationName" : "Basement",
+    "locationDescription" : "An old abandoned hotel basement",
+    "npc" : "Nothing",
+    "locationItems" : []
   },
   {
     "locationName" : "Office",

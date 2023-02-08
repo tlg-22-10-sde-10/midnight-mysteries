@@ -127,7 +127,7 @@
   {
     "Office unlocked": {
       "location" : "Office",
-      "dialogue" : "Okay I'm in. Let's see if there's some kind of evidence in the office. The chef was acting pretty suspicious",
+      "dialogue" : "Okay I'm in. \n Let's see if there's some kind of evidence in the office. \n The chef was acting pretty suspicious",
       "options" : [
         "Check the computer",
         "Check the filing cabinet"
@@ -136,7 +136,7 @@
   {
     "Check the computer": {
       "location" : "Office",
-      "dialogue" : "The computer is locked. The only things on the desk are some pens, a cup of coffee, and a sticky note saying 'password hint: the year I became a chef'",
+      "dialogue" : "The computer is locked. The only things on the desk are some pens, a cup of coffee \n and a sticky note saying 'password hint: the year I became a chef'",
       "options" : [
         "Try unlocking computer",
         "Check the filing cabinet"
@@ -206,7 +206,7 @@
   {
     "Computer unlocked": {
       "location" : "Office",
-      "dialogue" : "Nice! I got in. Let's see what I can find on here. There's a couple files on his desktop and an internet browser open",
+      "dialogue" : "Nice! I got in. Let's see what I can find on here. \n There's a couple files on his desktop and an internet browser open",
       "options" : [
         "Open the file named GroceryList.doc",
         "Open the file named HiddenAgenda.doc",
@@ -216,7 +216,7 @@
   {
     "Open the file named GroceryList.doc": {
       "location" : "Office",
-      "dialogue" : "Looks like a couple of grocery items.. but wait, when I scroll to the next page there's this whole plan on killing one of his associates..",
+      "dialogue" : "Looks like a couple of grocery items.. \n but wait, when I scroll to the next page there's this whole plan on killing one of his associates..",
       "options" : [
         "Save the file as evidence",
         "Open the file named HiddenAgenda.doc",
@@ -252,7 +252,7 @@
   {
     "Arrest the chef": {
       "location" : "Office",
-      "dialogue" : "Congratulations on solving the case! Type 'quit' to exit the game or solve try solving the other cases!",
+      "dialogue" : "Congratulations on solving the case! \n Type 'quit' to exit the game or solve try solving the other cases!",
       "options" : [
         "Book a room",
         "Go to the bar",

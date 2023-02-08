@@ -41,18 +41,7 @@ public class MainMenu extends Menu {
         System.out.println("Current Location: " + player.getLocation());
         System.out.println(session.getLocations().get(player.getLocation()).getLocationDescription());
         System.out.print("Inventory: ");
-        Map<String, Item> inventory = player.getPlayerStorage().getStorage();
-        if (inventory.size() == 0) {
-            System.out.println("Empty");
-        }
-        for (Map.Entry<String, Item> item : inventory.entrySet()) {
-            String itemName = item.getKey();
-            System.out.print("[ ");
-            System.out.print(itemName + " ");
-            System.out.print("]");
-        }
-        System.out.println();
-        System.out.println("====================================");
+        player.printPlayerStorage();
     }
 
     private void loadStartingDialogue() {

@@ -24,4 +24,5 @@ public class Inventory {
     public void setStorage(Map<String, Item> storage) {
         this.storage = storage;
     }
+
 }
