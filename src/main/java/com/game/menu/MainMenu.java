@@ -5,7 +5,6 @@ import com.game.inventory.Inventory;
 import com.game.inventory.Item;
 import com.game.player.Player;
 import com.game.utils.Ascii;
-import com.game.utils.InputHelper;
 import com.game.utils.TextParser;
 
 import java.util.ArrayList;
@@ -38,6 +37,7 @@ public class MainMenu extends Menu {
 
     private void mainMenuHeader() {
         System.out.println();
+        System.out.println("====================================");
         System.out.println("Current Location: " + player.getLocation());
         System.out.println(session.getLocations().get(player.getLocation()).getLocationDescription());
         System.out.print("Inventory: ");
@@ -47,8 +47,11 @@ public class MainMenu extends Menu {
         }
         for (Map.Entry<String, Item> item : inventory.entrySet()) {
             String itemName = item.getKey();
-            System.out.println(itemName);
+            System.out.print("[ ");
+            System.out.print(itemName + " ");
+            System.out.print("]");
         }
+        System.out.println();
         System.out.println("====================================");
     }
 
@@ -56,10 +59,6 @@ public class MainMenu extends Menu {
         int optionSelect = 1;
         setOptions(new ArrayList<>());
         String npc = getSession().getLocations().get("Lobby").getNpc();
-
-//        System.out.println("Hello Detective " +player.getPlayerName()+ ". There has been a murder at the bar, " +
-//                "room, pool and restaurant. We need your help in solving these murders. Where would you like to" +
-//                " go first? ");
 
         Ascii.printTextCenterWithDelay("Hello Detective " +player.getPlayerName()+ ". There has been a murder at the bar, " +
                 "room, pool and restaurant.\n We need your help in solving these murders. Where would you like to" +
@@ -86,6 +85,16 @@ public class MainMenu extends Menu {
             System.out.println("Guess the last number to open the safe");
             openSafe();
             return;
+        } else if (option.equals("Try unlocking computer")) {
+            System.out.println("Please enter the password");
+            unlockComputer();
+            return;
+        } else if (option.equals("Take key")) {
+            Item key = getSession().getLocations().get(player.getLocation()).getLocationItems().get(0);
+            player.getPlayerStorage().addToStorage(key);
+        } else if (option.equals("Open the door")) {
+            openDoor();
+            return;
         }
 
         // print options
@@ -95,8 +104,6 @@ public class MainMenu extends Menu {
             System.out.println(optionSelect + ") " + dialogue.get(i));
             optionSelect++;
         }
-
-
     }
 
     private void loadPreviousDialogue() {
@@ -134,8 +141,8 @@ public class MainMenu extends Menu {
         }
     }
     private void openSafe() {
-        int lastDigit = 4;
-        while (getSelection() != 4) {
+        int lastDigit = (int) Math.random() * (4 - 1);
+        while (getSelection() != 3) {
             setSelection(Integer.parseInt(TextParser.validateInput()));
             if (lastDigit == getSelection()) {
                 // string of json key
@@ -144,7 +151,25 @@ public class MainMenu extends Menu {
                 System.out.println("Number didn't work..");
             }
         }
+    }
 
+    private void openDoor() {
+        if (player.getPlayerStorage().getStorage().containsKey("key")) {
+            loadDialogue("Office unlocked");
+        } else {
+            System.out.println("Looks like you need a key to unlock the door. Try searching for one.");
+            loadDialogue("Need key");
+        }
+    }
+
+    private void unlockComputer() {
+        int password = 2012;
+        setSelection(Integer.parseInt(TextParser.optionalInput()));
+        if (password == getSelection()) {
+            loadDialogue("Computer unlocked");
+        } else {
+            loadDialogue("Incorrect password");
+        }
     }
 
     public Session getSession() {

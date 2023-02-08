@@ -67,6 +67,29 @@
     "locationDescription" : "An old creepy room",
     "npc" : "Nothing",
     "locationItems" : []
+  },
+  {
+    "locationName" : "Kitchen",
+    "locationDescription" : "A fancy kitchen with an office and freezer in the back",
+    "npc" : "Chef",
+    "locationItems" : [{
+      "itemName" : "key",
+      "itemDescription" : "a key to unlock the door",
+      "quantity" : 1,
+      "isActive" : "false"
+    }]
+  },
+  {
+    "locationName" : "Office",
+    "locationDescription" : "An ordinary office with a computer and a bunch of paperwork",
+    "npc" : "",
+    "locationItems" : []
+  },
+  {
+    "locationName" : "Freezer",
+    "locationDescription" : "A freezer that holds all the ingredients for the restaurant",
+    "npc" : "",
+    "locationItems" : []
   }
 ]
 

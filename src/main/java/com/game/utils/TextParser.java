@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 
 public class TextParser {
 
-    public static final List<String> COMMANDS = Arrays.asList("help","exit", "quit", "volume", "mute","start","y","yes", "return");
+    public static final List<String> COMMANDS = Arrays.asList("help","exit", "quit", "volume", "mute","start", "return");
 
     public static String validateInput() {
         Scanner scanner = new Scanner(System.in);
@@ -43,8 +43,6 @@ public class TextParser {
                 case "return":
                     return "5";
                 case "start":
-                case "y":
-                case "yes":
                 default:
                     return inputText;
             }
@@ -60,7 +58,6 @@ public class TextParser {
 
         return "-1";
     }
-
 
     public static String optionalInput() {
         Scanner scanner = new Scanner(System.in);

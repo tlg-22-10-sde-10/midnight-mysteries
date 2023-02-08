@@ -1,0 +1,262 @@
+[
+  {
+    "Book a room": {
+      "location" : "Room",
+      "dialogue" : "Here you are, sir,\n As you may know, we've received some complaints from guests about strange occurrences in this specific room.\n We've done our best to address the concerns of our guests, but the strange events seem to persist. \n We're hoping that you'll be able to shed some light on the matter.",
+      "options" : [
+        "Go to the restaurant"
+      ]
+    }
+  },
+  {
+    "Go to the bar": {
+      "location" : "Bar",
+      "dialogue" : "Backstory",
+      "options" : [
+        "Go to the restaurant"
+      ]
+    }
+  },
+  {
+    "Go to the pool": {
+      "location" : "Pool",
+      "dialogue" : "Backstory",
+      "options" : [
+        "Go to the restaurant"
+      ]}
+  },
+  {
+    "Go to the restaurant": {
+      "location" : "Restaurant",
+      "dialogue" : "You are greeted by the friendly waiter",
+      "options" : [
+        "Order food",
+        "Small talk with the waiter"
+      ]}
+  },
+  {
+    "Order food": {
+      "location" : "Restaurant",
+      "dialogue" : "The food comes out and something smells off...",
+      "options" : [
+        "Small talk with the waiter"
+      ]}
+  },
+  {
+    "Small talk with the waiter": {
+      "location" : "Restaurant",
+      "dialogue" : "You learn that the chef has been acting strange recently. He's been having mood swings and seems paranoid",
+      "options" : [
+        "Go to the kitchen",
+        "Search the restaurant"
+      ]}
+  },
+  {
+    "Search the restaurant": {
+      "location" : "Restaurant",
+      "dialogue" : "Maybe I'll find something useful..",
+      "options" : [
+        "Go to the kitchen"
+      ]}
+  },
+  {
+    "Go to the kitchen": {
+      "location" : "Kitchen",
+      "dialogue" : "You see the Chef preparing a dish and mumbling to himself. He looks like he hasn't slept in days",
+      "options" : [
+        "Talk to the chef",
+        "Go to the office",
+        "Search the kitchen"
+      ]}
+  },
+  {
+    "Talk to the chef": {
+      "location" : "Kitchen",
+      "dialogue" : "I'm not sure what you're looking for, detective. I've been busy in the kitchen all day. \n Maybe you should try searching the office, I heard some strange noises coming from there earlier.",
+      "options" : [
+        "Go to the office",
+        "Search the kitchen"
+      ]}
+  },
+  {
+    "Go to the office": {
+      "location" : "Office",
+      "dialogue" : "Looks like the door to the Chef's office is closed..",
+      "options" : [
+        "Open the door",
+        "Search the kitchen"
+      ]}
+  },
+  {
+    "Search the kitchen": {
+      "location" : "Kitchen",
+      "dialogue" : "Looks like there's a key on the shelf.. might be useful",
+      "options" : [
+        "Take key",
+        "Go to the office",
+        "Talk to the chef"
+      ]}
+  },
+  {
+    "Take key": {
+      "location" : "Kitchen",
+      "dialogue" : "You picked up the key",
+      "options" : [
+        "Go to the office",
+        "Talk to the chef"
+      ]}
+  },
+  {
+    "Open the door": {
+      "location" : "Office",
+      "dialogue" : "Looks like you need a key to unlock the door. Try searching for one",
+      "options" : [
+        "Open the door",
+        "Search the kitchen"
+      ]}
+  },
+  {
+    "Need key": {
+      "location" : "Office",
+      "dialogue" : "Looks like you need a key to unlock the door. Try searching for one",
+      "options" : [
+        "Open the door",
+        "Search the kitchen"
+      ]}
+  },
+  {
+    "Office unlocked": {
+      "location" : "Office",
+      "dialogue" : "Okay I'm in. Let's see if there's some kind of evidence in the office. The chef was acting pretty suspicious",
+      "options" : [
+        "Check the computer",
+        "Check the filing cabinet"
+      ]}
+  },
+  {
+    "Check the computer": {
+      "location" : "Office",
+      "dialogue" : "The computer is locked. The only things on the desk are some pens, a cup of coffee, and a sticky note saying 'password hint: the year I became a chef'",
+      "options" : [
+        "Try unlocking computer",
+        "Check the filing cabinet"
+      ]}
+  },
+  {
+    "Try unlocking computer": {
+      "location" : "Office",
+      "dialogue" : "I wonder what the password is..",
+      "options" : [
+        "Try unlocking computer",
+        "Check the computer",
+        "Check filing cabinet"
+      ]}
+  },
+  {
+    "Incorrect password": {
+      "location" : "Office",
+      "dialogue" : "Password didn't work.. ",
+      "options" : [
+        "Try unlocking computer",
+        "Check the computer",
+        "Check filing cabinet"
+      ]}
+  },
+  {
+    "Check the filing cabinet": {
+      "location" : "Office",
+      "dialogue" : "There are a bunch of folders with titles on them'",
+      "options" : [
+        "Check the folder titled 'Chef'",
+        "Check the folder titled 'Expenses'",
+        "Check the folder titled 'Misc'",
+        "Check the computer"
+      ]}
+  },
+  {
+    "Check the folder titled 'Chef'": {
+      "location" : "Office",
+      "dialogue" : "Just a certificate of a chef license from 2012",
+      "options" : [
+        "Check the folder titled 'Expenses'",
+        "Check the folder titled 'Misc'",
+        "Check the computer"
+      ]}
+  },
+  {
+    "Check the folder titled 'Expenses'": {
+      "location" : "Office",
+      "dialogue" : "Some tax information from last year - 2021, Expense sheets, Inventory of 70 ingredients",
+      "options" : [
+        "Check the folder titled 'Chef'",
+        "Check the folder titled 'Misc'",
+        "Check the computer"
+      ]}
+  },
+  {
+    "Check the folder titled 'Misc'": {
+      "location" : "Office",
+      "dialogue" : "Just some random documents",
+      "options" : [
+        "Check the folder titled 'Chef'",
+        "Check the folder titled 'Expenses'",
+        "Check the computer"
+      ]}
+  },
+  {
+    "Computer unlocked": {
+      "location" : "Office",
+      "dialogue" : "Nice! I got in. Let's see what I can find on here. There's a couple files on his desktop and an internet browser open",
+      "options" : [
+        "Open the file named GroceryList.doc",
+        "Open the file named HiddenAgenda.doc",
+        "Check the opened browser"
+      ]}
+  },
+  {
+    "Open the file named GroceryList.doc": {
+      "location" : "Office",
+      "dialogue" : "Looks like a couple of grocery items.. but wait, when I scroll to the next page there's this whole plan on killing one of his associates..",
+      "options" : [
+        "Save the file as evidence",
+        "Open the file named HiddenAgenda.doc",
+        "Check the opened browser"
+      ]}
+  },
+  {
+    "Open the file named HiddenAgenda.doc": {
+      "location" : "Office",
+      "dialogue" : "Looks like it's just a plan for a surprise birthday party for the chef's wife",
+      "options" : [
+        "Open the file named GroceryList.doc",
+        "Check the opened browser"
+      ]}
+  },
+  {
+    "Check the opened browser": {
+      "location" : "Office",
+      "dialogue" : "The browser was on a youtube video titled 'How to get away with murder'.. interesting..",
+      "options" : [
+        "Open the file named GroceryList.doc",
+        "Open the file named HiddenAgenda.doc"
+      ]}
+  },
+  {
+    "Save the file as evidence": {
+      "location" : "Office",
+      "dialogue" : "We have evidence to make an arrest",
+      "options" : [
+        "Arrest the chef"
+      ]}
+  },
+  {
+    "Arrest the chef": {
+      "location" : "Office",
+      "dialogue" : "Congratulations on solving the case! Type 'quit' to exit the game or solve try solving the other cases!",
+      "options" : [
+        "Book a room",
+        "Go to the bar",
+        "Go to the pool"
+      ]}
+  }
+]

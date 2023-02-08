@@ -67,7 +67,7 @@ public class RenderStartUI {
                     "\n name: " + playerName +
                     "\n\nIs that correct? Yes/No");
 //            String editConfirmation = InputHelper.updateConfirmSelection();
-            String editConfirmation = TextParser.validateInput();
+            String editConfirmation = TextParser.optionalInput();
             if (editConfirmation.equalsIgnoreCase("y") || editConfirmation.equalsIgnoreCase("yes")) {
                 isConfirmed = true;
             }
