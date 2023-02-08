@@ -56,6 +56,8 @@ public class TextParser {
             return inputText;
         } else if(inputText.contains("take")){
             ItemGenerator.takeItem(inputText);
+        } else if (inputText.contains("look")) {
+            ItemGenerator.searchForRandomItem();
         }else {
             System.out.println("Invalid option");
             System.out.println("Valid options are: " + COMMANDS.toString());
