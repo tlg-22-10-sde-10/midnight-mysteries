@@ -130,6 +130,16 @@
       "dialogue" : "Okay I'm in. \n Let's see if there's some kind of evidence in the office. \n The chef was acting pretty suspicious",
       "options" : [
         "Check the computer",
+        "Check the filing cabinet",
+        "Look around the office for clues"
+      ]}
+  },
+  {
+    "Look around the office for clues": {
+      "location" : "Office",
+      "dialogue" : "I see a calendar with the date February 12, 2023 circled. \nThere's a clock that looks like it's stuck at 3:00pm. \nThere's a paper with a list of the chef's employees and one of the name's is crossed out",
+      "options" : [
+        "Check the computer",
         "Check the filing cabinet"
       ]}
   },
@@ -165,11 +175,49 @@
   {
     "Check the filing cabinet": {
       "location" : "Office",
-      "dialogue" : "There are a bunch of folders with titles on them'",
+      "dialogue" : "You've found a locked filing cabinet, and you need to find the combination to unlock it. \n The only clue you have is a cryptic message: \"The combination lies in the shadows, where the hands of time point to the darkest hour.\" \n To unlock the cabinet, you must select the correct combination from the following four choices:",
+      "options" : [
+        "1:00pm",
+        "3:00pm",
+        "5:00pm",
+        "7:00pm"
+      ]}
+  },
+  {
+    "3:00pm": {
+      "location" : "Office",
+      "dialogue" : "The combination is correct. The filing cabinet has been unlocked. \n There are a bunch of folders with titles on them",
       "options" : [
         "Check the folder titled 'Chef'",
         "Check the folder titled 'Expenses'",
         "Check the folder titled 'Misc'",
+        "Check the computer"
+      ]}
+  },
+  {
+    "1:00pm": {
+      "location" : "Office",
+      "dialogue" : "The combination didn't work..",
+      "options" : [
+        "Check the filing cabinet",
+        "Check the computer"
+      ]}
+  },
+  {
+    "5:00pm": {
+      "location" : "Office",
+      "dialogue" : "TThe combination didn't work..",
+      "options" : [
+        "Check the filing cabinet",
+        "Check the computer"
+      ]}
+  },
+  {
+    "7:00pm": {
+      "location" : "Office",
+      "dialogue" : "The combination didn't work..",
+      "options" : [
+        "Check the filing cabinet",
         "Check the computer"
       ]}
   },
