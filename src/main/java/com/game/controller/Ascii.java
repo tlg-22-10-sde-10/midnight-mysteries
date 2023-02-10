@@ -12,7 +12,7 @@ public class Ascii {
     private ColoredPrinter printer = new ColoredPrinter();
 
     // default is 25L
-    private static final long DELAY = 0L;
+    private static final long DELAY = 25L;
 
     public static void printTitleBanner() throws InterruptedException {
 
