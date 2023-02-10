@@ -6,7 +6,6 @@
       "options" : [
         "play a game of pool",
         "get a drink from the bar",
-        "make small talk with person at bar",
         "go to the cigar lounge"
       ]
     }
@@ -146,17 +145,6 @@
       ]}
   },
   {
-    "ask person near table if they would like to play a game of pool": {
-      "location" : "bar/pool table area",
-      "dialogue" : "backstory",
-      "options" : [
-        "grab a pool stick",
-        "deposit change into pool table",
-        "ask person near table if they would like to play a game",
-        "pick up envelope laying underneath the pool table"
-      ]}
-  },
-  {
     "get a drink from the bar": {
       "location" : "Bar",
       "dialogue" : "There is a woman in a red dress sitting at the bar",
@@ -166,9 +154,56 @@
       ]}
   },
   {
+    "order a drink": {
+      "location" : "Bar",
+      "dialogue" : "We only have jack and coke, corona, miller light, coors light",
+      "options" : [
+        "jack and coke",
+        "corona",
+        "miller light",
+        "coors light"
+      ]}
+  },
+  {
+    "jack and coke": {
+      "location" : "Bar",
+      "dialogue" : "Bartender says, the person at the cigar is lounge an employee that was working the night Bar manager died",
+      "options" : [
+        "go to the cigar lounge",
+        "play a game of pool"
+      ]}
+  },
+  {
+    "corona": {
+      "location" : "Bar",
+      "dialogue" : "Bartender says, the person at the cigar lounge is an employee that was working the night Bar manager died",
+      "options" : [
+        "go to the cigar lounge",
+        "play a game of pool"
+      ]}
+  },
+  {
+    "miller light": {
+      "location" : "Bar",
+      "dialogue" : "Bartender says, the person at the cigar lounge is an employee that was working the night Bar manager died",
+      "options" : [
+        "go to the cigar lounge",
+        "play a game of pool"
+      ]}
+  },
+  {
+    "coors light": {
+      "location" : "Bar",
+      "dialogue" : "Bartender says, the person at the cigar lounge is an employee that was working the night Bar manager died",
+      "options" : [
+        "go to the cigar lounge",
+        "play a game of pool"
+      ]}
+  },
+  {
     "make small talk with person at bar": {
       "location": "Bar",
-      "dialogue": "The person proceeds to tell you that she was at the bar the night when the bar manager died\n she then hands you folded paper.",
+      "dialogue": "The women proceeds to tell you that she was at the bar the night when the bar manager died\n she then hands you folded paper.",
       "options": [
         "open the folded paper"
       ]
@@ -177,7 +212,7 @@
   {
     "open the folded paper": {
       "location": "Bar",
-      "dialogue": "The message says if you can solve this riddle, I give you more information about what happen",
+      "dialogue": "The message says if you can solve this riddle, I will give you more information about what happen",
       "options": [
         "solve riddle"
       ]
@@ -197,7 +232,7 @@
   {
     "Ice cubes": {
       "location": "Bar",
-      "dialogue": " The woman says 'Ice cubes were poisoned. Because the victim's friend drank so fast, ice cubes didn't melt before he finished the drink. On the other hand, the victim's ice cubes melted as he was slow while drinking.' now go talk to the man by the pool table",
+      "dialogue": " The woman says 'Ice cubes were poisoned. Because the victim's friend drank so fast, ice cubes didn't melt before he finished the drink.\n On the other hand, the victim's ice cubes melted as he was slow while drinking.' \n now go talk to the man by the pool table",
       "options": [
         "Talk to man by pool table"
       ]
@@ -206,7 +241,7 @@
   {
     "Talk to man by pool table": {
       "location": "Bar",
-      "dialogue": "The man says, 'We were arguing because I ordered a double jack with coke \n but got a single and was still charged for a double. \n After that, manager cell phone and he went outside'",
+      "dialogue": "The man says, 'We were arguing because I ordered a double jack with coke \n but got a single and was still charged for a double. \n After that, manager cell phone rang and he went outside'",
       "options": [
         "continue to talk with person",
         "go outside to scan the area for clues"
@@ -218,25 +253,136 @@
       "location": "Bar",
       "dialogue": "The man denies he had anything to do with death of bar manager",
       "options": [
-        "Go to the bar"
+        "go outside to scan the area for clues"
       ]
     }
   },
-
   {
     "go outside to scan the area for clues": {
       "location": "Bar",
-      "dialogue": "It dark out side so you will need your flash light",
+      "dialogue": "You hear a ringing of some sort but you can't tell where it is coming from.",
       "options": [
         "check bush by cliff",
-        "check the unclocked car"
+        "check the car"
+      ]
+    }
+  },
+  {
+    "check the car": {
+      "location": "outside bar",
+      "dialogue": "The car is locked and there is dim light coming from underneath a jacket in the passenger side. Looks \n like its the bar manager's car and it was never towed",
+      "options": [
+        "break the window to get in the vehicle",
+        "try to guess the code to keyless entry pad"
+      ]
+    }
+  },
+  {
+    "break the window to get in the vehicle": {
+      "location": "outside bar",
+      "dialogue": "You cut yourself pretty bad. You'll need to go to hospital and try again another day to solve the murders",
+      "options": [
+
+      ]
+    }
+  },
+  {
+    "try to guess the code to keyless entry pad": {
+      "location": "outside bar",
+      "dialogue": "the combo to the car is in this message, it originated some 2,000 years ago, \n when Celtic people in Europe celebrated the end of the harvest \n and the start of a new year in a festival called Samhain (pronounced 'sow-win')",
+      "options": [
+        "guess the combo"
+      ]
+    }
+  },
+  {
+    "guess the combo": {
+      "location": "outside bar",
+      "dialogue": "the combo to the car is in this message, it originated some 2,000 years ago, \n when Celtic people in Europe celebrated the end of the harvest \n and the start of a new year in a festival called Samhain (pronounced 'sow-win')",
+      "options": [
+        "guess the combo"
+      ]
+    }
+  },
+  {
+    "Door unlocked": {
+      "location": "outside bar",
+      "dialogue": "The car is unclocked",
+      "options": [
+        "look underneath the jacket"
+      ]
+    }
+  },
+  {
+    "look underneath the jacket": {
+      "location": "outside bar",
+      "dialogue": "there is a small flash light and a pack of cigarettes",
+      "options": [
+        "continue to search car",
+        "check bush by cliff"
+      ]
+    }
+  },
+  {
+    "continue to search car": {
+      "location": "outside bar",
+      "dialogue": "there is a locked briefcase in backseat and it looks like it takes a 4 digit combo.",
+      "options": [
+        "try to unlock briefcase",
+        "check bush by cliff"
+      ]
+    }
+  },
+  {
+    "try to unlock briefcase": {
+      "location": "outside bar",
+      "dialogue": "there is a locked briefcase in backseat and it looks like it takes a 4 digit combo. \n First three digits are stuck in place you'll need to guess last digit",
+      "options": [
+        "try to unlock briefcase"
+      ]
+    }
+  },
+  {
+    "Briefcase unlocked": {
+      "location": "outside bar",
+      "dialogue": "briefcase is empty",
+      "options": [
+        "check trunk of the car",
+        "check bush by cliff"
+      ]
+    }
+  },
+  {
+    "check trunk of the car": {
+      "location": "outside bar",
+      "dialogue": "nothing in the trunk but now you can hear the ringing again",
+      "options": [
+        "check bush by cliff"
+      ]
+    }
+  },
+  {
+    "incorrect combo to briefcase": {
+      "location": "outside bar",
+      "dialogue": "Try again",
+      "options": [
+        "try to unlock briefcase"
+      ]
+    }
+  },
+  {
+    "Incorrect combo": {
+      "location": "outside bar",
+      "dialogue": "the combo to the car is in this message, it originated some 2,000 years ago, \n when Celtic people in Europe celebrated the end of the harvest \n and the start of a new year in a festival called Samhain (pronounced 'sow-win')",
+      "options": [
+        "try to guess the code to keyless entry pad"
       ]
     }
   },
   {
     "check bush by cliff": {
       "location": "outside bar",
-      "dialogue": "You here a phone ringing by the bush",
+      "dialogue": "You hear a phone ringing by the bush",
       "options": [
         "check message on the phone"
       ]
@@ -245,20 +391,36 @@
   {
     "check message on the phone": {
       "location": "outside bar",
-      "dialogue": "2085 23151314 120 2085 2118 494 920",
+      "dialogue": "20-8-5 23-15-13-14 1-20 20-8-5 2-11-8 4-9-4 9-20",
       "options": [
-        "decrypt message"
+        "decrypt this message"
       ]
     }
   },
   {
-    "decrypt message": {
+    "decrypt this message": {
       "location": "outside bar",
-      "dialogue": "if you can decrypt this message '2085 23151314 120 2085 2118 494 920' you find out how manager died",
+      "dialogue": "if you can decrypt this message '20-8-5 23-15-13-1-14 1-20 20-8-5 2-1-18 4-9-4 9-20' you will find out how the manager died",
       "options": [
-        "was it the woman at the bar",
-        "the man at the pool table",
-        "manager jump of the cliff"
+        "decrypt this message"
+      ]
+    }
+  },
+  {
+    "You decrypted the message": {
+      "location": "outside bar",
+      "dialogue": "the woman poisoned the managers drink. \n He went outside to get a breath of fresh air. \n He passed out by the cliff and fell to he's death",
+      "options": [
+
+      ]
+    }
+  },
+  {
+    "Incorrect, try again": {
+      "location": "outside bar",
+      "dialogue": "if you can decrypt this message '20-8-5 23-15-13-1-14 1-20 20-8-5 2-1-18 4-9-4 9-20' you will find out how the manager died",
+      "options": [
+        "decrypt this message"
       ]
     }
   },
@@ -285,11 +447,11 @@
     }
   },
   {
-    "was it the woman at the bar": {
+    "The woman at the bar did it": {
       "location": "outside bar",
-      "dialogue": "the woman poisoned the managers drink. \n He went outside to get a breath of fresh air. \n He passed out by the cliff and fell to hes death",
+      "dialogue": "the woman poisoned the managers drink. \n He went outside to get a breath of fresh air. \n He passed out by the cliff and fell to he's death",
       "options": [
-        "Go to the bar"
+
       ]
     }
   },
@@ -318,12 +480,19 @@
   {
     "go to the cigar lounge": {
       "location": "cigar lounge",
-      "dialogue": "backstory",
+      "dialogue": "The bar employee is sitting on the couch reading a book and smoking a cigar",
       "options": [
-        "grab a pool stick",
-        "deposit change into pool table",
-        "ask person near table if they would like to play a game",
-        "pick up envelope laying underneath pool table"
+          "talk with bar employee"
+      ]
+    }
+  },
+  {
+    "talk with bar employee": {
+      "location": "cigar lounge",
+      "dialogue": "The bar employee said she already spoke to the police and has nothing more to say",
+      "options": [
+        "Talk to man by pool table",
+        "go outside to scan the area for clues"
       ]
     }
   }

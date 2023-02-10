@@ -16,6 +16,7 @@ public class MainMenu extends Menu {
     protected Session session;
     protected Player player;
     protected int selection;
+    protected String strSelection;
     private int savedSelection;
     private List<String> options;
 
@@ -120,6 +121,18 @@ public class MainMenu extends Menu {
         } else if (option.equals("Open the door")) {
             openDoor();
             return;
+        } else if (option.equals("decrypt this message")) {
+            decryptMessage();
+            return;
+        } else if (option.equals("try to guess the code to keyless entry pad")) {
+            unlockCar();
+            return;
+        } else if (option.equals("try to unlock briefcase")) {
+            unlockBriefCase();
+            return;
+        } else if (option.equals("break the window to get in the vehicle")) {
+            Ascii.printExitBanner();
+            loadStartingDialogue();
         }
 
         // print options
@@ -207,6 +220,41 @@ public class MainMenu extends Menu {
         }
     }
 
+    private void unlockBriefCase() {
+        int lastDigit = ((int) (Math.random()*(3 - 1))) + 1;
+        setSelection(-1);
+        while (getSelection() != lastDigit) {
+            setSelection(Integer.parseInt(TextParser.optionalInput()));
+            if (lastDigit == getSelection()) {
+                loadDialogue("Briefcase unlocked");
+            } else {
+                loadDialogue("incorrect combo to briefcase");
+            }
+        }
+    }
+
+    private void unlockCar() {
+        int combo = 1031;
+        setSelection(Integer.parseInt(TextParser.optionalInput()));
+        if(combo == getSelection()) {
+            loadDialogue("Door unlocked");
+        } else {
+            loadDialogue("Incorrect combo");
+        }
+    }
+
+    private void decryptMessage() {
+        String decryptedMessage = "the woman at the bar did it";
+        setStrSelection(TextParser.optionalInput().toLowerCase());
+        if (decryptedMessage.equals(getStrSelection())) {
+            loadDialogue("You decrypted the message");
+            System.out.println("Great job you solved the mystery. Now go back to lobby and solve more cases");
+            loadStartingDialogue();
+        } else {
+            loadDialogue("Incorrect, try again");
+        }
+    }
+
     public Session getSession() {
         return session;
     }
@@ -229,6 +277,14 @@ public class MainMenu extends Menu {
 
     public void setSelection(int selection) {
         this.selection = selection;
+    }
+
+    public String getStrSelection() {
+        return this.strSelection;
+    }
+
+    public void setStrSelection(String strSelection) {
+        this.strSelection = strSelection;
     }
 
     public List<String> getOptions() {
