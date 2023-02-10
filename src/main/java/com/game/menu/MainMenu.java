@@ -2,6 +2,7 @@ package com.game.menu;
 
 import com.game.client.Game;
 import com.game.client.session.Session;
+import com.game.controller.GamePuzzles;
 import com.game.model.Item;
 import com.game.model.Dialogue;
 import com.game.model.Player;
@@ -9,6 +10,7 @@ import com.game.controller.Ascii;
 import com.game.controller.TextParser;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -95,6 +97,9 @@ public class MainMenu {
     }
 
     private void loadDialogue(String option) {
+
+        option = GamePuzzles.delegatePuzzle(option);
+
         currentScene = option;
         int optionSelect = 1;
         String currentLocation = getSession().getDialogue().get(option).getLocation();
@@ -111,6 +116,12 @@ public class MainMenu {
 
         // print options
         List<String> dialogue = getSession().getDialogue().get(option).getOptions();
+
+
+        // shuffle dialogue options
+        // uncomment for release v1.3
+//        Collections.shuffle(dialogue);
+
         for (int i = 0; i < dialogue.size(); i++) {
             getOptions().add(dialogue.get(i));
             System.out.println(optionSelect + ") " + dialogue.get(i));
@@ -186,7 +197,7 @@ public class MainMenu {
     }
 
     private void openSafe() {
-        int lastDigit = ((int) (Math.random()*(5 - 1))) + 1;
+        int lastDigit = ((int) (Math.random() * (5 - 1))) + 1;
         setSelection(-1);
         while (getSelection() != lastDigit) {
             setSelection(Integer.parseInt(TextParser.validateInput()));
