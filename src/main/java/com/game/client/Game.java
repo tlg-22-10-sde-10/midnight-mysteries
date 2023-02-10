@@ -90,25 +90,6 @@ public class Game {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-        try (InputStream inputStream = getClass().getResourceAsStream("/room.json");
-             BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream))) {
-
-          Type type = new TypeToken<HashMap<String, Dialogue>>(){}.getType();
-//            dialogue = gson.fromJson(reader, type);
-
-            Map<String, Dialogue> newMap = new HashMap<>();
-            // Convert JSON File to Java Object
-            JsonArray array = gson.fromJson(reader, JsonArray.class);
-            for (int i = 0; i < array.size(); i++) {
-                newMap = gson.fromJson(array.get(i), type);
-                for (Map.Entry<String, Dialogue> entry : newMap.entrySet()) {
-                    dialogue.put(entry.getKey(), entry.getValue());
-                }
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
     public static Map<String, Dialogue> getPath(String path) {

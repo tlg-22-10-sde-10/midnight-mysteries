@@ -14,7 +14,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
-public class MainMenu extends Menu {
+public class MainMenu {
     protected Session session;
     protected Player player;
     protected int selection;
@@ -27,21 +27,19 @@ public class MainMenu extends Menu {
         this.session = session;
         this.player = player;
     }
-
-    @Override
     public void renderMenu() {
         Ascii.clearTerminal();
         loadStartingDialogue();
         //print
         do {
-            mainMenuHeader();
+            playerStatus();
             setSelection(Integer.parseInt(TextParser.validateInput()));
             processSelection();
         } while (getSelection() != 0);
 
     }
 
-    private void mainMenuHeader() {
+    private void playerStatus() {
         System.out.println();
         System.out.println("====================================");
         System.out.println("Current Location: " + player.getLocation());
@@ -55,7 +53,7 @@ public class MainMenu extends Menu {
         setOptions(new ArrayList<>());
         String npc = getSession().getLocations().get("Lobby").getNpc();
 
-        Ascii.printTextCenterWithDelay("Hello Detective " + player.getPlayerName() + ". There has been a murder at the bar, " +
+        Ascii.printTextCenterWithDelay(npc + ": Hello Detective " + player.getPlayerName() + ". There has been a murder at the bar, " +
                 "room, pool and restaurant.\n We need your help in solving these murders. Where would you like to" +
                 " go first? ");
 
@@ -103,29 +101,18 @@ public class MainMenu extends Menu {
         option = GamePuzzles.delegatePuzzle(option);
 
         currentScene = option;
-        Ascii.clearTerminal();
         int optionSelect = 1;
+        String currentLocation = getSession().getDialogue().get(option).getLocation();
+        String sceneDialogue = getSession().getDialogue().get(option).getDialogue();
+
+        Ascii.clearTerminal();
+
         setOptions(new ArrayList<>());
-        player.setLocation(getSession().getDialogue().get(option).getLocation());
+        player.setLocation(currentLocation);
+        Ascii.printTextCenterWithDelay(sceneDialogue);
 
-
-        Ascii.printTextCenterWithDelay(getSession().getDialogue().get(option).getDialogue());
-
-        if (option.equals("Try opening the safe")) {
-            System.out.println("Guess the last number to open the safe");
-            openSafe();
-            return;
-        } else if (option.equals("Try unlocking computer")) {
-            System.out.println("Please enter the password");
-            unlockComputer();
-            return;
-        } else if (option.equals("Take key")) {
-            Item key = getSession().getLocations().get(player.getLocation()).getLocationItems().get(0);
-            player.getPlayerStorage().addToStorage(key);
-        } else if (option.equals("Open the door")) {
-            openDoor();
-            return;
-        }
+        if (puzzleCheck(option)) {return;}
+        changeStory(option);
 
         // print options
         List<String> dialogue = getSession().getDialogue().get(option).getOptions();
@@ -141,21 +128,7 @@ public class MainMenu extends Menu {
             optionSelect++;
         }
     }
-
-    private void loadPreviousDialogue() {
-//        Ascii.clearTerminal();
-//        int optionSelect = 1;
-//        // print previous options after closing help menu
-////        for (String dialogueOption : getOptions()) {
-////            System.out.println(optionSelect + ") " + dialogueOption);
-////            optionSelect++;
-////        }
-
-        loadDialogue(currentScene);
-    }
-
     private void processSelection() {
-
 
         if (getSelection() != -1 || getSelection() != 5) setSavedSelection(getSelection());
 
@@ -178,11 +151,49 @@ public class MainMenu extends Menu {
                     Ascii.clearTerminal();
                     loadStartingDialogue();
                 } else {
-                    loadPreviousDialogue();
+                    loadDialogue(currentScene);
                 }
             default:
                 break;
         }
+    }
+
+    private void changeStory(String option) {
+        switch (option) {
+            case "Book a room":
+                session.setDialogue(Game.getPath("/room.json"));
+                break;
+            case "Go to the bar":
+                session.setDialogue(Game.getPath("/bar.json"));
+                break;
+            case "Go to the restaurant":
+                session.setDialogue(Game.getPath("/restaurant.json"));
+                break;
+            case "Go to the pool":
+                session.setDialogue(Game.getPath("/pool.json"));
+                break;
+            default:
+                break;
+        }
+    }
+    private boolean puzzleCheck(String option) {
+        boolean isPuzzle = false;
+        if (option.equals("Try opening the safe")) {
+            System.out.println("Guess the last number to open the safe");
+            openSafe();
+            isPuzzle = true;
+        } else if (option.equals("Try unlocking computer")) {
+            System.out.println("Please enter the password");
+            unlockComputer();
+            isPuzzle = true;
+        } else if (option.equals("Take key")) {
+            Item key = getSession().getLocations().get(player.getLocation()).getLocationItems().get(0);
+            player.getPlayerStorage().addToStorage(key);
+        } else if (option.equals("Open the door")) {
+            openDoor();
+            isPuzzle = true;
+        }
+        return isPuzzle;
     }
 
     private void openSafe() {
@@ -218,43 +229,14 @@ public class MainMenu extends Menu {
         }
     }
 
-    public Session getSession() {
-        return session;
-    }
-
-    public void setSession(Session session) {
-        this.session = session;
-    }
-
-    public Player getPlayer() {
-        return player;
-    }
-
-    public void setPlayer(Player player) {
-        this.player = player;
-    }
-
-    public int getSelection() {
-        return selection;
-    }
-
-    public void setSelection(int selection) {
-        this.selection = selection;
-    }
-
-    public List<String> getOptions() {
-        return options;
-    }
-
-    public void setOptions(List<String> options) {
-        this.options = options;
-    }
-
-    public int getSavedSelection() {
-        return savedSelection;
-    }
-
-    public void setSavedSelection(int savedSelection) {
-        this.savedSelection = savedSelection;
-    }
+    public Session getSession() {return session;}
+    public void setSession(Session session) {this.session = session;}
+    public Player getPlayer() {return player;}
+    public void setPlayer(Player player) {this.player = player;}
+    public int getSelection() {return selection;}
+    public void setSelection(int selection) {this.selection = selection;}
+    public List<String> getOptions() {return options;}
+    public void setOptions(List<String> options) {this.options = options;}
+    public int getSavedSelection() {return savedSelection;}
+    public void setSavedSelection(int savedSelection) {this.savedSelection = savedSelection;}
 }
