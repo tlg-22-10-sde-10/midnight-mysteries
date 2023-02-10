@@ -2,6 +2,7 @@ package com.game.menu;
 
 import com.game.client.Game;
 import com.game.client.session.Session;
+import com.game.controller.GamePuzzles;
 import com.game.model.Item;
 import com.game.model.Dialogue;
 import com.game.model.Player;
@@ -9,17 +10,17 @@ import com.game.controller.Ascii;
 import com.game.controller.TextParser;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
-public class MainMenu extends Menu {
+public class MainMenu {
     protected Session session;
     protected Player player;
     protected int selection;
     protected String strSelection;
     private int savedSelection;
     private List<String> options;
-
     private String currentScene;
 
     public MainMenu(Session session, Player player) {
@@ -27,20 +28,19 @@ public class MainMenu extends Menu {
         this.player = player;
     }
 
-    @Override
     public void renderMenu() {
         Ascii.clearTerminal();
         loadStartingDialogue();
         //print
         do {
-            mainMenuHeader();
+            playerStatus();
             setSelection(Integer.parseInt(TextParser.validateInput()));
             processSelection();
         } while (getSelection() != 0);
 
     }
 
-    private void mainMenuHeader() {
+    private void playerStatus() {
         System.out.println();
         System.out.println("====================================");
         System.out.println("Current Location: " + player.getLocation());
@@ -54,7 +54,7 @@ public class MainMenu extends Menu {
         setOptions(new ArrayList<>());
         String npc = getSession().getLocations().get("Lobby").getNpc();
 
-        Ascii.printTextCenterWithDelay("Hello Detective " + player.getPlayerName() + ". There has been a murder at the bar, " +
+        Ascii.printTextCenterWithDelay(npc + ": Hello Detective " + player.getPlayerName() + ". There has been a murder at the bar, " +
                 "room, pool and restaurant.\n We need your help in solving these murders. Where would you like to" +
                 " go first? ");
 
@@ -98,45 +98,34 @@ public class MainMenu extends Menu {
     }
 
     private void loadDialogue(String option) {
+
+        option = GamePuzzles.delegatePuzzle(option);
+
         currentScene = option;
-        Ascii.clearTerminal();
         int optionSelect = 1;
+        String currentLocation = getSession().getDialogue().get(option).getLocation();
+        String sceneDialogue = getSession().getDialogue().get(option).getDialogue();
+
+        Ascii.clearTerminal();
+
         setOptions(new ArrayList<>());
-        player.setLocation(getSession().getDialogue().get(option).getLocation());
+        player.setLocation(currentLocation);
+        Ascii.printTextCenterWithDelay(sceneDialogue);
 
-
-        Ascii.printTextCenterWithDelay(getSession().getDialogue().get(option).getDialogue());
-
-        if (option.equals("Try opening the safe")) {
-            System.out.println("Guess the last number to open the safe");
-            openSafe();
+        if (puzzleCheck(option)) {
             return;
-        } else if (option.equals("Try unlocking computer")) {
-            System.out.println("Please enter the password");
-            unlockComputer();
-            return;
-        } else if (option.equals("Take key")) {
-            Item key = getSession().getLocations().get(player.getLocation()).getLocationItems().get(0);
-            player.getPlayerStorage().addToStorage(key);
-        } else if (option.equals("Open the door")) {
-            openDoor();
-            return;
-        } else if (option.equals("decrypt this message")) {
-            decryptMessage();
-            return;
-        } else if (option.equals("try to guess the code to keyless entry pad")) {
-            unlockCar();
-            return;
-        } else if (option.equals("try to unlock briefcase")) {
-            unlockBriefCase();
-            return;
-        } else if (option.equals("break the window to get in the vehicle")) {
-            Ascii.printExitBanner();
-            loadStartingDialogue();
         }
+        changeStory(option);
 
-        // print options
+
+               // print options
         List<String> dialogue = getSession().getDialogue().get(option).getOptions();
+
+
+        // shuffle dialogue options
+        // uncomment for release v1.3
+//        Collections.shuffle(dialogue);
+
         for (int i = 0; i < dialogue.size(); i++) {
             getOptions().add(dialogue.get(i));
             System.out.println(optionSelect + ") " + dialogue.get(i));
@@ -144,20 +133,7 @@ public class MainMenu extends Menu {
         }
     }
 
-    private void loadPreviousDialogue() {
-//        Ascii.clearTerminal();
-//        int optionSelect = 1;
-//        // print previous options after closing help menu
-////        for (String dialogueOption : getOptions()) {
-////            System.out.println(optionSelect + ") " + dialogueOption);
-////            optionSelect++;
-////        }
-
-        loadDialogue(currentScene);
-    }
-
     private void processSelection() {
-
 
         if (getSelection() != -1 || getSelection() != 5) setSavedSelection(getSelection());
 
@@ -180,18 +156,74 @@ public class MainMenu extends Menu {
                     Ascii.clearTerminal();
                     loadStartingDialogue();
                 } else {
-                    loadPreviousDialogue();
+                    loadDialogue(currentScene);
                 }
             default:
                 break;
         }
     }
 
+    private void changeStory(String option) {
+        switch (option) {
+            case "Book a room":
+                session.setDialogue(Game.getPath("/room.json"));
+                break;
+            case "Go to the bar":
+                session.setDialogue(Game.getPath("/bar.json"));
+                break;
+            case "Go to the restaurant":
+                session.setDialogue(Game.getPath("/restaurant.json"));
+                break;
+            case "Go to the pool":
+                session.setDialogue(Game.getPath("/pool.json"));
+                break;
+            default:
+                break;
+        }
+    }
+
+    private boolean puzzleCheck(String option) {
+        boolean isPuzzle = false;
+        if (option.equals("Try opening the safe")) {
+            System.out.println("Guess the last number to open the safe");
+            openSafe();
+            isPuzzle = true;
+        } else if (option.equals("Try unlocking computer")) {
+            System.out.println("Please enter the password");
+            unlockComputer();
+            isPuzzle = true;
+        } else if (option.equals("Take key")) {
+            Item key = getSession().getLocations().get(player.getLocation()).getLocationItems().get(0);
+            player.getPlayerStorage().addToStorage(key);
+        } else if (option.equals("Take flashlight")) {
+            Item flashlight = getSession().getLocations().get(player.getLocation()).getLocationItems().get(0);
+            player.getPlayerStorage().addToStorage(flashlight);
+        } else if (option.equals("Open the door")) {
+            openDoor();
+            isPuzzle = true;
+        } else if (option.equals("Turn on your flash light")) {
+            enterSecretRoom();
+            isPuzzle = true;
+        } else if (option.equals("decrypt this message")) {
+            decryptMessage();
+            isPuzzle = true;
+        } else if (option.equals("try to guess the code to keyless entry pad")) {
+            unlockCar();
+            isPuzzle = true;
+        } else if (option.equals("try to unlock briefcase")) {
+            unlockBriefCase();
+            isPuzzle = true;
+        } else if (option.equals("break the window to get in the vehicle")) {
+            Ascii.printExitBanner();
+        }
+        return isPuzzle;
+    }
+
     private void openSafe() {
-        int lastDigit = ((int) (Math.random()*(5 - 1))) + 1;
+        int lastDigit = ((int) (Math.random() * (5 - 1))) + 1;
         setSelection(-1);
         while (getSelection() != lastDigit) {
-            setSelection(Integer.parseInt(TextParser.validateInput()));
+            setSelection(Integer.parseInt(TextParser.optionalInput()));
             if (lastDigit == getSelection()) {
                 // string of json key
                 loadDialogue("Safe unlocked");
@@ -205,14 +237,18 @@ public class MainMenu extends Menu {
         if (player.getPlayerStorage().getStorage().containsKey("key")) {
             loadDialogue("Office unlocked");
         } else {
-            System.out.println("Looks like you need a key to unlock the door. Try searching for one.");
             loadDialogue("Need key");
         }
     }
 
     private void unlockComputer() {
         int password = 2012;
-        setSelection(Integer.parseInt(TextParser.optionalInput()));
+        try {
+            setSelection(Integer.parseInt(TextParser.optionalInput()));
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+
         if (password == getSelection()) {
             loadDialogue("Computer unlocked");
         } else {
@@ -220,8 +256,16 @@ public class MainMenu extends Menu {
         }
     }
 
+    private void enterSecretRoom() {
+        if (player.getPlayerStorage().getStorage().containsKey("flashlight")) {
+            loadDialogue("Enter Secret Room");
+        } else {
+            loadDialogue("Need flashlight");
+        }
+    }
+
     private void unlockBriefCase() {
-        int lastDigit = ((int) (Math.random()*(3 - 1))) + 1;
+        int lastDigit = ((int) (Math.random() * (3 - 1))) + 1;
         setSelection(-1);
         while (getSelection() != lastDigit) {
             setSelection(Integer.parseInt(TextParser.optionalInput()));
@@ -236,7 +280,7 @@ public class MainMenu extends Menu {
     private void unlockCar() {
         int combo = 1031;
         setSelection(Integer.parseInt(TextParser.optionalInput()));
-        if(combo == getSelection()) {
+        if (combo == getSelection()) {
             loadDialogue("Door unlocked");
         } else {
             loadDialogue("Incorrect combo");
@@ -279,14 +323,6 @@ public class MainMenu extends Menu {
         this.selection = selection;
     }
 
-    public String getStrSelection() {
-        return this.strSelection;
-    }
-
-    public void setStrSelection(String strSelection) {
-        this.strSelection = strSelection;
-    }
-
     public List<String> getOptions() {
         return options;
     }
@@ -302,4 +338,13 @@ public class MainMenu extends Menu {
     public void setSavedSelection(int savedSelection) {
         this.savedSelection = savedSelection;
     }
+
+    public String getStrSelection() {
+        return this.strSelection;
+    }
+
+    public void setStrSelection(String strSelection) {
+        this.strSelection = strSelection;
+    }
 }
+
