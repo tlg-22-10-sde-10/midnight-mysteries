@@ -178,8 +178,14 @@ public class MainMenu {
         } else if (option.equals("Take key")) {
             Item key = getSession().getLocations().get(player.getLocation()).getLocationItems().get(0);
             player.getPlayerStorage().addToStorage(key);
+        } else if (option.equals("Take flashlight")) {
+            Item flashlight = getSession().getLocations().get(player.getLocation()).getLocationItems().get(0);
+            player.getPlayerStorage().addToStorage(flashlight);
         } else if (option.equals("Open the door")) {
             openDoor();
+            isPuzzle = true;
+        } else if (option.equals("Turn on your flash light")) {
+            enterSecretRoom();
             isPuzzle = true;
         }
         return isPuzzle;
@@ -189,7 +195,7 @@ public class MainMenu {
         int lastDigit = ((int) (Math.random()*(5 - 1))) + 1;
         setSelection(-1);
         while (getSelection() != lastDigit) {
-            setSelection(Integer.parseInt(TextParser.validateInput()));
+            setSelection(Integer.parseInt(TextParser.optionalInput()));
             if (lastDigit == getSelection()) {
                 // string of json key
                 loadDialogue("Safe unlocked");
@@ -203,18 +209,31 @@ public class MainMenu {
         if (player.getPlayerStorage().getStorage().containsKey("key")) {
             loadDialogue("Office unlocked");
         } else {
-            System.out.println("Looks like you need a key to unlock the door. Try searching for one.");
             loadDialogue("Need key");
         }
     }
 
     private void unlockComputer() {
         int password = 2012;
-        setSelection(Integer.parseInt(TextParser.optionalInput()));
+        try {
+            setSelection(Integer.parseInt(TextParser.optionalInput()));
+        }
+        catch (Exception e) {
+            System.out.println(e);
+        }
+
         if (password == getSelection()) {
             loadDialogue("Computer unlocked");
         } else {
             loadDialogue("Incorrect password");
+        }
+    }
+
+    private void enterSecretRoom() {
+        if (player.getPlayerStorage().getStorage().containsKey("flashlight")) {
+            loadDialogue("Enter Secret Room");
+        } else {
+            loadDialogue("Need flashlight");
         }
     }
 
