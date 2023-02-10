@@ -2,7 +2,29 @@
   {
     "Go to the pool": {
       "location": "Pool",
-      "dialogue": "You walk to pool",
+      "dialogue": "Oh, the pool is just down the hall and to the left, but be careful, the water is very deep.\n Don't...",
+      "options": [
+        "Sit on a lawn chair to relax",
+        "Go for a swim",
+        "Don't?"
+      ]
+    }
+  },
+  {
+    "Don't?": {
+      "location": "Pool",
+      "dialogue": "Oh it's nothing! \n We welcome you to the Paradise Hotel! \n",
+      "options": [
+        "Sit on a lawn chair to relax",
+        "Go for a swim",
+        "Stroll around area"
+      ]
+    }
+  },
+  {
+    "Stroll around area": {
+      "location": "Pool",
+      "dialogue": "As you stroll around the hotel pool you began to hear splashes, however they seem to stop.. \n only when you stop.",
       "options": [
         "Sit on a lawn chair to relax",
         "Go for a swim"
@@ -258,7 +280,7 @@
   {
     "Investigate the noise": {
       "location": "Basement",
-      "dialogue": "The noise is coming from a large metal pipe that ran along the ceiling. It was a low, rhythmic pounding, like something was beating on the inside. \n Followed by THREE screeching growls...",
+      "dialogue": "The noise is coming from a large metal pipe that ran along the ceiling. \n It was a low, rhythmic pounding, like something was beating on the inside. \n Followed by THREE screeching growls...",
       "options": [
         "Search the basement"
       ]

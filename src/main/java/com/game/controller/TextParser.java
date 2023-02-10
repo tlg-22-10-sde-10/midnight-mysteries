@@ -1,5 +1,6 @@
 package com.game.controller;
 
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.game.controller.Ascii;
 import com.game.controller.ItemGenerator;
 
@@ -11,8 +12,8 @@ import java.util.regex.Pattern;
 public class TextParser {
 
     public static final List<String> COMMANDS
-            = Arrays.asList("help", "exit", "quit", "volume",
-            "mute","?", "search", "take","return");
+            = Arrays.asList("help", "exit", "quit",
+            "mute", "?", "search", "take", "return");
 
     public static String validateInput() {
         Scanner scanner = new Scanner(System.in);
@@ -36,12 +37,10 @@ public class TextParser {
                 case "search":
                     ItemGenerator.searchForRandomItem();
                     break;
-                case "volume":
-                    System.out.println("Volume Function");
-                    break;
                 case "mute":
-                    System.out.println("Mute Function");
-                    break;
+                    Sound.getInstance().muteSound();
+                    Ascii.printMute();
+                    return "5";
                 case "return":
                 default:
                     return "5";
@@ -49,11 +48,32 @@ public class TextParser {
 
         } else if (isDigit && inputText.length() == 1 && Pattern.matches("^[1-4]$", Integer.toString(Integer.parseInt(inputText)))) {
             return inputText;
-        } else if(inputText.contains("take")){
+        } else if (inputText.contains("take")) {
             ItemGenerator.takeItem(inputText);
         } else if (inputText.contains("look")) {
             ItemGenerator.searchForRandomItem();
-        }else {
+        } else if (inputText.contains("volume")) {
+            String[] parts = inputText.split(" ");
+            if (parts.length >= 2) {
+                try {
+                    int value = Integer.parseInt(parts[1]);
+                    if (value >= 1 && value <= 4) {
+                        Sound.getInstance().setVolume(value);
+                        Ascii.printVolumeLevel(value);
+                        return "5";
+                    } else {
+                        Ascii.printHelpMenu("Try 'volume 1-4'");
+                    }
+                } catch (Exception e) {
+                    Ascii.printHelpMenu("Try 'volume 1-4'");
+                }
+            } else {
+                Ascii.printHelpMenu("Try 'volume 1-4'");
+            }
+
+            Ascii.printHelpMenu("Try 'volume 1-4'");
+
+        } else {
             Ascii.clearTerminal();
             Ascii.printHelpMenu("Invalid option!");
             return "-1";
@@ -70,7 +90,6 @@ public class TextParser {
 
         return inputText;
     }
-
 
     public static String optionalInput(int options) {
         Scanner scanner = new Scanner(System.in);

@@ -1,24 +1,23 @@
 package com.game.controller;
 
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class Ascii {
-
     private static final int ROWS = 30;
     private static final int COLUMNS = 120;
     private ColoredPrinter printer = new ColoredPrinter();
 
-
     // default is 25L
     private static final long DELAY = 25L;
 
-
-
     public static void printTitleBanner() throws InterruptedException {
 
-        String centeredBanner = "       ███▄ ▄███▓    ██▓   ▓█████▄     ███▄    █     ██▓     ▄████     ██░ ██    ▄▄▄█████▓        \n" +
+        String centeredBanner =
+                "       ███▄ ▄███▓    ██▓   ▓█████▄     ███▄    █     ██▓     ▄████     ██░ ██    ▄▄▄█████▓        \n" +
                 "      ▓██▒▀█▀ ██▒   ▓██▒   ▒██▀ ██▌    ██ ▀█   █    ▓██▒    ██▒ ▀█▒   ▓██░ ██▒   ▓  ██▒ ▓▒        \n" +
                 "      ▓██    ▓██░   ▒██▒   ░██   █▌   ▓██  ▀█ ██▒   ▒██▒   ▒██░▄▄▄░   ▒██▀▀██░   ▒ ▓██░ ▒░        \n" +
                 "      ▒██    ▒██    ░██░   ░▓█▄   ▌   ▓██▒  ▐▌██▒   ░██░   ░▓█  ██▓   ░▓█ ░██    ░ ▓██▓ ░         \n" +
@@ -57,12 +56,7 @@ public class Ascii {
                 leftPadding = word.length();
             }
         }
-
-
         leftPadding = (COLUMNS - leftPadding) / 2;
-
-//        System.out.println("LeftPadding: " + leftPadding);
-//        System.out.println("topPadding: " + topPadding);
 
         // top spacing
         for (int i = 0; i < topPadding; i++) {
@@ -76,15 +70,13 @@ public class Ascii {
             }
             sb.append(line).append("\n");
         }
-
         return sb.toString();
     }
 
     public static void clearTerminal() {
 
         String os = System.getProperty("os.name").toLowerCase();
-//        System.out.println(os);
-        if (os.contains("windows")) {
+        if (os.contains("win")) {
             try {
                 new ProcessBuilder("cmd", "/c", "cls", "clear", "\033[H\033[2J", "\033\143").inheritIO().start().waitFor();
             } catch (Exception e) {
@@ -154,11 +146,13 @@ public class Ascii {
 
     public static void setTerminalTitle() {
         System.out.print("\033]0;" + "Midnight Mysteries" + "\007");
+        Ascii.printSpaces(10);
     }
 
     public static void printExitBanner() {
         clearTerminal();
-        String centeredBanner = "  ██████    ▓█████    ▓█████    ▓██   ██▓    ▒█████      █    ██                   \n" +
+        String centeredBanner =
+                "  ██████    ▓█████    ▓█████    ▓██   ██▓    ▒█████      █    ██                   \n" +
                 "▒██    ▒    ▓█   ▀    ▓█   ▀     ▒██  ██▒   ▒██▒  ██▒    ██  ▓██▒                  \n" +
                 "░ ▓██▄      ▒███      ▒███        ▒██ ██░   ▒██░  ██▒   ▓██  ▒██░                  \n" +
                 "  ▒   ██▒   ▒▓█  ▄    ▒▓█  ▄      ░ ▐██▓░   ▒██   ██░   ▓▓█  ░██░                  \n" +
@@ -199,9 +193,7 @@ public class Ascii {
             }
         }
 
-
         System.exit(0);
-
     }
 
     private static String fadeLine(String line, int step) {
@@ -217,10 +209,11 @@ public class Ascii {
         return sb.toString();
     }
 
-    public static void printHelpMenu(String warning) {
+    public static void printHelpMenu(String warningMessage) {
         clearTerminal();
 
-        String centerMenu = " " + warning + "\n" +
+        String centerMenu =
+                "                   " + warningMessage + "\n" +
                 " ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄ \n" +
                 " █                                               █ \n" +
                 " █                                               █ \n" +
@@ -241,9 +234,78 @@ public class Ascii {
 
         centerMenu = addSpaces(centerMenu);
         ColoredPrinter.print("red", centerMenu);
-
-
     }
 
+    public static void printMute() {
+        clearTerminal();
+        String centeredMute = "         MUTE\n" +
+                "\n" +
+                "       █\n" +
+                "      ██  █         █\n" +
+                "     ███  ░█       █░\n" +
+                "    ████  ░ █     █░░\n" +
+                "████████    ░█   █  ░\n" +
+                "████████      █ █\n" +
+                "████████       █\n" +
+                "████████      █ █ \n" +
+                "████████     █░  █\n" +
+                "░░  ████    █ ░   █\n" +
+                " ░   ███   █  ░   ░█\n" +
+                "      ██  █░       ░█\n" +
+                "       █    ░       ";
+
+        centeredMute = addSpaces(centeredMute);
+        ColoredPrinter.print("red", centeredMute);
+
+        try {
+            TimeUnit.SECONDS.sleep(3);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
+
+    public static void printVolumeLevel(int volumeLevel){
+        clearTerminal();
+
+        String[] amounts = new String[] { "██▓  ", "▓██▒ ", "▒██▒ ", "░██░ ", "░██░ ", "░▓   ", " ▒ ░ ", " ▒ ░ ", " ░   " };
+        String[] repeated = new String[amounts.length];
+        for (int i = 0; i < amounts.length; i++) {
+            repeated[i] = amounts[i].repeat(volumeLevel-1);
+        }
+
+        String centeredVolume =
+                " ██▒   █▓    ▒█████      ██▓        █    ██     ███▄ ▄███▓   ▓█████    \n" +
+                "▓██░   █▒   ▒██▒  ██▒   ▓██▒        ██  ▓██▒   ▓██▒▀█▀ ██▒   ▓█   ▀    \n" +
+                " ▓██  █▒░   ▒██░  ██▒   ▒██░       ▓██  ▒██░   ▓██    ▓██░   ▒███      \n" +
+                "  ▒██ █░░   ▒██   ██░   ▒██░       ▓▓█  ░██░   ▒██    ▒██    ▒▓█  ▄    \n" +
+                "   ▒▀█░     ░ ████▓▒░   ░██████▒   ▒▒█████▓    ▒██▒   ░██▒   ░▒████▒   \n" +
+                "   ░ ▐░     ░ ▒░▒░▒░    ░ ▒░▓  ░   ░▒▓▒ ▒ ▒    ░ ▒░   ░  ░   ░░ ▒░ ░   \n" +
+                "   ░ ░░       ░ ▒ ▒░    ░ ░ ▒  ░   ░░▒░ ░ ░    ░  ░      ░    ░ ░  ░   \n" +
+                "     ░░     ░ ░ ░ ▒       ░ ░       ░░░ ░ ░    ░      ░         ░      \n" +
+                "      ░         ░ ░         ░  ░      ░               ░         ░  ░   \n" +
+                "     ░                                                                 \n" +
+                "                         ██▓  "+repeated[0]+"                          \n" +
+                "                        ▓██▒  "+repeated[1]+"                          \n" +
+                "                        ▒██▒  "+repeated[2]+"                          \n" +
+                "                        ░██░  "+repeated[3]+"                          \n" +
+                "                        ░██░  "+repeated[4]+"                          \n" +
+                "                        ░▓    "+repeated[5]+"                          \n" +
+                "                         ▒ ░  "+repeated[6]+"                          \n" +
+                "                         ▒ ░  "+repeated[7]+"                          \n" +
+                "                         ░    "+repeated[8]+"                          \n" +
+                "                                                                       ";
+
+
+        centeredVolume = addSpaces(centeredVolume);
+        ColoredPrinter.print("red", centeredVolume);
+
+        try {
+            TimeUnit.SECONDS.sleep(3);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
 

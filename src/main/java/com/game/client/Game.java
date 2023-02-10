@@ -1,5 +1,6 @@
 package com.game.client;
 
+import com.game.controller.Sound;
 import com.game.model.Location;
 import com.game.menu.RenderStartUI;
 import com.game.menu.StoryTutorial;
@@ -34,6 +35,17 @@ public class Game {
 
         // print title "Midnight Mysteries"
         Ascii.printTitleBanner();
+
+        //music
+        Thread backgroundThread = new Thread(() -> {
+            Sound sound = new Sound();
+            while (true) {
+                sound.playSound();
+            }
+        });
+
+        backgroundThread.start();
+
 
         // print game background
         StoryTutorial.printStory();
