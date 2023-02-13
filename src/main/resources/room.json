@@ -67,7 +67,7 @@
       "location" : "Room",
       "dialogue" : "You now have a flashlight in your inventory",
       "options" : [
-        "Check the phone phone"
+        "Check the phone"
       ]
     }
   },
