@@ -220,8 +220,9 @@ public class Ascii {
                 " █                                               █ \n" +
                 " █   Valid options:                              █ \n" +
                 " █                                               █ \n" +
-                " █      \"help\", \"exit\", \"quit\", \"volume\",        █ \n" +
-                " █       \"mute\", \"?\",\"search\", \"take\", \"return\"  █ \n" +
+                " █    \"help\", \"exit\", \"quit\", \"music volume\",    █ \n" +
+                " █    \"sound volume\", \"mute music\", \"mute sound\",█ \n" +
+                        " █      \"?\",\"search\", \"take\", \"return\"           █ \n" +
                 " █                                               █ \n" +
                 " █                                               █ \n" +
                 " █   Dialogue options:                           █ \n" +

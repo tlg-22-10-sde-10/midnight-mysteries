@@ -13,7 +13,7 @@ public class TextParser {
 
     public static final List<String> COMMANDS
             = Arrays.asList("help", "exit", "quit",
-            "mute", "?", "search", "take", "return");
+            "mute music", "mute sound", "?", "search", "take", "return");
 
     public static String validateInput() {
         Scanner scanner = new Scanner(System.in);
@@ -37,7 +37,11 @@ public class TextParser {
                 case "search":
                     ItemGenerator.searchForRandomItem();
                     break;
-                case "mute":
+                case "mute music":
+                    Sound.getInstance().muteMusic();
+                    Ascii.printMute();
+                    return "5";
+                case "mute sound":
                     Sound.getInstance().muteSound();
                     Ascii.printMute();
                     return "5";
@@ -52,28 +56,50 @@ public class TextParser {
             ItemGenerator.takeItem(inputText);
         } else if (inputText.contains("look")) {
             ItemGenerator.searchForRandomItem();
-        } else if (inputText.contains("volume")) {
+        } else if (inputText.contains("music volume")) {
             String[] parts = inputText.split(" ");
             if (parts.length >= 2) {
                 try {
-                    int value = Integer.parseInt(parts[1]);
+                    int value = Integer.parseInt(parts[2]);
                     if (value >= 1 && value <= 4) {
-                        Sound.getInstance().setVolume(value);
+                        Sound.getInstance().setMusicVolume(value);
                         Ascii.printVolumeLevel(value);
                         return "5";
                     } else {
-                        Ascii.printHelpMenu("Try 'volume 1-4'");
+                        Ascii.printHelpMenu("Try 'music volume 1-4'");
                     }
                 } catch (Exception e) {
-                    Ascii.printHelpMenu("Try 'volume 1-4'");
+                    Ascii.printHelpMenu("Try 'music volume 1-4'");
                 }
             } else {
-                Ascii.printHelpMenu("Try 'volume 1-4'");
+                Ascii.printHelpMenu("Try 'music volume 1-4'");
             }
 
-            Ascii.printHelpMenu("Try 'volume 1-4'");
+            Ascii.printHelpMenu("Try 'music volume 1-4'");
 
-        } else {
+        } else if (inputText.contains("sound volume")) {
+            String[] parts = inputText.split(" ");
+            if (parts.length >= 2) {
+                try {
+                    int value = Integer.parseInt(parts[2]);
+                    if (value >= 1 && value <= 4) {
+                        Sound.getInstance().setSoundVolume(value);
+                        Ascii.printVolumeLevel(value);
+                        return "5";
+                    } else {
+                        Ascii.printHelpMenu("Try 'sound volume 1-4'");
+                    }
+                } catch (Exception e) {
+                    Ascii.printHelpMenu("Try 'sound volume 1-4'");
+                }
+            } else {
+                Ascii.printHelpMenu("Try 'sound volume 1-4'");
+            }
+
+            Ascii.printHelpMenu("Try 'sound volume 1-4'");
+
+        }
+        else {
             Ascii.clearTerminal();
             Ascii.printHelpMenu("Invalid option!");
             return "-1";

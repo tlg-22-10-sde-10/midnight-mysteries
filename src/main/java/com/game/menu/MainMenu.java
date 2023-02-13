@@ -3,6 +3,7 @@ package com.game.menu;
 import com.game.client.Game;
 import com.game.client.session.Session;
 import com.game.controller.GamePuzzles;
+import com.game.controller.Sound;
 import com.game.model.Item;
 import com.game.model.Dialogue;
 import com.game.model.Player;
@@ -215,6 +216,16 @@ public class MainMenu {
             isPuzzle = true;
         } else if (option.equals("break the window to get in the vehicle")) {
             Ascii.printExitBanner();
+        } else if (option.equals("Read Mystery of the Secret Room")) {
+            Sound.playSound("/secretdoor.wav");
+        } else if (option.equals("3:00pm")) {
+            Sound.playSound("/cabinet.wav");
+        } else if (option.equals("You awaken by a phone ringing from inside the safe.. go to the safe?") || option.equals("Go to the safe") || option.equals("199_ pops up on the tv and a phone starts ringing from inside the safe.. go to the safe?")) {
+            Sound.playSound("/phone.wav");
+        } else if (option.equals("Watch tv")) {
+            Sound.playSound("/static.wav");
+        } else if (option.equals("Go to the kitchen")) {
+            Sound.playSound("/chef.wav");
         }
         return isPuzzle;
     }
@@ -225,7 +236,7 @@ public class MainMenu {
         while (getSelection() != lastDigit) {
             setSelection(Integer.parseInt(TextParser.optionalInput()));
             if (lastDigit == getSelection()) {
-                // string of json key
+                Sound.playSound("/safe.wav");
                 loadDialogue("Safe unlocked");
             } else {
                 System.out.println("Number didn't work..");
@@ -235,6 +246,7 @@ public class MainMenu {
 
     private void openDoor() {
         if (player.getPlayerStorage().getStorage().containsKey("key")) {
+            Sound.playSound("/dooropening.wav");
             loadDialogue("Office unlocked");
         } else {
             loadDialogue("Need key");
@@ -250,8 +262,10 @@ public class MainMenu {
         }
 
         if (password == getSelection()) {
+            Sound.playSound("/computerunlocked.wav");
             loadDialogue("Computer unlocked");
         } else {
+            Sound.playSound("/wrongpassword.wav");
             loadDialogue("Incorrect password");
         }
     }
