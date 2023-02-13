@@ -308,5 +308,105 @@ public class Ascii {
             throw new RuntimeException(e);
         }
     }
-}
 
+
+    public static void printHotel() {
+
+        clearTerminal();
+        String centeredHotel =
+                "                         type 'help' when you need it \n\n" +
+                        "                                      /\\\n" +
+                        "                                      /\\\n" +
+                        "                                      /\\\n" +
+                        "                                      /\\\n" +
+                        "                                    _`=='_\n" +
+                        "                                 _-~......~-_\n" +
+                        "                             _--~............~--_\n" +
+                        "                       __--~~....................~~--__\n" +
+                        "                    __-~...~~~~~--------------~~~~~...~-__\n" +
+                        "            ___---~~......................................~~---___\n" +
+                        ".___..---~~~......................................................~~~---..___,\n" +
+                        " `=.______________________________________________________________________,='\n" +
+                        "    @^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^@\n" +
+                        "              |    ____   ____   ____________  ______ ______   |\n" +
+                        "\t           |   |    | |    |  |    ||    |  |    | |    |   |\n" +
+                        "              |   |    | |    |  |    ||    |  |    | |    |   |\n" +
+                        "\t           |   |    | |    |  |    ||    |  |    | |    |   |\n" +
+                        "              |   |____| |____|  |    ||    |  |____| |____|   |\n" +
+                        "              |__________________|____||____|__________________|\n" +
+                        "            _-|_____|_____|_____|__|------|__|_____|_____|_____|-__\n" +
+                        "\t\t\t\t     PARADISE HOTEL\n";
+
+
+        centeredHotel = addSpaces(centeredHotel);
+        ColoredPrinter.print("red", centeredHotel);
+
+
+        try {
+            TimeUnit.SECONDS.sleep(3);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    ;
+
+
+    public static void printDimitis() {
+
+        clearTerminal();
+        String centeredDimitis = "" +
+                "▓█████▄     ██▓    ███▄ ▄███▓    ██▓   ▄▄▄█████▓    ██▓     ██████ \n" +
+                "▒██▀ ██▌   ▓██▒   ▓██▒▀█▀ ██▒   ▓██▒   ▓  ██▒ ▓▒   ▓██▒   ▒██    ▒ \n" +
+                "░██   █▌   ▒██▒   ▓██    ▓██░   ▒██▒   ▒ ▓██░ ▒░   ▒██▒   ░ ▓██▄   \n" +
+                "░▓█▄   ▌   ░██░   ▒██    ▒██    ░██░   ░ ▓██▓ ░    ░██░     ▒   ██▒\n" +
+                "░▒████▓    ░██░   ▒██▒   ░██▒   ░██░     ▒██▒ ░    ░██░   ▒██████▒▒\n" +
+                " ▒▒▓  ▒    ░▓     ░ ▒░   ░  ░   ░▓       ▒ ░░      ░▓     ▒ ▒▓▒ ▒ ░\n" +
+                " ░ ▒  ▒     ▒ ░   ░  ░      ░    ▒ ░       ░        ▒ ░   ░ ░▒  ░ ░\n" +
+                " ░ ░  ░     ▒ ░   ░      ░       ▒ ░     ░          ▒ ░   ░  ░  ░  \n" +
+                "   ░        ░            ░       ░                  ░           ░  \n" +
+                " ░                                                                 ";
+
+
+        centeredDimitis = addSpaces(centeredDimitis);
+        ColoredPrinter.print("red", centeredDimitis);
+
+        try {
+            TimeUnit.SECONDS.sleep(6);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+
+    public static void printKey() {
+
+        clearTerminal();
+        String centeredDimitis = "" +
+                "  ad8888888888ba\n" +
+                " dP'         `\"8b,\n" +
+                " 8  ,aaa,       \"Y888a     ,aaaa,     ,aaa,  ,aa,\n" +
+                " 8  8' `8           \"88baadP\"\"\"\"YbaaadP\"\"\"YbdP\"\"Yb\n" +
+                " 8  8   8              \"\"\"        \"\"\"      \"\"    8b\n" +
+                " 8  8, ,8         ,aaaaaaaaaaaaaaaaaaaaaaaaddddd88P\n" +
+                " 8  `\"\"\"'       ,d8\"\"\n" +
+                " Yb,         ,ad8\"   \n" +
+                "  \"Y8888888888P\"\n";
+
+
+        centeredDimitis = addSpaces(centeredDimitis);
+        ColoredPrinter.print("red", centeredDimitis);
+
+        try {
+            TimeUnit.SECONDS.sleep(4);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    ;
+
+}
