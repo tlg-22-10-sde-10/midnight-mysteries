@@ -13,14 +13,35 @@ public class Sound {
     private static Clip soundClip;
     private static Float currentMusicVolume;
     private static Float currentSoundVolume;
+    private static Clip clip;
+    URL soundURL[] = new URL[4];
 
     public Sound() {
         musicIsPlaying = false;
         soundIsPlaying = false;
+        soundURL[0] = getClass().getResource("/glass-breaking-93803.wav");
+        soundURL[1] = getClass().getResource("/cellphone-ringing-6475.wav");
+        soundURL[2] = getClass().getResource("/dialing-numbers-7025.wav");
+        soundURL[3] = getClass().getResource("/Kitty_Wells_-_Death_At_The_Bar_mp3.pm_.wav");
     }
 
     public static void setCurrentMusicVolume(Float currentMusicVolume) {
         Sound.currentMusicVolume = currentMusicVolume;
+    }
+
+    public void setFile(int index) {
+
+        try {
+            AudioInputStream ais = AudioSystem.getAudioInputStream(soundURL[index]);
+            clip = AudioSystem.getClip();
+            clip.open(ais);
+        } catch(Exception e) {
+
+        }
+    }
+
+    public void play() {
+        clip.start();
     }
 
     public static void setCurrentSoundVolume(Float currentSoundVolume) {

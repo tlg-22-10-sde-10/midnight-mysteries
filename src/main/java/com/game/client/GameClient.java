@@ -6,3 +6,4 @@ public class GameClient {
         new Game();
     }
 }
+

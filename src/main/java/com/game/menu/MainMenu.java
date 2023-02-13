@@ -223,12 +223,18 @@ public class MainMenu {
             decryptMessage();
             isPuzzle = true;
         } else if (option.equals("try to guess the code to keyless entry pad")) {
+            playSoundEffect(2);
             unlockCar();
             isPuzzle = true;
         } else if (option.equals("try to unlock briefcase")) {
             unlockBriefCase();
             isPuzzle = true;
+        } else if(option.equals("go outside to scan the area for clues")) {
+            playSoundEffect(1);
+        } else if(option.equals("what song is this")) {
+            playSoundEffect(3);
         } else if (option.equals("break the window to get in the vehicle")) {
+            playSoundEffect(0);
             Ascii.printExitBanner();
         } else if (option.equals("Read Mystery of the Secret Room")) {
             Sound.playSound("/secretdoor.wav");
@@ -242,6 +248,12 @@ public class MainMenu {
             Sound.playSound("/chef.wav");
         }
         return isPuzzle;
+    }
+
+    private void playSoundEffect(int index) {
+        Sound sound = new Sound();
+        sound.setFile(index);
+        sound.play();
     }
 
     private void openSafe() {
