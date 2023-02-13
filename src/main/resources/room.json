@@ -25,7 +25,7 @@
   {
     "199_ pops up on the tv and a phone starts ringing from inside the safe.. go to the safe?" : {
       "location" : "Room",
-      "dialogue" : "Backstory",
+      "dialogue" : "Why is there a phone in the safe? Should I try opening it?",
       "options" : [
         "Try opening the safe",
         "Take a nap",
@@ -36,7 +36,7 @@
   {
     "Try opening the safe" : {
       "location" : "Room",
-      "dialogue" : "Backstory",
+      "dialogue" : "Hmm.. looks like the first 3 numbers are 199_",
       "options" : [
         "Guess the last number"
       ]
@@ -47,33 +47,44 @@
       "location" : "Room",
       "dialogue" : "The safe clicked open... and there's a couple items inside",
       "options" : [
-        "Look through phone",
-        "Take flash light"
+        "Check the phone",
+        "Take flashlight"
       ]
     }
   },
   {
-    "Look through phone" : {
+    "Check the phone" : {
       "location" : "Room",
       "dialogue" : "A message on the phone says to read Mystery of the Secret Room",
       "options" : [
-        "Read a book"
+        "Read a book",
+        "Take flashlight"
       ]
     }
   },
   {
-    "Take flash light" : {
+    "Take flashlight" : {
       "location" : "Room",
-      "dialogue" : "You now have a flash light in your inventory",
+      "dialogue" : "You now have a flashlight in your inventory",
       "options" : [
-        "Look through phone"
+        "Check the phone"
       ]
     }
   },
   {
     "Turn on your flash light" : {
+      "location" : "Room",
+      "dialogue" : "",
+      "options" : [
+        "Peel back wallpaper",
+        "Check the drawers"
+      ]
+    }
+  },
+  {
+    "Enter Secret Room" : {
       "location" : "Secret Room",
-      "dialogue" : "As you entered the dimly lit room, you cautiously reach for your flashlight, clicking it on to illuminate the surroundings.  \n The beam of light danced across the room, revealing peeling wallpaper, dusty old furniture and an overall creepy atmosphere. \n You took a deep breath and slowly scanned the room, alert for any signs of danger.",
+      "dialogue" : "As you entered the dimly lit room, you cautiously reach for your flashlight, \nclicking it on to illuminate the surroundings.  \n The beam of light danced across the room, \nrevealing peeling wallpaper, dusty old furniture and an overall creepy atmosphere. \n You took a deep breath and slowly scanned the room, alert for any signs of danger.",
       "options" : [
         "Peel back wallpaper",
         "Look through drawers"
@@ -81,7 +92,28 @@
     }
   },
   {
-    "Look through drawers" : {
+    "Need flashlight" : {
+      "location" : "Room",
+      "dialogue" : "Looks like I need something to light up the room before I can go in..",
+      "options" : [
+        "Go to the safe",
+        "Watch tv",
+        "Take a nap",
+        "Order room service"
+      ]
+    }
+  },
+  {
+    "Go to the safe" : {
+      "location" : "Room",
+      "dialogue" : "There's a phone ringing from inside.. \nShould I open it?",
+      "options" : [
+        "Try opening the safe"
+      ]
+    }
+  },
+  {
+    "Check the drawers" : {
       "location" : "Secret Room",
       "dialogue" : "It's empty..",
       "options" : [
@@ -101,19 +133,84 @@
   {
     "Decipher the meaning of the message" : {
       "location" : "Secret Room",
-      "dialogue" : "Riddle",
+      "dialogue" : "\"K-F-G-G T-N-J-U-I\" is the killer \nHow should I decipher this?",
       "options" : [
-        "Option 1",
-        "Option 2",
-        "Option 3",
-        "Option 4"
+        "Shift each letter forward one space in the alphabet",
+        "Shift each letter forward two spaces in the alphabet",
+        "Shift each letter back one space in the alphabet",
+        "Shift each letter back two spaces in the alphabet"
+      ]
+    }
+  },
+  {
+    "Shift each letter forward one space in the alphabet" : {
+      "location" : "Secret Room",
+      "dialogue" : "\"K-F-G-G T-N-J-U-I\" turned into LGHH UOKVJ.. \nIt doesn't look like anything I can use",
+      "options" : [
+        "Shift each letter forward two spaces in the alphabet",
+        "Shift each letter back one space in the alphabet",
+        "Shift each letter back two spaces in the alphabet"
+      ]
+    }
+  },
+  {
+    "Shift each letter forward two spaces in the alphabet" : {
+      "location" : "Secret Room",
+      "dialogue" : "\"K-F-G-G T-N-J-U-I\" turned into OHII VPLWK.. \nIt doesn't look like anything I can use",
+      "options" : [
+        "Shift each letter forward one space in the alphabet",
+        "Shift each letter back one space in the alphabet",
+        "Shift each letter back two spaces in the alphabet"
+      ]
+    }
+  },
+  {
+    "Shift each letter back one space in the alphabet" : {
+      "location" : "Secret Room",
+      "dialogue" : "\"K-F-G-G T-N-J-U-I\" turned into JEFF SMITH.. \nI should probably look that name up..",
+      "options" : [
+        "Shift each letter forward one space in the alphabet",
+        "Shift each letter forward two spaces in the alphabet",
+        "Shift each letter back two spaces in the alphabet",
+        "Search JEFF SMITH in our database"
+      ]
+    }
+  },
+  {
+    "Shift each letter back two spaces in the alphabet" : {
+      "location" : "Secret Room",
+      "dialogue" : "\"K-F-G-G T-N-J-U-I\" turned into IDEE RLHSG.. \nIt doesn't look like anything I can use",
+      "options" : [
+        "Shift each letter forward one space in the alphabet",
+        "Shift each letter forward two spaces in the alphabet",
+        "Shift each letter back one space in the alphabet"
+      ]
+    }
+  },
+  {
+    "Search JEFF SMITH in our database" : {
+      "location" : "Secret Room",
+      "dialogue" : "After looking up Jeff Smith in our database it turns out he has a warrant for his arrest. \nJeff has been linked to multiple crimes in the past and is currently staying at the hotel",
+      "options" : [
+        "Arrest Jeff Smith"
+      ]
+    }
+  },
+  {
+    "Arrest Jeff Smith" : {
+      "location" : "Lobby",
+      "dialogue" : "After arresting Jeff Smith he confessed to everything. \nCongrats on solving the case! \nEnter 'quit' to exit the game or try solving the other cases!",
+      "options" : [
+        "Go to the restaurant",
+        "Go to the pool",
+        "Go to the bar"
       ]
     }
   },
   {
     "Take a nap": {
       "location" : "Room",
-      "dialogue" : "Backstory",
+      "dialogue" : "You take a nice power nap.. but something wakes you up. \nWhat should you do?",
       "options" : [
         "Watch tv",
         "Read a book",
@@ -124,7 +221,7 @@
   {
     "You awaken by a phone ringing from inside the safe.. go to the safe?": {
       "location" : "Room",
-      "dialogue" : "Backstory",
+      "dialogue" : "Why is there a phone in the safe? Should I try opening it?",
       "options" : [
         "Try opening the safe",
         "Read a book",
@@ -135,7 +232,7 @@
   {
     "Read a book": {
       "location" : "Room",
-      "dialogue" : "Backstory",
+      "dialogue" : "There's a nice selection of books here on the bookshelf",
       "options" : [
         "Read Mystery of the Secret Room",
         "Read Atomic Habits",
@@ -155,7 +252,7 @@
   {
     "Read Atomic Habits" : {
       "location" : "Room",
-      "dialogue" : "That was a good read",
+      "dialogue" : "That was a good read. Learned something new.",
       "options" : [
         "Watch tv",
         "Read a book",
@@ -167,7 +264,7 @@
   {
     "Read To Kill a Mocking Bird" : {
       "location" : "Room",
-      "dialogue" : "That was a good read",
+      "dialogue" : "That was a good read. What an interesting story.",
       "options" : [
         "Watch tv",
         "Read a book",
@@ -179,7 +276,7 @@
   {
     "Read Frankenstein" : {
       "location" : "Room",
-      "dialogue" : "That was a good read",
+      "dialogue" : "That was a good read. Frankenstein is so cool!",
       "options" : [
         "Watch tv",
         "Read a book",
@@ -191,18 +288,17 @@
   {
     "Order room service": {
       "location" : "Room",
-      "dialogue" : "Backstory",
+      "dialogue" : "You hear a knock on the door.. \nThe food is here.",
       "options" : [
         "Room service person delivers food and recommends reading Mystery of the Secret Room.. go read?",
         "Watch tv",
-        "Take a nap",
-        "Go to the bar"
+        "Take a nap"
       ]}
   },
   {
     "Room service person delivers food and recommends reading Mystery of the Secret Room.. go read?": {
       "location" : "Room",
-      "dialogue" : "Backstory",
+      "dialogue" : "The food was good. What should I read now?",
       "options" : [
         "Read Mystery of the Secret Room",
         "Read Atomic Habits",
@@ -211,28 +307,24 @@
       ]}
   },
   {
-    "Go to the bar": {
-      "location" : "Bar",
-      "dialogue" : "Backstory",
-      "options" : [
-        "Book a room"
-    ]
+    "Go to the restaurant": {
+      "location" : "Restaurant",
+      "dialogue" : "You are greeted by the friendly waiter",
+      "options" : []
     }
   },
   {
-    "Go to the restaurant": {
-      "location" : "Restaurant",
-      "dialogue" : "Backstory",
-      "options" : [
-        "Book a room"
-    ]}
+    "Go to the bar": {
+      "location" : "Bar",
+      "dialogue" : "Bar manager goes outside manager outside on a break and was found dead at the bottom of cliff \n behind the hotel. Authorities rule his death as an accident but some of hotel management suspect foul play. \n Search for clues in the bar that can help you solve what really happened.",
+      "options" : []
+    }
   },
   {
     "Go to the pool": {
       "location" : "Pool",
-      "dialogue" : "Backstory",
-      "options" : [
-        "Book a room"
-    ]}
+      "dialogue" : "You walk to pool",
+      "options" : []
+    }
   }
 ]

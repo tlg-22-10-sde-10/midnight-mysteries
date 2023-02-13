@@ -56,9 +56,9 @@ The player takes on the role of a private detective who is investigating strange
 <details>
 <summary>
 Click to expand
-![Class-Diagram](https://i.imgur.com/Rmglnu7.png)
 </summary>
-![Class-Diagram](https://i.imgur.com/Rmglnu7.png)
++ <a href="https://i.imgur.com/Rmglnu7.png">Class Diagram</a>
+
 </details>
 
 ### User Stories
@@ -66,7 +66,6 @@ Click to expand
 + As a Player I want to be able to enter/leave different rooms.
 + As a Player I want to be able to see my inventory.
 + As a Player I want to be able to interact with NPCs.
-+ As a Player I want to be able to die.
 
 
 ### Getting Started

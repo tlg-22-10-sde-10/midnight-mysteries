@@ -1,24 +1,23 @@
 package com.game.controller;
 
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class Ascii {
-
     private static final int ROWS = 30;
     private static final int COLUMNS = 120;
     private ColoredPrinter printer = new ColoredPrinter();
 
-
     // default is 25L
     private static final long DELAY = 25L;
 
-
-
     public static void printTitleBanner() throws InterruptedException {
 
-        String centeredBanner = "       ███▄ ▄███▓    ██▓   ▓█████▄     ███▄    █     ██▓     ▄████     ██░ ██    ▄▄▄█████▓        \n" +
+        String centeredBanner =
+                "       ███▄ ▄███▓    ██▓   ▓█████▄     ███▄    █     ██▓     ▄████     ██░ ██    ▄▄▄█████▓        \n" +
                 "      ▓██▒▀█▀ ██▒   ▓██▒   ▒██▀ ██▌    ██ ▀█   █    ▓██▒    ██▒ ▀█▒   ▓██░ ██▒   ▓  ██▒ ▓▒        \n" +
                 "      ▓██    ▓██░   ▒██▒   ░██   █▌   ▓██  ▀█ ██▒   ▒██▒   ▒██░▄▄▄░   ▒██▀▀██░   ▒ ▓██░ ▒░        \n" +
                 "      ▒██    ▒██    ░██░   ░▓█▄   ▌   ▓██▒  ▐▌██▒   ░██░   ░▓█  ██▓   ░▓█ ░██    ░ ▓██▓ ░         \n" +
@@ -57,12 +56,7 @@ public class Ascii {
                 leftPadding = word.length();
             }
         }
-
-
         leftPadding = (COLUMNS - leftPadding) / 2;
-
-//        System.out.println("LeftPadding: " + leftPadding);
-//        System.out.println("topPadding: " + topPadding);
 
         // top spacing
         for (int i = 0; i < topPadding; i++) {
@@ -76,15 +70,13 @@ public class Ascii {
             }
             sb.append(line).append("\n");
         }
-
         return sb.toString();
     }
 
     public static void clearTerminal() {
 
         String os = System.getProperty("os.name").toLowerCase();
-//        System.out.println(os);
-        if (os.contains("windows")) {
+        if (os.contains("win")) {
             try {
                 new ProcessBuilder("cmd", "/c", "cls", "clear", "\033[H\033[2J", "\033\143").inheritIO().start().waitFor();
             } catch (Exception e) {
@@ -125,6 +117,8 @@ public class Ascii {
 
         printSpaces(topPadding);
 
+        int lineCount = lines.size();
+
         for (int i = 0; i < lines.size(); i++) {
             String temp = lines.get(i);
             int lineSize = lines.get(i).length();
@@ -150,15 +144,23 @@ public class Ascii {
             System.out.println("\n");
 
         }
+
+
+        printSpaces(8-lineCount);
+
+
+
     }
 
     public static void setTerminalTitle() {
         System.out.print("\033]0;" + "Midnight Mysteries" + "\007");
+        Ascii.printSpaces(10);
     }
 
     public static void printExitBanner() {
         clearTerminal();
-        String centeredBanner = "  ██████    ▓█████    ▓█████    ▓██   ██▓    ▒█████      █    ██                   \n" +
+        String centeredBanner =
+                "  ██████    ▓█████    ▓█████    ▓██   ██▓    ▒█████      █    ██                   \n" +
                 "▒██    ▒    ▓█   ▀    ▓█   ▀     ▒██  ██▒   ▒██▒  ██▒    ██  ▓██▒                  \n" +
                 "░ ▓██▄      ▒███      ▒███        ▒██ ██░   ▒██░  ██▒   ▓██  ▒██░                  \n" +
                 "  ▒   ██▒   ▒▓█  ▄    ▒▓█  ▄      ░ ▐██▓░   ▒██   ██░   ▓▓█  ░██░                  \n" +
@@ -199,9 +201,7 @@ public class Ascii {
             }
         }
 
-
         System.exit(0);
-
     }
 
     private static String fadeLine(String line, int step) {
@@ -217,18 +217,20 @@ public class Ascii {
         return sb.toString();
     }
 
-    public static void printHelpMenu(String warning) {
+    public static void printHelpMenu(String warningMessage) {
         clearTerminal();
 
-        String centerMenu = " " + warning + "\n" +
+        String centerMenu =
+                "                   " + warningMessage + "\n" +
                 " ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄ \n" +
                 " █                                               █ \n" +
                 " █                                               █ \n" +
                 " █                                               █ \n" +
                 " █   Valid options:                              █ \n" +
                 " █                                               █ \n" +
-                " █      \"help\", \"exit\", \"quit\", \"volume\",        █ \n" +
-                " █       \"mute\", \"?\",\"search\", \"take\", \"return\"  █ \n" +
+                " █    \"help\", \"exit\", \"quit\", \"music volume\",    █ \n" +
+                " █    \"sound volume\", \"mute music\", \"mute sound\",█ \n" +
+                        " █      \"?\",\"answers\", \"take\", \"return\"          █ \n" +
                 " █                                               █ \n" +
                 " █                                               █ \n" +
                 " █   Dialogue options:                           █ \n" +
@@ -241,9 +243,206 @@ public class Ascii {
 
         centerMenu = addSpaces(centerMenu);
         ColoredPrinter.print("red", centerMenu);
+    }
 
+
+
+    public static void printAnswerMenu() {
+        clearTerminal();
+
+        String centerAnswerMenu = " " +
+                "▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄ \n" +
+                " █                                               █ \n" +
+                " █      Puzzle Answers:                          █ \n" +
+                " █                                               █ \n" +
+                " █ Pool puzzle 1: 4 9 13 9 20 9 19               █ \n" +
+                " █ Pool puzzle 2: Dimitis                        █ \n" +
+                " █                                               █ \n" +
+                " █ Restaurant puzzle 1: 3:00pm                   █ \n" +
+                " █ Restaurant puzzle 2: 2012                     █ \n" +
+                " █                                               █ \n" +
+                " █ Room puzzle 1: Try Num 1-4                    █ \n" +
+                " █ Room puzzle 2: Shift each letter back 1 space █\n" +
+                " █                                               █ \n" +
+                " █ Bar puzzle 1: Kitty Wells death at the bar    █ \n" +
+                " █ Bar puzzle 2: 1031                            █ \n" +
+                " █▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█ \n" +
+                "\t        Type \"return\" to resume";
+
+        centerAnswerMenu = addSpaces(centerAnswerMenu);
+        ColoredPrinter.print("red", centerAnswerMenu);
+    }
+
+    public static void printMute() {
+        clearTerminal();
+        String centeredMute = "         MUTE\n" +
+                "\n" +
+                "       █\n" +
+                "      ██  █         █\n" +
+                "     ███  ░█       █░\n" +
+                "    ████  ░ █     █░░\n" +
+                "████████    ░█   █  ░\n" +
+                "████████      █ █\n" +
+                "████████       █\n" +
+                "████████      █ █ \n" +
+                "████████     █░  █\n" +
+                "░░  ████    █ ░   █\n" +
+                " ░   ███   █  ░   ░█\n" +
+                "      ██  █░       ░█\n" +
+                "       █    ░       ";
+
+        centeredMute = addSpaces(centeredMute);
+        ColoredPrinter.print("red", centeredMute);
+
+        try {
+            TimeUnit.SECONDS.sleep(3);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
+
+    public static void printVolumeLevel(int volumeLevel){
+        clearTerminal();
+
+        String[] amounts = new String[] { "██▓  ", "▓██▒ ", "▒██▒ ", "░██░ ", "░██░ ", "░▓   ", " ▒ ░ ", " ▒ ░ ", " ░   " };
+        String[] repeated = new String[amounts.length];
+        for (int i = 0; i < amounts.length; i++) {
+            repeated[i] = amounts[i].repeat(volumeLevel-1);
+        }
+
+        String centeredVolume =
+                " ██▒   █▓    ▒█████      ██▓        █    ██     ███▄ ▄███▓   ▓█████    \n" +
+                "▓██░   █▒   ▒██▒  ██▒   ▓██▒        ██  ▓██▒   ▓██▒▀█▀ ██▒   ▓█   ▀    \n" +
+                " ▓██  █▒░   ▒██░  ██▒   ▒██░       ▓██  ▒██░   ▓██    ▓██░   ▒███      \n" +
+                "  ▒██ █░░   ▒██   ██░   ▒██░       ▓▓█  ░██░   ▒██    ▒██    ▒▓█  ▄    \n" +
+                "   ▒▀█░     ░ ████▓▒░   ░██████▒   ▒▒█████▓    ▒██▒   ░██▒   ░▒████▒   \n" +
+                "   ░ ▐░     ░ ▒░▒░▒░    ░ ▒░▓  ░   ░▒▓▒ ▒ ▒    ░ ▒░   ░  ░   ░░ ▒░ ░   \n" +
+                "   ░ ░░       ░ ▒ ▒░    ░ ░ ▒  ░   ░░▒░ ░ ░    ░  ░      ░    ░ ░  ░   \n" +
+                "     ░░     ░ ░ ░ ▒       ░ ░       ░░░ ░ ░    ░      ░         ░      \n" +
+                "      ░         ░ ░         ░  ░      ░               ░         ░  ░   \n" +
+                "     ░                                                                 \n" +
+                "                         ██▓  "+repeated[0]+"                          \n" +
+                "                        ▓██▒  "+repeated[1]+"                          \n" +
+                "                        ▒██▒  "+repeated[2]+"                          \n" +
+                "                        ░██░  "+repeated[3]+"                          \n" +
+                "                        ░██░  "+repeated[4]+"                          \n" +
+                "                        ░▓    "+repeated[5]+"                          \n" +
+                "                         ▒ ░  "+repeated[6]+"                          \n" +
+                "                         ▒ ░  "+repeated[7]+"                          \n" +
+                "                         ░    "+repeated[8]+"                          \n" +
+                "                                                                       ";
+
+
+        centeredVolume = addSpaces(centeredVolume);
+        ColoredPrinter.print("red", centeredVolume);
+
+        try {
+            TimeUnit.SECONDS.sleep(3);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
+    public static void printHotel() {
+
+        clearTerminal();
+        String centeredHotel =
+                "                         type 'help' when you need it \n\n" +
+                        "                                      /\\\n" +
+                        "                                      /\\\n" +
+                        "                                      /\\\n" +
+                        "                                      /\\\n" +
+                        "                                    _`=='_\n" +
+                        "                                 _-~......~-_\n" +
+                        "                             _--~............~--_\n" +
+                        "                       __--~~....................~~--__\n" +
+                        "                    __-~...~~~~~--------------~~~~~...~-__\n" +
+                        "            ___---~~......................................~~---___\n" +
+                        ".___..---~~~......................................................~~~---..___,\n" +
+                        " `=.______________________________________________________________________,='\n" +
+                        "    @^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^@\n" +
+                        "              |    ____   ____   ____________  ______ ______   |\n" +
+                        "\t           |   |    | |    |  |    ||    |  |    | |    |   |\n" +
+                        "              |   |    | |    |  |    ||    |  |    | |    |   |\n" +
+                        "\t           |   |    | |    |  |    ||    |  |    | |    |   |\n" +
+                        "              |   |____| |____|  |    ||    |  |____| |____|   |\n" +
+                        "              |__________________|____||____|__________________|\n" +
+                        "            _-|_____|_____|_____|__|------|__|_____|_____|_____|-__\n" +
+                        "\t\t\t\t     PARADISE HOTEL\n";
+
+
+        centeredHotel = addSpaces(centeredHotel);
+        ColoredPrinter.print("red", centeredHotel);
+
+
+        try {
+            TimeUnit.SECONDS.sleep(3);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
 
     }
 
-}
+    ;
 
+
+    public static void printDimitis() {
+
+        clearTerminal();
+        String centeredDimitis = "" +
+                "▓█████▄     ██▓    ███▄ ▄███▓    ██▓   ▄▄▄█████▓    ██▓     ██████ \n" +
+                "▒██▀ ██▌   ▓██▒   ▓██▒▀█▀ ██▒   ▓██▒   ▓  ██▒ ▓▒   ▓██▒   ▒██    ▒ \n" +
+                "░██   █▌   ▒██▒   ▓██    ▓██░   ▒██▒   ▒ ▓██░ ▒░   ▒██▒   ░ ▓██▄   \n" +
+                "░▓█▄   ▌   ░██░   ▒██    ▒██    ░██░   ░ ▓██▓ ░    ░██░     ▒   ██▒\n" +
+                "░▒████▓    ░██░   ▒██▒   ░██▒   ░██░     ▒██▒ ░    ░██░   ▒██████▒▒\n" +
+                " ▒▒▓  ▒    ░▓     ░ ▒░   ░  ░   ░▓       ▒ ░░      ░▓     ▒ ▒▓▒ ▒ ░\n" +
+                " ░ ▒  ▒     ▒ ░   ░  ░      ░    ▒ ░       ░        ▒ ░   ░ ░▒  ░ ░\n" +
+                " ░ ░  ░     ▒ ░   ░      ░       ▒ ░     ░          ▒ ░   ░  ░  ░  \n" +
+                "   ░        ░            ░       ░                  ░           ░  \n" +
+                " ░                                                                 ";
+
+
+        centeredDimitis = addSpaces(centeredDimitis);
+        ColoredPrinter.print("red", centeredDimitis);
+
+        try {
+            TimeUnit.SECONDS.sleep(6);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+
+    public static void printKey() {
+
+        clearTerminal();
+        String centeredDimitis = "" +
+                "  ad8888888888ba\n" +
+                " dP'         `\"8b,\n" +
+                " 8  ,aaa,       \"Y888a     ,aaaa,     ,aaa,  ,aa,\n" +
+                " 8  8' `8           \"88baadP\"\"\"\"YbaaadP\"\"\"YbdP\"\"Yb\n" +
+                " 8  8   8              \"\"\"        \"\"\"      \"\"    8b\n" +
+                " 8  8, ,8         ,aaaaaaaaaaaaaaaaaaaaaaaaddddd88P\n" +
+                " 8  `\"\"\"'       ,d8\"\"\n" +
+                " Yb,         ,ad8\"   \n" +
+                "  \"Y8888888888P\"\n";
+
+
+        centeredDimitis = addSpaces(centeredDimitis);
+        ColoredPrinter.print("red", centeredDimitis);
+
+        try {
+            TimeUnit.SECONDS.sleep(4);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    ;
+
+}

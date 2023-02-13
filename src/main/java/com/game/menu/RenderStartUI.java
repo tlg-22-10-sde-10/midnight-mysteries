@@ -1,6 +1,7 @@
 package com.game.menu;
 
 import com.game.client.session.Session;
+import com.game.controller.Ascii;
 import com.game.model.Inventory;
 import com.game.model.Item;
 import com.game.controller.ItemGenerator;
@@ -40,6 +41,7 @@ public class RenderStartUI {
                 Session newSession = new Session(player, locations, npcs, dialogue);
                 MainMenu mainMenu = new MainMenu(newSession, player);
                 ItemGenerator itemGenerator = new ItemGenerator(player);
+                Ascii.printHotel();
                 mainMenu.renderMenu();
                 isValidInput = true;
             } else {
@@ -50,8 +52,7 @@ public class RenderStartUI {
 
     private Player processPlayerInformation() {
         Map<String, Item> storage = new HashMap<>();
-        Item flashlight = new Item("flashlight", "can use to light up the room", 1, true);
-        storage.put(flashlight.getItemName(), flashlight);
+
         Inventory newInventory = new Inventory(storage);
         String playerName;
         boolean isConfirmed = false;

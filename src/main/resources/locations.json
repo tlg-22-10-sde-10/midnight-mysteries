@@ -38,6 +38,12 @@
     "npc": "Safe",
     "locationItems" : [
       {
+        "itemName" : "flashlight",
+        "itemDescription" : "battery powered flashlight",
+        "quantity" : 1,
+        "isActive" : "false"
+      },
+      {
         "itemName" : "matches",
         "itemDescription" : "can light up candles",
         "quantity" : 4,

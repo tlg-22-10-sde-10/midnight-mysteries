@@ -15,7 +15,6 @@ public class Session {
 
 
     public Session(Player player, Map<String, Location> locations, Map<String, Npc> npcs, Map<String, Dialogue> dialogue) {
-
         this.player = player;
         this.locations = locations;
         this.npcs = npcs;
