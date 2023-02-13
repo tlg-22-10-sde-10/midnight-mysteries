@@ -66,7 +66,6 @@ Click to expand
 + As a Player I want to be able to enter/leave different rooms.
 + As a Player I want to be able to see my inventory.
 + As a Player I want to be able to interact with NPCs.
-+ As a Player I want to be able to die.
 
 
 ### Getting Started

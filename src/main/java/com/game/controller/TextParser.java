@@ -13,7 +13,7 @@ public class TextParser {
 
     public static final List<String> COMMANDS
             = Arrays.asList("help", "exit", "quit",
-            "mute music", "mute sound", "?", "search", "take", "return");
+            "mute music", "mute sound", "?", "search", "take", "return","answers");
 
     public static String validateInput() {
         Scanner scanner = new Scanner(System.in);
@@ -41,6 +41,9 @@ public class TextParser {
                     Sound.getInstance().muteMusic();
                     Ascii.printMute();
                     return "5";
+                case "answers":
+                    Ascii.printAnswerMenu();
+                    break;
                 case "mute sound":
                     Sound.getInstance().muteSound();
                     Ascii.printMute();

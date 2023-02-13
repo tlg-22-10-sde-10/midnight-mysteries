@@ -230,7 +230,7 @@ public class Ascii {
                 " █                                               █ \n" +
                 " █    \"help\", \"exit\", \"quit\", \"music volume\",    █ \n" +
                 " █    \"sound volume\", \"mute music\", \"mute sound\",█ \n" +
-                        " █      \"?\",\"search\", \"take\", \"return\"           █ \n" +
+                        " █      \"?\",\"answers\", \"take\", \"return\"          █ \n" +
                 " █                                               █ \n" +
                 " █                                               █ \n" +
                 " █   Dialogue options:                           █ \n" +
@@ -243,6 +243,34 @@ public class Ascii {
 
         centerMenu = addSpaces(centerMenu);
         ColoredPrinter.print("red", centerMenu);
+    }
+
+
+
+    public static void printAnswerMenu() {
+        clearTerminal();
+
+        String centerAnswerMenu = " " +
+                "▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄ \n" +
+                " █                                               █ \n" +
+                " █      Puzzle Answers:                          █ \n" +
+                " █                                               █ \n" +
+                " █ Pool puzzle 1: 4 9 13 9 20 9 19               █ \n" +
+                " █ Pool puzzle 2: Dimitis                        █ \n" +
+                " █                                               █ \n" +
+                " █ Restaurant puzzle 1: 3:00pm                   █ \n" +
+                " █ Restaurant puzzle 2: 2012                     █ \n" +
+                " █                                               █ \n" +
+                " █ Room puzzle 1: Try Num 1-4                    █ \n" +
+                " █ Room puzzle 2: Shift each letter back 1 space █\n" +
+                " █                                               █ \n" +
+                " █ Bar puzzle 1: Kitty Wells death at the bar    █ \n" +
+                " █ Bar puzzle 2: 1031                            █ \n" +
+                " █▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█ \n" +
+                "\t        Type \"return\" to resume";
+
+        centerAnswerMenu = addSpaces(centerAnswerMenu);
+        ColoredPrinter.print("red", centerAnswerMenu);
     }
 
     public static void printMute() {
