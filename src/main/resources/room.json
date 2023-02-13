@@ -47,13 +47,13 @@
       "location" : "Room",
       "dialogue" : "The safe clicked open... and there's a couple items inside",
       "options" : [
-        "Look through phone",
+        "Check the phone",
         "Take flashlight"
       ]
     }
   },
   {
-    "Look through phone" : {
+    "Check the phone" : {
       "location" : "Room",
       "dialogue" : "A message on the phone says to read Mystery of the Secret Room",
       "options" : [
@@ -67,7 +67,7 @@
       "location" : "Room",
       "dialogue" : "You now have a flashlight in your inventory",
       "options" : [
-        "Look through phone"
+        "Check the phone phone"
       ]
     }
   },
@@ -77,7 +77,7 @@
       "dialogue" : "",
       "options" : [
         "Peel back wallpaper",
-        "Look through drawers"
+        "Check the drawers"
       ]
     }
   },
@@ -113,7 +113,7 @@
     }
   },
   {
-    "Look through drawers" : {
+    "Check the drawers" : {
       "location" : "Secret Room",
       "dialogue" : "It's empty..",
       "options" : [
@@ -172,7 +172,7 @@
         "Shift each letter forward one space in the alphabet",
         "Shift each letter forward two spaces in the alphabet",
         "Shift each letter back two spaces in the alphabet",
-        "Look up JEFF SMITH in our database"
+        "Search JEFF SMITH in our database"
       ]
     }
   },
@@ -188,7 +188,7 @@
     }
   },
   {
-    "Look up JEFF SMITH in our database" : {
+    "Search JEFF SMITH in our database" : {
       "location" : "Secret Room",
       "dialogue" : "After looking up Jeff Smith in our database it turns out he has a warrant for his arrest. \nJeff has been linked to multiple crimes in the past and is currently staying at the hotel",
       "options" : [
