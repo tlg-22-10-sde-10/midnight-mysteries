@@ -133,13 +133,12 @@ public class MainMenu {
         changeStory(option);
 
 
-               // print options
+        // print options
         List<String> dialogue = getSession().getDialogue().get(option).getOptions();
 
 
-        // shuffle dialogue options
-        // uncomment for release v1.3
-//        Collections.shuffle(dialogue);
+
+        Collections.shuffle(dialogue);
 
         for (int i = 0; i < dialogue.size(); i++) {
             getOptions().add(dialogue.get(i));
@@ -151,6 +150,12 @@ public class MainMenu {
     private void processSelection() {
 
         if (getSelection() != -1 || getSelection() != 5) setSavedSelection(getSelection());
+
+        if(getSelection() > getOptions().size() && getSelection() < 5){
+            Ascii.printHelpMenu("Invalid Option!");
+            setSelection(5);
+            return;
+        }
 
         // load options for the dialogue that was picked
         switch (getSelection()) {
