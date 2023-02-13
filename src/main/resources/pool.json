@@ -396,7 +396,7 @@
   {
     "Complete Pool": {
       "location": "Basement",
-      "dialogue": "After gathering the key and solving the cypher in the basement, you manage to shout out the keyword and release the spirits trapped in the basement.\n Where would you like to go now? Say 'exit' to leave.",
+      "dialogue": "After gathering the key and solving the cypher in the basement, you manage to shout out the keyword and release the spirits trapped in the basement.\n Where would you like to go now? \nSay 'exit' to leave.",
       "options": [
         "Book a room",
         "Go to the bar",
