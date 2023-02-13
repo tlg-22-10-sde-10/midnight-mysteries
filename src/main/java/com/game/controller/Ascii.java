@@ -117,6 +117,8 @@ public class Ascii {
 
         printSpaces(topPadding);
 
+        int lineCount = lines.size();
+
         for (int i = 0; i < lines.size(); i++) {
             String temp = lines.get(i);
             int lineSize = lines.get(i).length();
@@ -142,6 +144,12 @@ public class Ascii {
             System.out.println("\n");
 
         }
+
+
+        printSpaces(8-lineCount);
+
+
+
     }
 
     public static void setTerminalTitle() {
