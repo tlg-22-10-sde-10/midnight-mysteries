@@ -109,7 +109,7 @@
   {
     "Open the door": {
       "location" : "Office",
-      "dialogue" : "Looks like you need a key to unlock the door. Try searching for one",
+      "dialogue" : "",
       "options" : [
         "Open the door",
         "Search the kitchen"
@@ -175,7 +175,7 @@
   {
     "Check the filing cabinet": {
       "location" : "Office",
-      "dialogue" : "You've found a locked filing cabinet, and you need to find the combination to unlock it. \n The only clue you have is a cryptic message: \"The combination lies in the shadows, where the hands of time point to the darkest hour.\" \n To unlock the cabinet, you must select the correct combination from the following four choices:",
+      "dialogue" : "You've found a locked filing cabinet, and you need to find the combination to unlock it. \n The only clue you have is a cryptic message: \n\"The combination lies in the shadows, where the hands of time point to the darkest hour.\" \n To unlock the cabinet, you must select the correct combination from the following four choices:",
       "options" : [
         "1:00pm",
         "3:00pm",
@@ -206,7 +206,7 @@
   {
     "5:00pm": {
       "location" : "Office",
-      "dialogue" : "TThe combination didn't work..",
+      "dialogue" : "The combination didn't work..",
       "options" : [
         "Check the filing cabinet",
         "Check the computer"
@@ -300,7 +300,7 @@
   {
     "Arrest the chef": {
       "location" : "Office",
-      "dialogue" : "Congratulations on solving the case! \n Type 'quit' to exit the game or solve try solving the other cases!",
+      "dialogue" : "Congratulations on solving the case! \n Enter 'quit' to exit the game or try solving the other cases!",
       "options" : [
         "Book a room",
         "Go to the bar",

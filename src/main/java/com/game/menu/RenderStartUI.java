@@ -52,8 +52,10 @@ public class RenderStartUI {
 
     private Player processPlayerInformation() {
         Map<String, Item> storage = new HashMap<>();
+
         Item flashlight = new Item("Flashlight", "can use to light up the room", 1, true);
         storage.put(flashlight.getItemName(), flashlight);
+
         Inventory newInventory = new Inventory(storage);
         String playerName;
         boolean isConfirmed = false;
