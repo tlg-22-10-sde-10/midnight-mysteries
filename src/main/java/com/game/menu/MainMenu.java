@@ -55,14 +55,12 @@ public class MainMenu {
         setOptions(new ArrayList<>());
         String npc = getSession().getLocations().get("Lobby").getNpc();
 
-        Ascii.printTextCenterWithDelay(npc + ": Hello Detective " + player.getPlayerName() + ". There has been a murder at the bar, " +
-                "room, pool and restaurant.\n We need your help in solving these murders. Where would you like to" +
-                " go first? ");
+        Ascii.printTextCenterWithDelay(npc + ": Greetings Detective " + player.getPlayerName() + ", welcome to the Paradise Hotel,\n where death has cast its shadow over the bar, room, pool, and restaurant. \n The once tranquil atmosphere has been disturbed by a string of gruesome murders,\n and it falls upon you to unravel the mystery and bring justice to the victims.\n Which location shall you visit first, to begin your journey into the heart of darkness? \n");
 
+        Ascii.printSpaces(4);
         for (String option : session.getNpcs().get(npc).getDialogueOptions()) {
             getOptions().add(option);
-            System.out.println(optionSelect + ") " + option);
-            optionSelect++;
+            System.out.println(optionSelect++ + ") " + option);
         }
 
         String choice = TextParser.validateInput();
@@ -90,9 +88,20 @@ public class MainMenu {
                 String pool = "/pool.json";
                 Map<String, Dialogue> path3 = Game.getPath(pool);
                 session.setDialogue(path3);
-                loadDialogue("Go to the pool");
+                loadDialogue("Pool path");
                 break;
+            case "-1":
+                String helpMenu = TextParser.validateInput();
+                while (!helpMenu.equals("5")){
+                    helpMenu = TextParser.validateInput();
+                }
+                Ascii.clearTerminal();
+                loadStartingDialogue();
+                break;
+
             default:
+                Ascii.clearTerminal();
+                loadStartingDialogue();
                 break;
         }
 
@@ -102,7 +111,13 @@ public class MainMenu {
 
         option = GamePuzzles.delegatePuzzle(option);
 
-        currentScene = option;
+        option = TextParser.textParserItems(option);
+        if (option.equals("")){
+            option = currentScene;
+        }else{
+            currentScene = option;
+        }
+
         int optionSelect = 1;
         String currentLocation = getSession().getDialogue().get(option).getLocation();
         String sceneDialogue = getSession().getDialogue().get(option).getDialogue();
@@ -119,13 +134,12 @@ public class MainMenu {
         changeStory(option);
 
 
-               // print options
+        // print options
         List<String> dialogue = getSession().getDialogue().get(option).getOptions();
 
 
-        // shuffle dialogue options
-        // uncomment for release v1.3
-//        Collections.shuffle(dialogue);
+
+        Collections.shuffle(dialogue);
 
         for (int i = 0; i < dialogue.size(); i++) {
             getOptions().add(dialogue.get(i));
@@ -137,6 +151,12 @@ public class MainMenu {
     private void processSelection() {
 
         if (getSelection() != -1 || getSelection() != 5) setSavedSelection(getSelection());
+
+        if(getSelection() > getOptions().size() && getSelection() < 5){
+            Ascii.printHelpMenu("Invalid Option!");
+            setSelection(5);
+            return;
+        }
 
         // load options for the dialogue that was picked
         switch (getSelection()) {
@@ -193,12 +213,6 @@ public class MainMenu {
             System.out.println("Please enter the password");
             unlockComputer();
             isPuzzle = true;
-        } else if (option.equals("Take key")) {
-            Item key = getSession().getLocations().get(player.getLocation()).getLocationItems().get(0);
-            player.getPlayerStorage().addToStorage(key);
-        } else if (option.equals("Take flashlight")) {
-            Item flashlight = getSession().getLocations().get(player.getLocation()).getLocationItems().get(0);
-            player.getPlayerStorage().addToStorage(flashlight);
         } else if (option.equals("Open the door")) {
             openDoor();
             isPuzzle = true;
@@ -222,6 +236,16 @@ public class MainMenu {
         } else if (option.equals("break the window to get in the vehicle")) {
             playSoundEffect(0);
             Ascii.printExitBanner();
+        } else if (option.equals("Read Mystery of the Secret Room")) {
+            Sound.playSound("/secretdoor.wav");
+        } else if (option.equals("3:00pm")) {
+            Sound.playSound("/cabinet.wav");
+        } else if (option.equals("You awaken by a phone ringing from inside the safe.. go to the safe?") || option.equals("Go to the safe") || option.equals("199_ pops up on the tv and a phone starts ringing from inside the safe.. go to the safe?")) {
+            Sound.playSound("/phone.wav");
+        } else if (option.equals("Watch tv")) {
+            Sound.playSound("/static.wav");
+        } else if (option.equals("Go to the kitchen")) {
+            Sound.playSound("/chef.wav");
         }
         return isPuzzle;
     }
@@ -238,7 +262,7 @@ public class MainMenu {
         while (getSelection() != lastDigit) {
             setSelection(Integer.parseInt(TextParser.optionalInput()));
             if (lastDigit == getSelection()) {
-                // string of json key
+                Sound.playSound("/safe.wav");
                 loadDialogue("Safe unlocked");
             } else {
                 System.out.println("Number didn't work..");
@@ -247,7 +271,8 @@ public class MainMenu {
     }
 
     private void openDoor() {
-        if (player.getPlayerStorage().getStorage().containsKey("key")) {
+        if (player.getPlayerStorage().getStorage().containsKey("Key")) {
+            Sound.playSound("/dooropening.wav");
             loadDialogue("Office unlocked");
         } else {
             loadDialogue("Need key");
@@ -263,14 +288,16 @@ public class MainMenu {
         }
 
         if (password == getSelection()) {
+            Sound.playSound("/computerunlocked.wav");
             loadDialogue("Computer unlocked");
         } else {
+            Sound.playSound("/wrongpassword.wav");
             loadDialogue("Incorrect password");
         }
     }
 
     private void enterSecretRoom() {
-        if (player.getPlayerStorage().getStorage().containsKey("flashlight")) {
+        if (player.getPlayerStorage().getStorage().containsKey("Flashlight")) {
             loadDialogue("Enter Secret Room");
         } else {
             loadDialogue("Need flashlight");

@@ -40,7 +40,7 @@ public class Game {
         Thread backgroundThread = new Thread(() -> {
             Sound sound = new Sound();
             while (true) {
-                sound.playSound();
+                sound.playMusic();
             }
         });
 
@@ -49,6 +49,8 @@ public class Game {
 
         // print game background
         StoryTutorial.printStory();
+
+
 
         readFiles();
 
