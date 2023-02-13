@@ -50,6 +50,8 @@ public class Game {
         // print game background
         StoryTutorial.printStory();
 
+
+
         readFiles();
 
         // game start menu

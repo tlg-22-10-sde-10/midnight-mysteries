@@ -56,9 +56,9 @@ The player takes on the role of a private detective who is investigating strange
 <details>
 <summary>
 Click to expand
-![Class-Diagram](https://i.imgur.com/Rmglnu7.png)
 </summary>
-![Class-Diagram](https://i.imgur.com/Rmglnu7.png)
++ <a href="https://i.imgur.com/Rmglnu7.png">Class Diagram</a>
+
 </details>
 
 ### User Stories

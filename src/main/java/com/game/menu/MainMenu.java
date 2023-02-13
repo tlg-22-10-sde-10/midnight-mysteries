@@ -53,14 +53,12 @@ public class MainMenu {
         setOptions(new ArrayList<>());
         String npc = getSession().getLocations().get("Lobby").getNpc();
 
-        Ascii.printTextCenterWithDelay(npc + ": Hello Detective " + player.getPlayerName() + ". There has been a murder at the bar, " +
-                "room, pool and restaurant.\n We need your help in solving these murders. Where would you like to" +
-                " go first? ");
+        Ascii.printTextCenterWithDelay(npc + ": Greetings Detective " + player.getPlayerName() + ", welcome to the Paradise Hotel,\n where death has cast its shadow over the bar, room, pool, and restaurant. \n The once tranquil atmosphere has been disturbed by a string of gruesome murders,\n and it falls upon you to unravel the mystery and bring justice to the victims.\n Which location shall you visit first, to begin your journey into the heart of darkness? \n");
 
+        Ascii.printSpaces(4);
         for (String option : session.getNpcs().get(npc).getDialogueOptions()) {
             getOptions().add(option);
-            System.out.println(optionSelect + ") " + option);
-            optionSelect++;
+            System.out.println(optionSelect++ + ") " + option);
         }
 
         String choice = TextParser.validateInput();
@@ -88,9 +86,20 @@ public class MainMenu {
                 String pool = "/pool.json";
                 Map<String, Dialogue> path3 = Game.getPath(pool);
                 session.setDialogue(path3);
-                loadDialogue("Go to the pool");
+                loadDialogue("Pool path");
                 break;
+            case "-1":
+                String helpMenu = TextParser.validateInput();
+                while (!helpMenu.equals("5")){
+                    helpMenu = TextParser.validateInput();
+                }
+                Ascii.clearTerminal();
+                loadStartingDialogue();
+                break;
+
             default:
+                Ascii.clearTerminal();
+                loadStartingDialogue();
                 break;
         }
 
@@ -100,7 +109,13 @@ public class MainMenu {
 
         option = GamePuzzles.delegatePuzzle(option);
 
-        currentScene = option;
+        option = TextParser.textParserItems(option);
+        if (option.equals("")){
+            option = currentScene;
+        }else{
+            currentScene = option;
+        }
+
         int optionSelect = 1;
         String currentLocation = getSession().getDialogue().get(option).getLocation();
         String sceneDialogue = getSession().getDialogue().get(option).getDialogue();

@@ -1,11 +1,13 @@
 package com.game.controller;
 
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.game.model.Item;
 import com.game.model.Player;
 
 import java.io.InputStream;
 import java.util.*;
+import java.util.concurrent.TimeUnit;
 
 public class ItemGenerator {
     private static Player currentPlayer;
@@ -54,6 +56,13 @@ public class ItemGenerator {
         } else {
             Ascii.printTextCenterWithDelay("You attempt to search the room but find nothing...");
         }
+
+
+        try {
+            TimeUnit.SECONDS.sleep(3);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 
@@ -77,14 +86,24 @@ public class ItemGenerator {
         String itemToBeTaken = toTitleCase(words[1]);
         Object itemFromList = itemList.get(itemToBeTaken);
 
+        Ascii.clearTerminal();
+
         if (itemFromList != null) {
             // create a new item
             Item createdItem = new Item(itemToBeTaken, itemList.get(itemToBeTaken).toString(), 1, false);
             currentPlayer.getPlayerStorage().addToStorage(createdItem);
             Ascii.printTextCenterWithDelay("You take a " + itemToBeTaken + "!");
             System.out.println();
+
+
         } else {
             Ascii.printTextCenterWithDelay("You can't take what doesn't belong...");
+        }
+
+        try {
+            TimeUnit.SECONDS.sleep(3);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
         }
     }
 
@@ -92,6 +111,9 @@ public class ItemGenerator {
     public static String toTitleCase(String input) {
         StringBuilder result = new StringBuilder();
         boolean capitalizeNext = true;
+
+        Ascii.clearTerminal();
+
 
         for (char c : input.toCharArray()) {
             if (Character.isWhitespace(c)) {
@@ -107,3 +129,12 @@ public class ItemGenerator {
         return result.toString();
     }
 }
+
+//
+//class m{
+//    public static void main(String[] args) {
+//        new Ascii();
+//        Player player = new Player("t","Pool",)
+//        ItemGenerator.takeItem("Take Key");
+//    }
+//}
