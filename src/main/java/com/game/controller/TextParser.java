@@ -36,7 +36,7 @@ public class TextParser {
                     break;
                 case "search":
                     ItemGenerator.searchForRandomItem();
-                    break;
+                    return "5";
                 case "mute":
                     Sound.getInstance().muteSound();
                     Ascii.printMute();
@@ -89,6 +89,18 @@ public class TextParser {
         String inputText = scanner.nextLine();
 
         return inputText;
+    }
+
+    public static String textParserItems(String option) {
+        if (option.toLowerCase().contains("take")) {
+            ItemGenerator.takeItem(option);
+            return option;
+        } else if (option.toLowerCase().contains("look")) {
+            ItemGenerator.searchForRandomItem();
+            return option;
+        }
+
+        return option;
     }
 
     public static String optionalInput(int options) {

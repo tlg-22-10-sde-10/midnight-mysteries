@@ -16,6 +16,9 @@
   },
   "Matches": {
     "Description": "Can be used to light a unlit candle."
+  },
+  "Key": {
+    "Description": "Key to unlock a basement."
   }
 }
 

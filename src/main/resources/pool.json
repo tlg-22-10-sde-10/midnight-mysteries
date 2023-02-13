@@ -1,12 +1,22 @@
 [
   {
-    "Go to the pool": {
+    "Pool path": {
       "location": "Pool",
       "dialogue": "Oh, the pool is just down the hall and to the left, but be careful, the water is very deep.\n Don't...",
       "options": [
-        "Sit on a lawn chair to relax",
-        "Go for a swim",
+        "Go to the pool",
         "Don't?"
+      ]
+    }
+  },
+  {
+    "Go to the pool": {
+      "location": "Pool",
+      "dialogue": "This must be the door to the pool. \n It looks like it hasn't been used in years... \n Let's see what's on the other side. \n It looks.. normal?",
+      "options": [
+        "Sit on a lawn chair and relax",
+        "Go for a swim",
+        "Stroll around area"
       ]
     }
   },
@@ -15,9 +25,7 @@
       "location": "Pool",
       "dialogue": "Oh it's nothing! \n We welcome you to the Paradise Hotel! \n",
       "options": [
-        "Sit on a lawn chair to relax",
-        "Go for a swim",
-        "Stroll around area"
+        "Go to the pool"
       ]
     }
   },
@@ -26,13 +34,13 @@
       "location": "Pool",
       "dialogue": "As you stroll around the hotel pool you began to hear splashes, however they seem to stop.. \n only when you stop.",
       "options": [
-        "Sit on a lawn chair to relax",
+        "Sit on a lawn chair and relax",
         "Go for a swim"
       ]
     }
   },
   {
-    "Sit on a lawn chair to relax": {
+    "Sit on a lawn chair and relax": {
       "location": "Pool",
       "dialogue": "You suddenly hear a creepy, cackling laughter that echoed in the stillness of the night. \n The sound sent shivers down the detective's spine and made the hairs on the back of their neck stand up. \n You notice a small boy, who is staring at you.",
       "options": [
@@ -55,7 +63,7 @@
   {
     "Whats your name?": {
       "location": "Pool",
-      "dialogue": "Excuse me, can you tell me your name? Art... My name is Arthur",
+      "dialogue": "Excuse me, can you tell me your name? \n Art... My name is Arthur",
       "options": [
         "Where are your parents?",
         "What are you doing here alone?",
@@ -76,33 +84,44 @@
   {
     "Where are your parents?": {
       "location": "Pool",
-      "dialogue": "My parents? There right there! Arthur points to the bottom of the pool...",
+      "dialogue": "My parents? \n There right there! Arthur points to the bottom of the pool...",
       "options": [
-        "Why are you pointing at the pool Arthur?",
-        "Take a look at what Arthur is pointing at"
+        "Why are you pointing at the pool?",
+        "Gaze at the center of the pool"
       ]
     }
   },
   {
-    "Why are you pointing at the pool Arthur?": {
+    "Why are you pointing at the pool?": {
       "location": "Pool",
-      "dialogue": "I lost the key too my room. It felt out while I was swimming... could you help me get it?",
+      "dialogue": "I lost the key too my room.\n It fell out while I was swimming...\n could you help me get it?",
       "options": [
-        "Attempt to get the item"
+        "Attempt to get the item",
+        "Why don't your parents just let you in"
+      ]
+    }
+  },
+  {
+    "Why don't your parents just let you in": {
+      "location": "Pool",
+      "dialogue": "My parents? \n There right there! Arthur points to the bottom of the pool...",
+      "options": [
+        "Gaze at the center of the pool"
       ]
     }
   },
   {
     "What are you doing here alone?": {
       "location": "Pool",
-      "dialogue": "I lost the key too my room. It felt out while I was swimming... could you help me get it?",
+      "dialogue": "I lost the key too my room. \n It fell out while I was swimming... \n could you help me get it?",
       "options": [
-        "Attempt to get the item"
+        "Attempt to get the item",
+        "Why don't your parents just let you in"
       ]
     }
   },
   {
-    "Take a look at what Arthur is pointing at": {
+    "Gaze at the center of the pool": {
       "location": "Pool",
       "dialogue": "You take a look at the pool, at first you don't see anything but something draws your attention to the center. \n You notice something at the center of the pool that doesn't belong",
       "options": [
@@ -114,9 +133,8 @@
   {
     "Ask Arthur what is at the center": {
       "location": "Pool",
-      "dialogue": "You take a look at the pool, at first you don't see anything but something draws your attention to the center. \n You notice something at the center of the pool that doesn't belong",
+      "dialogue": "I-It's the key. You'll know when you see it, it's just a dark shape, almost like a shadow. \n But it's not like any shadow. \n It's almost like it's alive. ",
       "options": [
-        "Ask Arthur what is at the center",
         "Attempt to get the item"
       ]
     }
@@ -134,17 +152,17 @@
   {
     "Go for a swim": {
       "location": "Pool",
-      "dialogue": "As you dive into the pool, the cool water was a welcome relief from the oppressive atmosphere. \n However, as they swam, you couldn't help but shake the feeling that you were being watched.",
+      "dialogue": "As you dive into the pool, the cool water was a welcome relief from the oppressive atmosphere. \n However, as you swam, you couldn't help but shake the feeling that you were being watched.",
       "options": [
-        "Look around",
+        "Search the area",
         "Continue swimming"
       ]
     }
   },
   {
-    "Look around": {
+    "Search the area": {
       "location": "Pool",
-      "dialogue": "As the you swim in the pool, you notice a little boy on the side who appeared to be watching them with a creepy smile. \n The boy's presence and the fact that he seemed to be laughing at you made you feel uncomfortable.",
+      "dialogue": "As the you swim in the pool, \n you notice a little boy on the side who appeared to be watching you with a creepy smile. \n The boy's presence and the fact that he seemed to be laughing at you made you feel uncomfortable.",
       "options": [
         "Are you laughing at me?",
         "Whats your name?",
@@ -166,7 +184,26 @@
   {
     "Solved Puzzle1": {
       "location": "Pool",
+      "dialogue": "Just as you were running out of time you notice the key is finally loose.",
+      "options": [
+        "Take Key"
+      ]
+    }
+  },
+  {
+    "Take Key": {
+      "location": "Pool",
       "dialogue": "After a struggle you manage to get the key unstuck and resurface gasping for air.",
+      "options": [
+        "Rest...",
+        "Ask Arthur what the key opens"
+      ]
+    }
+  },
+  {
+    "Rest...": {
+      "location": "Pool",
+      "dialogue": "...........................................",
       "options": [
         "Ask Arthur what the key opens"
       ]
@@ -175,9 +212,29 @@
   {
     "Ask Arthur what the key opens": {
       "location": "Pool",
-      "dialogue": "It's for the locked door.",
+      "dialogue": "It's for the locked door. \n But you shouldn't try to open it.",
       "options": [
-        "What locked door"
+        "What locked door",
+        "Why shouldn't I open it"
+      ]
+    }
+  },
+  {
+    "Why shouldn't I open it": {
+      "location": "Pool",
+      "dialogue": "I'm not sure, my parents warned me...",
+      "options": [
+        "What did the say?"
+      ]
+    }
+  },
+  {
+    "What did the say?": {
+      "location": "Pool",
+      "dialogue": "As you look up you notice Arthur missing... \nArthur \nArthur! \n You search the room but there is no response and feel a shiver run down your spine.",
+      "options": [
+        "Search for Arthur in the Lobby",
+        "Search for Arthur in the Bar"
       ]
     }
   },
@@ -202,12 +259,30 @@
     }
   },
   {
+    "Look for items in the bar": {
+      "location": "Bar",
+      "dialogue": "You search your surroundings...",
+      "options": [
+        "Search for Arthur in the Lobby"
+      ]
+    }
+  },
+  {
     "Search for Arthur in the Lobby": {
       "location": "Lobby",
-      "dialogue": "You quickly make your way to the hotel lobby. As you arrive you notice the lobby seems abandoned and in disarray.",
+      "dialogue": "You quickly make your way to the hotel lobby. \n As you arrive you notice the lobby seems abandoned and in disarray.",
       "options": [
         "Ring the desk bell",
         "Look for items in the lobby"
+      ]
+    }
+  },
+  {
+    "Look for items in the lobby": {
+      "location": "Lobby",
+      "dialogue": "You search your surroundings...",
+      "options": [
+        "Ring the desk bell"
       ]
     }
   },
@@ -216,7 +291,8 @@
       "location": "Lobby",
       "dialogue": "ding... \n ding... \n ding... \n No one on answers. \n  As you grow frustrated, you hear faint noises... \n They seem to becoming from the staircase near the elevator.",
       "options": [
-        "Investigate noise"
+        "Investigate noise",
+        "Look for items in the lobby"
       ]
     }
   },
@@ -273,7 +349,38 @@
       "location": "Basement",
       "dialogue": "After solving the puzzle, you go back over all the information you had gathered, \n from the key you had found at the bottom of the pool to the warning you had translated from the hidden clue. \n You realize that Arthur was leading you down the basement to break the cipher and YELL out dimittis! \n To release the trapped spirits in the basement.",
       "options": [
-        "Complete"
+        "Book a room",
+        "Go to the bar",
+        "Go to the restaurant"
+      ]
+    }
+  },
+  {
+    "dim": {
+      "location": "Basement",
+      "dialogue": "You manage to decipher the message..., but what does it mean? \n Was that a Lost reference?",
+      "options": [
+        "dimitis?",
+        "DIMITIS"
+      ]
+    }
+  },
+  {
+    "dimitis?": {
+      "location": "Basement",
+      "dialogue": "Nothing happens.",
+      "options": [
+        "DIMITIS"
+      ]
+    }
+  },
+  {
+    "DIMITIS": {
+      "location": "Basement",
+      "dialogue": "DIMITIS \n as you shout that word you feel the eerie sensation vanish. \n As if you had released something from this dark place.",
+      "options": [
+        "dimitis?",
+        "DIMITIS"
       ]
     }
   },
@@ -284,6 +391,38 @@
       "options": [
         "Search the basement"
       ]
+    }
+  },
+  {
+    "Complete Pool": {
+      "location": "Basement",
+      "dialogue": "After gathering the key and solving the cypher in the basement, you manage to shout out the keyword and release the spirits trapped in the basement.\n Where would you like to go now?",
+      "options": [
+        "Book a room",
+        "Go to the bar",
+        "Go to the restaurant"
+      ]
+    }
+  },
+  {
+    "Book a room": {
+      "location": "Room",
+      "dialogue": "Here you are, sir,\n As you may know, we've received some complaints from guests about strange occurrences in this specific room.\n We've done our best to address the concerns of our guests, but the strange events seem to persist. \n We're hoping that you'll be able to shed some light on the matter.",
+      "options": []
+    }
+  },
+  {
+    "Go to the bar": {
+      "location": "Bar",
+      "dialogue" : "Bar manager goes outside manager outside on a break and was found dead at the bottom of cliff \n behind the hotel. Authorities rule his death as an accident but some of hotel management suspect foul play. \n Search for clues in the bar that can help you solve what really happened.",
+      "options": []
+    }
+  },
+  {
+    "Go to the restaurant": {
+      "location": "Restaurant",
+      "dialogue": "You are greeted by the friendly waiter",
+      "options": []
     }
   }
 ]
