@@ -3,6 +3,7 @@ package com.game.menu;
 import com.game.client.Game;
 import com.game.client.session.Session;
 import com.game.controller.GamePuzzles;
+import com.game.controller.Sound;
 import com.game.model.Item;
 import com.game.model.Dialogue;
 import com.game.model.Player;
@@ -208,15 +209,27 @@ public class MainMenu {
             decryptMessage();
             isPuzzle = true;
         } else if (option.equals("try to guess the code to keyless entry pad")) {
+            playSoundEffect(2);
             unlockCar();
             isPuzzle = true;
         } else if (option.equals("try to unlock briefcase")) {
             unlockBriefCase();
             isPuzzle = true;
+        } else if(option.equals("go outside to scan the area for clues")) {
+            playSoundEffect(1);
+        } else if(option.equals("what song is this")) {
+            playSoundEffect(3);
         } else if (option.equals("break the window to get in the vehicle")) {
+            playSoundEffect(0);
             Ascii.printExitBanner();
         }
         return isPuzzle;
+    }
+
+    private void playSoundEffect(int index) {
+        Sound sound = new Sound();
+        sound.setFile(index);
+        sound.play();
     }
 
     private void openSafe() {
